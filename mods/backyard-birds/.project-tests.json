@@ -1,0 +1,23 @@
+{
+  "name": "backyard-birds",
+  "suites": {
+    "test": {
+      "command": [
+        "uv",
+        "run",
+        "--no-project",
+        "--python",
+        "3.12",
+        "--with",
+        "lupa==2.6",
+        "python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ]
+    }
+  }
+}
