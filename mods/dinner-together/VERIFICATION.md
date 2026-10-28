@@ -26,6 +26,8 @@ The full uploader's submission-description getter appended a footer after the ea
 
 The known seven-file local prototype was checked against the old manifest before update, then verified against 0.1.1. Saves and active mod lists stayed untouched.
 
+The [GitHub 0.1.1 release](https://github.com/fbserg/zomboid-mods/releases/tag/dinner-together-v0.1.1) is public. Its downloaded 4,848,787-byte asset exactly matches the qualified ZIP. See github-release.json in the evidence bundle.
+
 Runtime-only ZIP: DinnerTogether-0.1.1-b42.21.zip, SHA-256 2d375083ab8182d6118dc0caaebc839d7b9dbbdf607ac4a4006961281cdfde18. No development helper enters this archive.
 
 ## 0.1.0 historical verification

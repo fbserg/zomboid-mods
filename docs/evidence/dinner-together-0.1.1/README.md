@@ -32,3 +32,5 @@ The complete --published command passed. Qualification and performance JSON now 
 Public title, description, preview and all gallery files matched after the corrected full upload. The illustration URL stayed unchanged. A read-only repeat of gallery replacement returned GALLERY_ALREADY_SET after byte checks. The local known seven-file prototype also matches the new runtime manifest. Public metadata is in public-metadata.json. The final downloaded receipt is downloaded-release.json.
 
 Release ZIP SHA-256: 2d375083ab8182d6118dc0caaebc839d7b9dbbdf607ac4a4006961281cdfde18. Runtime Lua SHA-256 remains 1b915dfcb492245140f80736a909308988708cb48abfec878057ea156f1156d3.
+
+The GitHub 0.1.1 release targets 9e692126f4d016145c098f5ddd82ac95281d4eb2. Its anonymous public download matched all 4,848,787 bytes of the qualified runtime ZIP and its SHA-256. See github-release.json.

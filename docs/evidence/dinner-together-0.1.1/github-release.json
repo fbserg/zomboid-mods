@@ -1,0 +1,9 @@
+{
+  "release": "https://github.com/fbserg/zomboid-mods/releases/tag/dinner-together-v0.1.1",
+  "tag": "dinner-together-v0.1.1",
+  "target": "9e692126f4d016145c098f5ddd82ac95281d4eb2",
+  "asset": "https://github.com/fbserg/zomboid-mods/releases/download/dinner-together-v0.1.1/DinnerTogether-0.1.1-b42.21.zip",
+  "bytes": 4848787,
+  "public_sha256": "2d375083ab8182d6118dc0caaebc839d7b9dbbdf607ac4a4006961281cdfde18",
+  "public_bytes_match_qualified_zip": true
+}
