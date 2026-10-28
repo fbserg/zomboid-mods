@@ -42,3 +42,8 @@ per client across both rounds. Runtime snapshots still launch fresh, so edits ca
 stale completion wrappers. Actual restart proof remains separate.
 Reopen if external static checks reject valid new game APIs, or a bounded upstream test
 runner can replace more code while preserving no-focus behaviour and executor cleanup.
+
+
+## 2026-10-28: source consolidation
+
+Serg explicitly requested one Git project. The root DECISIONS.md supersedes the earlier fourth-mod-in-etc choice. This source now lives in fbserg/zomboid-mods with its shared tools. Runtime Lua is unchanged from the native-tested prototype.

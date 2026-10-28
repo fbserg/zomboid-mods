@@ -205,6 +205,52 @@
       ],
       "platform": "darwin",
       "shutdown_grace": 45
+    },
+    "dinner-photos": {
+      "command": [
+        "python3",
+        "tools/pz-test/native.py",
+        "mods/dinner-together",
+        "--multiplayer",
+        "--photos"
+      ],
+      "platform": "darwin",
+      "shutdown_grace": 45
+    },
+    "test": {
+      "command": [
+        "uv",
+        "run",
+        "--no-project",
+        "--python",
+        "3.12",
+        "--with",
+        "lupa==2.6",
+        "python",
+        "tools/pz-test/portable.py"
+      ]
+    },
+    "workshop-ugc": {
+      "command": [
+        "python3",
+        "tools/pz-workshop/ugc.py",
+        "query",
+        "mods/backyard-birds"
+      ],
+      "platform": "darwin"
+    },
+    "dinner-release": {
+      "command": [
+        "python3",
+        "tools/pz-test/native.py",
+        "mods/dinner-together",
+        "--multiplayer",
+        "--rounds",
+        "2",
+        "--workshop"
+      ],
+      "platform": "darwin",
+      "shutdown_grace": 45
     }
   }
 }

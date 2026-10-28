@@ -61,6 +61,6 @@ description=Mickey Knox's Project RV Interior provides the map and entry system.
 description=
 description=[i]No human has ever opened this mod's folder. Good luck![/i]
 description=
-description=[url=https://github.com/fbserg/farm-trailer]Source code & bug reports on GitHub[/url] · MIT license.
+description=[url=https://github.com/fbserg/zomboid-mods/tree/main/mods/farm-trailer]Source code & bug reports on GitHub[/url] · MIT license.
 tags=Build 42;Farming;Animals;Vehicles
 visibility=public

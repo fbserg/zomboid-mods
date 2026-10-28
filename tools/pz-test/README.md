@@ -11,3 +11,6 @@ Run configured project-test suites, never ad-hoc test copies. Every batch owns a
 its games. The old APFS launcher remains behind `--legacy-copy` for comparison.
 Sources, commands, timing evidence and limits: [playbook](../../docs/zomboid-mod-development.md).
 No development helper ships to players.
+
+- `native.py MOD_DIR --multiplayer --photos` appends the mod-specific `tests/photos.lua` fixture and exports the captures named in `tests/photos.json`. Native capture and visual inspection are separate gates.
+- `portable.py` runs all four portable suites in one lease.

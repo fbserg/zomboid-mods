@@ -36,6 +36,6 @@ description=KI5 made the trucks and every texture this mod switches between. Not
 description=
 description=[i]No human has ever opened this mod's folder. Good luck![/i]
 description=
-description=[url=https://github.com/fbserg/truck-repaint]Source code & bug reports on GitHub[/url] · MIT license.
+description=[url=https://github.com/fbserg/zomboid-mods/tree/main/mods/truck-repaint]Source code & bug reports on GitHub[/url] · MIT license.
 tags=Build 42;Vehicles;Misc
 visibility=public

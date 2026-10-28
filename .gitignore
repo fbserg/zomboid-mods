@@ -2,6 +2,7 @@ __pycache__/
 *.pyc
 .DS_Store
 .pz-native-cache/
-.pz-static-cache/
+.pz-static/
 output/
 .venv/
+.playwright-cli/

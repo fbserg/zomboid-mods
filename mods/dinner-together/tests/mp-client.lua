@@ -18,6 +18,11 @@ local expected
 local notices=0
 Events.OnGameStart.Add(function()
     -- The mod Lua state is rebuilt during connection. Capture the actual production notification.
+    local info=assert(getModInfoByID('DinnerTogether'),'Mod panel metadata missing')
+    assert(info:getModVersion()=='0.1.0' and info:getPosterCount()==3,'Wrong mod panel version/posters')
+    assert(getTexture(info:getIcon()),'Mod icon does not load')
+    for i=0,info:getPosterCount()-1 do assert(getTexture(info:getPoster(i)),'Mod poster does not load') end
+    print('PZ_TEST_PASS mod panel icon and three posters decoded '..role)
     local show = DinnerTogether.show
     DinnerTogether.show = function(player)
         show(player)

@@ -1,0 +1,1 @@
+First release. A meal with another nearby survivor lifts boredom and unhappiness once per game day. No plates or furniture required. Tested on Build 42.21 with two real clients and a server restart.

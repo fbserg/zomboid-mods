@@ -7,7 +7,8 @@ publish sends content, title and description. description and preview send only 
 
 MOD_DIR holds one runtime folder (NAME/42/mod.info) and workshop/{workshop.txt,preview.png,changenote.txt}.
 workshop.txt carries the item's id= line. --new is required to create an item when it has none.
-Gallery images and required items have no API in the game's uploader. Set them on the Steam item page.
+Gallery images use the companion ugc.py CLI through installed Steamworks.
+Required items still use the Steam item page.
 """
 from pathlib import Path
 import hashlib

@@ -21,7 +21,7 @@ revision 4a0e9546ec. Do not copy game code into a published mod.
 8. Run only affected gates after changes. Capture host, tested snapshot/tree, game build,
    pass counts and cleanup receipts. Distinguish engine, network and visual evidence.
 9. Install/package the runtime folder only. Publish through the existing Workshop CLI
-   after the exact public release has been authorized. A draft PR is not a released mod.
+   under the standing Workshop authorization recorded in docs/releasing.md. A draft PR is not a released mod.
 
 ## Commands for Dinner Together
 

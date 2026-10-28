@@ -33,6 +33,16 @@ Events.OnTick.Add(function()
         for _, name in ipairs({'Alice', 'Beth'}) do
             local p = players[name]
             p:setInvincible(true); p:setGhostMode(true)
+            if PZ_TEST_PHOTOS then
+                getGameTime():setTimeOfDay(12)
+                for _,kind in ipairs({'Base.Shirt_FormalWhite','Base.Trousers_Denim','Base.Shoes_TrainerTINT'}) do
+                    local clothing=assert(p:getInventory():AddItem(kind),kind)
+                    sendAddItemToContainer(p:getInventory(),clothing)
+                    p:setWornItem(clothing:getBodyLocation(),clothing)
+                    sendClothing(p,clothing:getBodyLocation(),clothing)
+                end
+                syncVisuals(p);syncClothingFields(p)
+            end
             p:getStats():set(CharacterStat.HUNGER, 0.8)
             p:getStats():set(CharacterStat.BOREDOM, 50)
             p:getStats():set(CharacterStat.UNHAPPINESS, 50)

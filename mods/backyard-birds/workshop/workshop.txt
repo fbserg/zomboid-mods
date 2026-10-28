@@ -34,6 +34,6 @@ description=Project Zomboid supplies the bird bath, the birdsong and the multipl
 description=
 description=[i]No human has ever opened this mod's folder. Good luck![/i]
 description=
-description=[url=https://github.com/fbserg/backyard-birds]Source code & bug reports on GitHub[/url] · MIT license.
+description=[url=https://github.com/fbserg/zomboid-mods/tree/main/mods/backyard-birds]Source code & bug reports on GitHub[/url] · MIT license.
 tags=Build 42;Misc;Realistic
 visibility=public

@@ -4,7 +4,7 @@ A Build 42.21 add-on. Wild Kentucky birds visit the vanilla bird bath. It needs 
 
 *No human has ever opened this folder. Good luck!*
 
-Source: https://github.com/fbserg/backyard-birds (MIT). Workshop: [3828619587](https://steamcommunity.com/sharedfiles/filedetails/?id=3828619587). The native test harness lives in `fbserg/etc` under `mods/backyard-birds`.
+Source: https://github.com/fbserg/zomboid-mods/tree/main/mods/backyard-birds (MIT). Workshop: [3828619587](https://steamcommunity.com/sharedfiles/filedetails/?id=3828619587). The native test harness lives beside this mod under `tests/`.
 
 ## Gameplay
 
@@ -42,8 +42,8 @@ The server picks visits and changes stats. It syncs boredom and unhappiness with
 ## Install and test
 
 - `python3 install.py` copies the mod to `~/Zomboid/mods/BackyardBirds`.
-- The portable Lua tests run with `uv run --no-project --python 3.12 --with lupa==2.6 python -m unittest discover -s tests -v`.
-  In `fbserg/etc` the suite is `backyard-birds`, and in the standalone repo it is `test`.
+- The portable Lua tests run with `project-test --suite backyard-birds` from the repository root.
+  From the repository root the suite is `backyard-birds`. The root `test` suite runs all four mods.
 - `birds-engine` boots a headless B42 server. It finds a real bath, checks the stat sync masks and real noon weather, and runs one visit.
 - `birds-photos` runs a native client with audio on and every volume at 0. It launches without a Dock icon or focus. It places three baths, checks each song starts, repeats while the birds stay, and stops when they are scared off, checks a walking player scares only the closest bath, runs the single-player scheduler, measures cost, and saves `workshop/screenshots/`.
 - `birds-multiplayer` starts a loopback dedicated server and a scripted client that joins it as admin and teleports beside a bath.
@@ -55,7 +55,7 @@ The server picks visits and changes stats. It syncs boredom and unhappiness with
 - `workshop/workshop.txt` holds the listing copy and the item ID. Keep the `id=` line. Without it, publish creates a second item.
 - `workshop/screenshots/` holds the native captures from `birds-photos`.
 - `workshop/art/dawn-chorus.jpg` leads the gallery. Its prompt is `workshop/art/dawn-chorus.prompt.md`. Gallery order: promo, close, yard, halo.
-- Publish with `tools/pz-workshop/pz-workshop publish mods/backyard-birds` from `fbserg/etc`. Gallery images have no uploader API. Upload them on the Steam item's image manager in the owner's Chrome. A synthetic drag does not stick there. Move the node inside `#sortable_previews` and call `Sortable.sortables['sortable_previews'].onUpdate`, then Save and Continue and reload to confirm.
+- Publish with `tools/pz-workshop/pz-workshop publish mods/backyard-birds` from the repository root. Gallery images have no uploader API. Upload them on the Steam item's image manager in the owner's Chrome. A synthetic drag does not stick there. Move the node inside `#sortable_previews` and call `Sortable.sortables['sortable_previews'].onUpdate`, then Save and Continue and reload to confirm.
 - `workshop/preview.png` is the 512 × 512 primary thumbnail from `workshop/art/birds-avatar.png`, drawn from `workshop/art/birds-avatar.prompt.md`.
 
 ## Limits
@@ -63,3 +63,7 @@ The server picks visits and changes stats. It syncs boredom and unhappiness with
 - Birds draw on the UI layer. A wall or roof in front of a visible bath does not hide them. A world sprite would occlude properly but writes into the save (see DECISIONS.md).
 - Hiding the HUD also hides the birds. Split-screen players beyond the first get no birds in multiplayer.
 - `birds-multiplayer` uses one real client on a loopback server. Nobody has run a live session with two human players.
+
+## Shared source
+
+This mod now lives in [fbserg/zomboid-mods](https://github.com/fbserg/zomboid-mods). The original repository remains intact. Use the [shared release playbook](../../docs/releasing.md). Existing Workshop IDs and runtime Lua stay unchanged.

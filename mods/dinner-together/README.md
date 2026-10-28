@@ -35,8 +35,9 @@ The native suites require the installed Steam game and JDK, not a Steam upload.
 
 See [the development playbook](../../docs/zomboid-mod-development.md) for sources, repeatable
 methods and the shared runner. Issue [#141](https://github.com/fbserg/etc/issues/141) and
-PR [#145](https://github.com/fbserg/etc/pull/145) hold the latest check evidence.
-This is a local prototype. No Workshop item has been published.
+PR [#145](https://github.com/fbserg/etc/pull/145) hold the original implementation evidence.
+New source and bugs: [fbserg/zomboid-mods](https://github.com/fbserg/zomboid-mods).
+Release assets and native screenshots now live beside the runtime. The current publication status and exact check receipts are in [VERIFICATION.md](VERIFICATION.md).
 
 Observed on 2026-10-28, Build 42.21.0, with executor cleanup confirmed:
 
@@ -46,5 +47,8 @@ Observed on 2026-10-28, Build 42.21.0, with executor cleanup confirmed:
 | Native food, geometry and restart | SERGBOOK.local | f8251829d60b6e898d1afb3d4c8f63a02d75c104 | 6 scenarios pass, 249.46 s |
 | Dedicated server and two real clients | SERGBOOK.local | a932e37f02b6d134dac02c01a10a0996059a3540 | server and both clients pass, 219.577 s |
 
-The negative control disabled the reward hook and failed four tests. Packaging and a fresh
-local install verified all three runtime files by SHA-256. Existing save mod lists stayed untouched.
+The negative control disabled the reward hook and failed four tests. The original prototype package and local install verified the three initial runtime files by SHA-256. The release verification record covers the added art and posters. Existing save mod lists stayed untouched.
+
+## Artwork and release
+
+[Release playbook](../../docs/releasing.md). Selected generated illustrations and exact built-in image_gen prompts are in [workshop/art](workshop/art/PROMPTS.md). Gameplay images are native captures with two connected clients in a disposable scene. No furniture is required by the mod.

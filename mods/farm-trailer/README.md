@@ -123,7 +123,7 @@ They need a licensed local game and installed dependencies. Portable tests do no
 replace the native game checks.
 
 This standalone repository is the home for future mod changes. The initial runtime
-matches the Workshop release from `fbserg/etc` commit `061f946` byte for byte.
+matches the Workshop release from the repository root commit `061f946` byte for byte.
 
 ## License and credits
 
@@ -140,3 +140,7 @@ in-game assets and are not part of the code license grant.
 - [Water Trailer B42.20 Fix](https://steamcommunity.com/sharedfiles/filedetails/?id=3776875714)
   and [Water Pipes](https://steamcommunity.com/sharedfiles/filedetails/?id=3546314080)
   informed the shoreline refill design. Neither is bundled or required.
+
+## Shared source
+
+This mod now lives in [fbserg/zomboid-mods](https://github.com/fbserg/zomboid-mods). The original repository remains intact. Use the [shared release playbook](../../docs/releasing.md). Existing Workshop IDs and runtime Lua stay unchanged.
