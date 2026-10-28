@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+.DS_Store
+.pz-native-cache/
+.pz-static-cache/
+output/
+.venv/
