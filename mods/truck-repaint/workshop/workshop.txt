@@ -1,0 +1,41 @@
+version=1
+id=3828587831
+title=Truck Repaint [B42] - KI5 Trucks & Buses
+description=[h1]The world ended. Your truck still says Spiffo's.[/h1]
+description=Repaint KI5's [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3110911330]'87 Ford B700/F700 Trucks[/url] into their plain factory colors with a paintbrush and ordinary paint buckets. Stop driving a rolling burger ad through the apocalypse. The zombies already know where you are. They do not need a coupon.
+description=
+description=[h2]How it works[/h2]
+description=[olist]
+description=[*]Find a [b]paintbrush[/b] and some [b]paint buckets[/b]. Hardware stores have both, as usual.
+description=[*]Right-click a supported truck and choose [b]Repaint Truck[/b], then a color.
+description=[*]Your survivor walks to the driver door and paints. Walk away to stop.
+description=[/olist]
+description=The tooltip lists what you need. Red text means you are short. It does not judge your color choices. The zombie with the swatch card does.
+description=
+description=[h2]Colors and cost[/h2]
+description=[list]
+description=[*][b]F700 box truck:[/b] Blue and White, Red and Black, White, Yellow, Red and White
+description=[*][b]F700 bank truck:[/b] Red and Black, Silver and Black
+description=[*][b]F700 SWAT truck:[/b] Black
+description=[*][b]B700 military, school and prison buses:[/b] Redneck Camo. The school bus finally looks like it skipped school.
+description=[*][b]Oshkosh P19A military trucks:[/b] USMC Green, NATO Green, Desert Tan, Camo
+description=[*][b]Oshkosh P19A fire truck:[/b] Red, Yellow, Red and White
+description=[/list]
+description=The Oshkosh colors need KI5's [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2566953935]'86 Oshkosh P19A[/url]. It is optional. Without it, those entries stay asleep.
+description=A solid color uses [b]one full bucket[/b] of that color. A two-tone job uses [b]half a bucket of each[/b]. The brush survives. Empty buckets stay in your inventory, for sentimental reasons.
+description=
+description=[b]Paint covers a livery but never creates one.[/b] You can turn a Spiffo's, Gigamart, U-Store-It, Knox Bank, SWAT, sheriff or US Army truck into a plain one. You cannot paint a Spiffo's logo freehand. Nobody can.
+description=
+description=[b]Safe to add or remove.[/b] The mod adds no items and saves no data. Remove it and every truck keeps a normal KI5 paint job. A camo bus goes back to KI5's own skin.
+description=
+description=[h2]Multiplayer[/h2]
+description=For Project Zomboid [b]Build 42.21[/b]. The server and every player need Truck Repaint, the truck mod and [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3171167894]that DAMN Library[/url]. Put [b]TruckRepaint[/b] after [b]87fordB700[/b] in the server's Mods list. The server checks and spends the paint, then every player sees the new color.
+description=
+description=[h2]Credits[/h2]
+description=KI5 made the trucks and every texture this mod switches between. Nothing is copied or changed. The bus camo is KI5's own military bus texture, reused on its twin body. Project Zomboid supplies the paint, brush, animation, sound and multiplayer sync. HDCP Immersive Vehicle Paint and Paint Your Ride inspired the idea. Their code is not used.
+description=
+description=[i]No human has ever opened this mod's folder. Good luck![/i]
+description=
+description=[url=https://github.com/fbserg/truck-repaint]Source code & bug reports on GitHub[/url] · MIT license.
+tags=Build 42;Vehicles;Misc
+visibility=public

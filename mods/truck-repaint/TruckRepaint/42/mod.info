@@ -1,0 +1,5 @@
+name=Truck Repaint
+id=TruckRepaint
+require=\87fordB700
+description=Repaint KI5 '87 Ford B700/F700 trucks into their plain factory skins with vanilla paint buckets.
+versionMin=42.21.0
