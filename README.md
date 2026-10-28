@@ -12,7 +12,7 @@ See [the release playbook](docs/releasing.md), [development](docs/zomboid-mod-de
 | Backyard Birds | [3828619587](https://steamcommunity.com/sharedfiles/filedetails/?id=3828619587) | `mods/backyard-birds/BackyardBirds` |
 | Dinner Together | Release in progress | `mods/dinner-together/DinnerTogether` |
 
-Care Packages is an unfinished serialization experiment, preserved in the original etc worktree.
+Care Packages is an unfinished serialization experiment, preserved under [experiments/care-packages](experiments/care-packages). It is not functional or packaged.
 A Proper Goodbye and Our New Home remain queued design issues.
 
 Original repositories and their history remain intact. Import commits record the exact upstream source.

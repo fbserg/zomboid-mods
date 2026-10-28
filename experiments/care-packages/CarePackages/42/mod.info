@@ -1,0 +1,5 @@
+name=Care Packages
+id=CarePackages
+modversion=0.1.0
+versionMin=42.21.0
+description=Personal sealed parcels with handwritten notes.

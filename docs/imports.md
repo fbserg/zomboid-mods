@@ -13,5 +13,5 @@ Then add etc's missing development fixtures, generated art, native screenshots a
 Only mod.info and changenote.txt differ among overlapping source files. Runtime Lua for all three existing mods is identical between the two sources. The more complete standalone Farm Trailer README is retained. Original licenses are retained.
 
 Old histories and source repos remain intact. This repo uses explicit import snapshots, not rewritten history.
-Care Packages' failed serialization spike remains at etc/tmp/worktrees/issue-142, branch fix/issue-142-care-packages.
+Care Packages' failed serialization spike is preserved under experiments/care-packages. The original etc/tmp/worktrees/issue-142 worktree and fix/issue-142-care-packages branch remain intact.
 Original queue: https://github.com/fbserg/etc/issues/140.
