@@ -97,6 +97,7 @@ class Steam:
             assert all(urllib.request.urlopen(preview['url'],timeout=30).read()==image.read_bytes()
                        for preview,image in zip(current,images)), 'Gallery filenames match but image bytes differ. Refuse replacement.'
             print('GALLERY_ALREADY_SET bytes verified');return
+        # ceiling: new galleries only; use an explicitly reviewed replacement flow for existing images.
         assert not current, 'Gallery already has images. Refuse duplication or replacement.'
         total,available=self.quota()
         required=sum(p.stat().st_size for p in images)

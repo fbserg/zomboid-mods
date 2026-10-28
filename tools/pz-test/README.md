@@ -1,7 +1,7 @@
 # Mod test loop
 
 - `static.py MOD_DIR --prove` downloads pinned PZ_DevHarness into the executor workspace,
-  compiles runtime Lua with Kahlua and validates references/JSON. It proves two bad inputs fail.
+  compiles runtime Lua with Kahlua and validates references/JSON. Its current --prove fixtures target Dinner Together and prove two bad inputs fail. Other mods need their own negative fixtures.
 - `native.py MOD_DIR` checks the real server, quits and restarts for persistence proof.
 - `native.py MOD_DIR --multiplayer` uses two actual clients without copying game assets.
 - `native.py MOD_DIR --multiplayer --rounds 2` batches fixture reset and cooldown checks.

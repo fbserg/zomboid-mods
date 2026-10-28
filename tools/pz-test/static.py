@@ -48,6 +48,7 @@ def main() -> None:
             raise SystemExit(run.returncode)
 
     check(runtime)
+    # ceiling: negative fixtures target Dinner Together; add mod-owned cases before --prove for another mod.
     if args.prove:
         broken = root/'wrong-translation'
         shutil.copytree(runtime,broken)
