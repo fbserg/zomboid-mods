@@ -14,6 +14,15 @@ SHA256 = '5ded2642de08dd5fddeb272218634f7684c2def4f0aa402bda6f6046e28c9b5c'
 GAME = Path.home() / 'Library/Application Support/Steam/steamapps/common/ProjectZomboid/Project Zomboid.app/Contents/Java'
 
 
+def fetch_upstream(root: Path) -> Path:
+    data = urllib.request.urlopen(f'https://api.github.com/repos/CalebFenton/PZ_DevHarness/tarball/{PIN}', timeout=30).read()
+    assert hashlib.sha256(data).hexdigest() == SHA256, 'Upstream archive checksum changed'
+    with tarfile.open(fileobj=io.BytesIO(data)) as archive:
+        archive.extractall(root, filter='data')
+    upstream, = root.glob('CalebFenton-*')
+    return upstream
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(__doc__)
     parser.add_argument('mod', type=Path)
@@ -21,11 +30,7 @@ def main() -> None:
     args = parser.parse_args()
     root = Path.cwd() / '.pz-static'
     root.mkdir()
-    data = urllib.request.urlopen(f'https://api.github.com/repos/CalebFenton/PZ_DevHarness/tarball/{PIN}', timeout=30).read()
-    assert hashlib.sha256(data).hexdigest() == SHA256, 'Upstream archive checksum changed'
-    with tarfile.open(fileobj=io.BytesIO(data)) as archive:
-        archive.extractall(root, filter='data')
-    upstream, = root.glob('CalebFenton-*')
+    upstream = fetch_upstream(root)
     classes = root / 'classes'
     classes.mkdir()
     subprocess.run(['/opt/homebrew/opt/openjdk/bin/javac','--release','8','-Xlint:-options','-d',str(classes),str(upstream/'check/GameProbe.java')], check=True)

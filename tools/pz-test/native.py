@@ -6,10 +6,11 @@ import hashlib
 import fcntl
 import plistlib
 import re
-import zipfile
 import shutil
 import subprocess
 import time
+from window import build_policy, assert_hidden
+from static import fetch_upstream
 
 GAME = Path.home() / 'Library/Application Support/Steam/steamapps/common/ProjectZomboid/Project Zomboid.app/Contents/Java'
 REPO = Path(__file__).resolve().parents[2]
@@ -19,12 +20,15 @@ JAVAC = '/opt/homebrew/opt/openjdk/bin/javac'
 def main() -> None:
     parser = argparse.ArgumentParser(__doc__)
     parser.add_argument('mod', type=Path)
+    parser.add_argument('--performance', action='store_true')
     parser.add_argument('--multiplayer', action='store_true')
     parser.add_argument('--workshop', action='store_true', help='Verify and test the downloaded published runtime')
     parser.add_argument('--photos', action='store_true', help='Capture the multiplayer fixture on Alice')
     parser.add_argument('--legacy-copy', action='store_true')
     parser.add_argument('--rounds', type=int, choices=(1,2), default=1)
     args = parser.parse_args()
+    if args.performance and args.multiplayer:
+        parser.error('--performance is a server probe')
     if args.photos and not args.multiplayer:
         parser.error('--photos requires --multiplayer')
     mod = args.mod.resolve()
@@ -41,9 +45,11 @@ def main() -> None:
         print('PZ_TEST_WORKSHOP_HASHES_PASS '+str(installed),flush=True)
     root = Path.cwd() / '.pz-native-cache'
     root.mkdir()
-    mode = 'mp' if args.multiplayer else 'engine'
+    mode = 'performance' if args.performance else ('mp' if args.multiplayer else 'engine')
+    upstream = fetch_upstream(root)
     processes: list[subprocess.Popen] = []
     logs: list[Path] = []
+    clients: list[subprocess.Popen] = []
     handles = []
 
     def stage(cache: Path) -> None:
@@ -52,6 +58,9 @@ def main() -> None:
         shutil.copytree(runtime, mods / runtime.name)
         probe = mods / 'PZProbe/42'
         (probe / 'media/lua/server').mkdir(parents=True)
+        shared = probe/'media/lua/shared/PZHarness'
+        shared.mkdir(parents=True)
+        shutil.copy(upstream/'mod/42/media/lua/shared/PZHarness/Snapshot.lua', shared/'Snapshot.lua')
         (probe / 'mod.info').write_text(f'name=PZProbe\nid=PZProbe\nrequire=\\{runtime.name}\n')
         (probe / 'media/lua/server/ZZPZProbe.lua').write_text('PZ_TEST_PHOTOS = '+str(args.photos).lower()+'\nPZ_TEST_ROUNDS = '+str(args.rounds)+'\n'+(mod / f'tests/{mode}.lua').read_text())
 
@@ -80,7 +89,8 @@ def main() -> None:
                 failures = '\n'.join('\n'.join(lines[max(0,i-8):i+8]) for i,line in enumerate(lines)
                                      if 'PZ_TEST_FAIL' in line or 'ZZPZProbe.lua:' in line or f'MOD:{runtime.name}' in line or 'MOD:PZProbe' in line)
                 raise RuntimeError('Native probe failed\n' + failures[-10000:])
-            if args.multiplayer:
+            if args.multiplayer and clients:
+                assert_hidden(auditor,[p.pid for p in clients])
                 front = subprocess.check_output(['lsappinfo','front'],text=True).strip()
                 info = subprocess.check_output(['lsappinfo','info','-only','pid',front],text=True)
                 pid = re.search(r'"pid"=(\d+)',info)
@@ -115,13 +125,11 @@ def main() -> None:
                     '-nosteam', f'-cachedir={cache}', '-servername', 'pz-test', '-adminpassword',
                     'test-only', '-ip', '127.0.0.1']
             if args.multiplayer:
-                subprocess.run([JAVAC,'--release','25',
-                                '-d',str(classes),str(REPO/'tools/pz-test/FocusAgent.java')],check=True)
-                agent=root/'focus-agent.jar'
-                with zipfile.ZipFile(agent,'w') as archive:
-                    archive.writestr('META-INF/MANIFEST.MF','Manifest-Version: 1.0\nPremain-Class: FocusAgent\n\n')
-                    for file in classes.glob('FocusAgent*.class'): archive.write(file,file.name)
+                agent,auditor=build_policy(root)
             server = launch(server_command, GAME, 'server')
+            if args.performance:
+                wait_for(['PZ_TEST_PERFORMANCE_PASS'],180)
+                return
             if not args.multiplayer:
                 wait_for(['PZ_TEST_ENGINE_PASS'], 180)
                 server.communicate('quit\n', timeout=30)
@@ -169,15 +177,16 @@ def main() -> None:
                                voiceVolume='0', focusloss='false', tutorialDone='true', showSurvivalGuide='false')
                 (cache / 'options.ini').write_text('\n'.join(f'{k}={v}' for k,v in options.items())+'\n')
                 if args.legacy_copy:
-                    launch([str(contents / 'MacOS/JavaAppLauncher')],contents / 'Java',role)
+                    clients.append(launch([str(contents / 'MacOS/JavaAppLauncher')],contents / 'Java',role))
                 else:
-                    launch([str(java),'-XstartOnFirstThread','-Xmx2g','-Djava.awt.headless=true',
+                    clients.append(launch([str(java),'-XstartOnFirstThread','-Xmx2g','-Djava.awt.headless=true',
                             '-Dapple.awt.UIElement=true','-Djava.library.path=.','-javaagent:'+str(agent),
                             '--enable-native-access=ALL-UNNAMED','--add-exports=java.base/jdk.internal.misc=ALL-UNNAMED',
                             '-Dzomboid.steam=0','-cp',f'{classes}:{GAME}:{GAME}/projectzomboid.jar',
-                            'FarmPhotoMain','-nosteam',f'-cachedir={cache}'],GAME,role)
+                            'FarmPhotoMain','-nosteam',f'-cachedir={cache}'],GAME,role))
                 logs.append(cache / 'console.txt')
-            wait_for(['PZ_TEST_CLIENT_PASS Alice', 'PZ_TEST_CLIENT_PASS Beth', 'PZ_TEST_SERVER_PASS'] + (['PZ_TEST_PHOTOS_PASS'] if args.photos else []), 480)
+            wait_for(['PZ_TEST_CLIENT_PASS Alice', 'PZ_TEST_CLIENT_PASS Beth', 'PZ_TEST_SERVER_PASS'] + [f'PZ_TEST_HIDDEN_WINDOW_PASS pid={p.pid}' for p in clients] + (['PZ_TEST_PHOTOS_PASS'] if args.photos else []), 480)
+            print('PZ_TEST_OS_HIDDEN_PASS two client PIDs never on-screen or foreground during monitored run',flush=True)
             if args.photos:
                 output = mod / 'workshop/screenshots'
                 output.mkdir(parents=True, exist_ok=True)

@@ -251,6 +251,16 @@
       ],
       "platform": "darwin",
       "shutdown_grace": 45
+    },
+    "dinner-performance": {
+      "command": [
+        "python3",
+        "tools/pz-test/native.py",
+        "mods/dinner-together",
+        "--performance"
+      ],
+      "platform": "darwin",
+      "shutdown_grace": 45
     }
   }
 }
