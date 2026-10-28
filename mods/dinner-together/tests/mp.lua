@@ -3,9 +3,12 @@ local ready, players, started, finished = {}, {}, false, false
 local round, verified, completed, firstRewards = 1, {}, {}, {}
 local complete = ISEatFoodAction.complete
 function ISEatFoodAction:complete()
+    local before=self.character:getStats():get(CharacterStat.HUNGER)
     local result = complete(self)
+    assert(result and before-self.character:getStats():get(CharacterStat.HUNGER)>=0.05,'Fixture food was not consumed')
     local name = self.character:getUsername()
     completed[name] = (completed[name] or 0)+1
+    print('PZ_TEST_PASS server food completion '..name..' item='..self.item:getID()..' count='..completed[name])
     return result
 end
 Events.OnServerStarted.Add(function() print('PZ_TEST_SERVER_UP') end)
@@ -51,7 +54,7 @@ Events.OnTick.Add(function()
             end
             local food = p:getInventory():AddItem('Base.Apple')
             sendAddItemToContainer(p:getInventory(), food)
-            sendServerCommand(p, 'DinnerProbe', 'eat', {})
+            sendServerCommand(p, 'DinnerProbe', 'eat', {foodID=food:getID(),round=round})
         end
         print('PZ_TEST_PASS two connected clients ready at ' .. players.Alice:getX() .. ',' .. players.Alice:getY()
             .. ' and ' .. players.Beth:getX() .. ',' .. players.Beth:getY())

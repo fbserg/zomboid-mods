@@ -7,6 +7,7 @@ import json
 import os
 import re
 import time
+import urllib.request
 
 GAME = Path.home()/'Library/Application Support/Steam/steamapps/common/ProjectZomboid/Project Zomboid.app/Contents/Java'
 OWNER = 76561198033173095
@@ -81,14 +82,25 @@ class Steam:
         finally:
             assert release(self.ugc,query)
 
+    def quota(self) -> tuple[int,int]:
+        storage=self.bind('SteamRemoteStorage_v016',PTR,[])()
+        total=U64();available=U64()
+        assert self.bind('ISteamRemoteStorage_GetQuota',BOOL,[PTR,C.POINTER(U64),C.POINTER(U64)])(storage,C.byref(total),C.byref(available))
+        return total.value,available.value
+
     def gallery(self,item: int,images: list[Path]) -> None:
         assert images and len({p.name for p in images})==len(images)
         for image in images:
             assert image.is_file() and image.stat().st_size<1_000_000, image
         current=self.previews(item)
         if [p['file'] for p in current]==[p.name for p in images]:
-            print('GALLERY_ALREADY_SET');return
+            assert all(urllib.request.urlopen(preview['url'],timeout=30).read()==image.read_bytes()
+                       for preview,image in zip(current,images)), 'Gallery filenames match but image bytes differ. Refuse replacement.'
+            print('GALLERY_ALREADY_SET bytes verified');return
         assert not current, 'Gallery already has images. Refuse duplication or replacement.'
+        total,available=self.quota()
+        required=sum(p.stat().st_size for p in images)
+        assert required<=available, f'Steam Cloud quota: batch needs {required} bytes, available {available}/{total}. Export smaller gallery files before retrying.'
         handle=self.bind('ISteamUGC_StartItemUpdate',U64,[PTR,U32,U64])(self.ugc,108600,item)
         assert handle!=2**64-1
         add=self.bind('ISteamUGC_AddItemPreviewFile',BOOL,[PTR,U64,C.c_char_p,C.c_int])
@@ -119,17 +131,18 @@ class Steam:
 
 def main() -> None:
     parser=argparse.ArgumentParser(__doc__)
-    parser.add_argument('mode',choices=('status','query','gallery','download'))
+    parser.add_argument('mode',choices=('status','query','gallery','download','quota'))
     parser.add_argument('mod',type=Path)
     parser.add_argument('images',nargs='*',type=Path)
     args=parser.parse_args()
     match=re.search(r'^id=(\d+)$',(args.mod/'workshop/workshop.txt').read_text(),re.M)
-    assert args.mode=='status' or match, 'Published item ID required'
+    assert args.mode in ('status','quota') or match, 'Published item ID required'
     item=int(match.group(1)) if match else None
     images=[p.resolve() for p in args.images]
     steam=Steam()
     try:
-        if args.mode=='query': print(json.dumps(steam.previews(item),indent=2))
+        if args.mode=='quota': print('STEAM_CLOUD_QUOTA '+str(steam.quota()))
+        elif args.mode=='query': print(json.dumps(steam.previews(item),indent=2))
         elif args.mode=='gallery': steam.gallery(item,images)
         elif args.mode=='download': steam.download(item)
     finally:

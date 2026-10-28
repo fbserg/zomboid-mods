@@ -61,7 +61,14 @@ public final class WorkshopTool {
         ZomboidFileSystem.instance.setCacheDir(args[2]);
         ZomboidFileSystem.instance.init();
         Path stage = Path.of(args[1]).toAbsolutePath();
-        SteamWorkshopItem item = new SteamWorkshopItem(stage.toString());
+        // The vanilla getter appends a visible Workshop/Mod ID footer. Publish the authored copy exactly.
+        String description = Files.readAllLines(stage.resolve("workshop.txt")).stream()
+            .filter(line -> line.startsWith("description="))
+            .map(line -> line.substring("description=".length()))
+            .collect(java.util.stream.Collectors.joining("\n"));
+        SteamWorkshopItem item = new SteamWorkshopItem(stage.toString()) {
+            @Override public String getDescription() { return description; }
+        };
         if (!item.readWorkshopTxt()) throw new IllegalStateException("Cannot read workshop.txt");
         String error = item.validateContents();
         if (error != null) throw new IllegalStateException(error + ": " + item.getExtendedErrorInfo(error));

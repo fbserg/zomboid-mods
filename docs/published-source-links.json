@@ -1,0 +1,38 @@
+[
+  {
+    "mod": "farm-trailer",
+    "id": "3826535986",
+    "owner": "76561198033173095",
+    "app": 108600,
+    "visibility": 0,
+    "result": 1,
+    "copy_matches": true
+  },
+  {
+    "mod": "truck-repaint",
+    "id": "3828587831",
+    "owner": "76561198033173095",
+    "app": 108600,
+    "visibility": 0,
+    "result": 1,
+    "copy_matches": true
+  },
+  {
+    "mod": "backyard-birds",
+    "id": "3828619587",
+    "owner": "76561198033173095",
+    "app": 108600,
+    "visibility": 0,
+    "result": 1,
+    "copy_matches": true
+  },
+  {
+    "mod": "dinner-together",
+    "id": "3828971865",
+    "owner": "76561198033173095",
+    "app": 108600,
+    "visibility": 0,
+    "result": 1,
+    "copy_matches": true
+  }
+]

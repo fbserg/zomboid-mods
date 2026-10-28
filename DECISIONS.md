@@ -17,3 +17,9 @@ Reopen: Dinner Together release has observed live evidence.
 Decision: keep a reproducible generated illustration plus native screenshots, with prompts and test receipts beside the release. Use the established cream-title pixel-art family.
 Evidence: prior three mods use this family. Native two-client proof already passes for Dinner Together. Generated images cannot prove a working feature.
 Reopen: actual Steam thumbnail inspection or gameplay captures show a clarity problem.
+
+## 2026-10-28: native Steamworks gallery and download
+
+Decision: use the installed Steamworks library through a small ctypes helper for gallery queries/uploads and release downloads. Keep the game's uploader for runtime/description/preview.
+Evidence: four existing Birds gallery entries were read, a different non-empty gallery was rejected, Dinner Together's gallery was uploaded and every public CDN byte matched. The actual downloaded release passed two native client rounds. A whole-batch quota preflight prevents the observed partial reservation failure.
+Reopen: installed interface version changes or a documented game API replaces these bindings. No browser credentials, runtime Java or third-party SDK is distributed.

@@ -1,0 +1,27 @@
+{
+  "publishedfileid": "3828971865",
+  "result": 1,
+  "creator": "76561198033173095",
+  "consumer_app_id": 108600,
+  "title": "Dinner Together [B42] - A Meal With Good Company",
+  "visibility": 0,
+  "banned": 0,
+  "preview_url": "https://images.steamusercontent.com/ugc/17765487324288200155/2F5D025F8F29750404D16373CEE603E2C43CECED/",
+  "gallery": [
+    {
+      "file": "good-company.jpg",
+      "url": "https://images.steamusercontent.com/ugc/15724258738073057775/B3A312894FF0679F4DC740A93A2B3798661F08AB/",
+      "type": 0
+    },
+    {
+      "file": "dinner-meal.jpg",
+      "url": "https://images.steamusercontent.com/ugc/14937299098850664974/F0A84CAB02EF0394F0782929DB3A2B0550A75D4B/",
+      "type": 0
+    },
+    {
+      "file": "dinner-company.jpg",
+      "url": "https://images.steamusercontent.com/ugc/17297721926629396034/8A676A81CDFDFCD87DFED18B08C4F671B55D77E1/",
+      "type": 0
+    }
+  ]
+}

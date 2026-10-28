@@ -32,7 +32,7 @@ Events.OnGameStart.Add(function()
 end)
 Events.OnServerCommand.Add(function(module, command, args)
     if module == 'DinnerProbe' and command == 'reset' then ticks=0; sent=false; eat=false; queued=false; expected=nil; done=false end
-    if module == 'DinnerProbe' and command == 'eat' then eat = true end
+    if module == 'DinnerProbe' and command == 'eat' then eat = args end
     if module == 'DinnerProbe' and command == 'expected' then expected = args end
 end)
 Events.OnTick.Add(function()
@@ -46,14 +46,14 @@ Events.OnTick.Add(function()
         sendClientCommand(p, 'DinnerProbe', 'ready', {})
     end
     if eat and not queued then
-        local food = p:getInventory():getFirstType('Base.Apple')
+        local food = p:getInventory():getItemById(eat.foodID)
         if food then
             queued = true
             ISTimedActionQueue.add(ISEatFoodAction:new(p, food, 1))
-            print('PZ_TEST_PASS queued vanilla food action ' .. role)
+            print('PZ_TEST_PASS queued vanilla food action ' .. role .. ' round='..eat.round..' item='..food:getID())
         end
     end
-    if notified and expected then
+    if notified and expected and not p:hasTimedActions() then
         local stats = p:getStats()
         if math.abs(stats:get(CharacterStat.BOREDOM)-expected.boredom)<1 and math.abs(stats:get(CharacterStat.UNHAPPINESS)-expected.unhappiness)<1 then
             assert(getText('IGUI_DinnerTogether_SharedMeal') == 'A meal with good company', 'Translation did not load')

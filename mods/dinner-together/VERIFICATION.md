@@ -18,6 +18,26 @@ Avatar: workshop/art/dinner-avatar.png. Wide illustration: workshop/art/good-com
 
 ## Publication
 
+Published Workshop item [3828971865](https://steamcommunity.com/sharedfiles/filedetails/?id=3828971865), public, app 108600, creator 76561198033173095, result 1, visibility 0, banned 0. The public API description exactly matches workshop.txt, with the vanilla ID footer removed by the shared uploader. Preview and all three gallery files match the public CDN bytes exactly. Gallery order is good-company.jpg, dinner-meal.jpg, dinner-company.jpg. See workshop/published.json.
+
 Final photo-export and native panel gate passed on SERGBOOK.local, snapshot 452c169d6d8762dec5760744de4c3eb01b4282c4, 99.958 s, cleanup true. Both clients decoded the icon and all three posters. Both native screenshots were exported through the declared capture manifest and inspected. Steam owner 76561198033173095 ModeratExtremist verified through the game uploader and Steamworks. Native content validation passed. Gallery helper read-only query passed. A different non-empty gallery was deliberately rejected before a write.
 
 The Care Packages experiment is not part of this release and remains unproved. Earlier failed or cancelled photo iterations were not counted as passes.
+
+## Downloaded-release end to end
+
+Downloaded through installed Steamworks without changing subscriptions. All seven runtime files match workshop/runtime-sha256.json and the release source. The native runner staged the actual downloaded runtime, not a source substitute.
+
+Executor SERGBOOK.local, exact snapshot f1b4b42970f531b4137502aa07348c49b3cdf06d, tree a10b95898bbcf7f6f153a08001e9865b66764de8, suite dinner-release, 112.071 s, exit 0, cleanup true. Both real clients completed two normal food actions each. Each had one production notification across both rounds. Server stats, client sync and saved cooldown timestamps passed. Both game clients decoded the icon and three posters.
+
+The initial downloaded-release batch stalled in round two and was interrupted, receipt 20261028T165628-08dfe04fbbe0, cleanup true. It is not a pass. The fixture now uses the server-issued food item ID and waits for the previous action to finish before acknowledging a round. A stricter native assertion verifies real hunger consumption on every action. Runtime Lua did not change.
+
+The earlier local prototype was hash-checked against its original three-file source before its metadata/assets update. The resulting seven-file local install matches the published runtime. No saves or active mod lists changed.
+
+Runtime-only ZIP SHA-256: 8b964a3e80e44a861c3e5f28d2a8bb4eeef68c75c7a5feac4c97ed3dadfa3988. It includes common/ and the seven runtime files.
+
+## Gallery limit and correction
+
+Steam's first gallery batch returned result 25. GetQuota reported total 1,000,000 bytes and 109,018 available. The exact 890,982-byte reservation matched the first two files of our failed batch. The gallery remained empty. Only those two zero-byte staging files created by this session were cleared. No other Cloud files or Workshop content changed. The next batch totaled 910,343 bytes and succeeded. All three public image bytes were checked. The helper now checks the entire batch against available Cloud quota before upload. The selected PNG originals remain unchanged.
+
+Anonymous Steam HTML returned HTTP 429 during the browser check. Public API data and direct public CDN files were verified without a web login, and the native download/run passed.

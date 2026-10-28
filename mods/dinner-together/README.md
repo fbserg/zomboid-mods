@@ -36,6 +36,8 @@ The native suites require the installed Steam game and JDK, not a Steam upload.
 See [the development playbook](../../docs/zomboid-mod-development.md) for sources, repeatable
 methods and the shared runner. Issue [#141](https://github.com/fbserg/etc/issues/141) and
 PR [#145](https://github.com/fbserg/etc/pull/145) hold the original implementation evidence.
+[Subscribe on Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3828971865).
+
 New source and bugs: [fbserg/zomboid-mods](https://github.com/fbserg/zomboid-mods).
 Release assets and native screenshots now live beside the runtime. The current publication status and exact check receipts are in [VERIFICATION.md](VERIFICATION.md).
 

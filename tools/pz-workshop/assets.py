@@ -10,7 +10,7 @@ def export(source: Path, destination: Path, size: int, jpeg: bool = False) -> No
     destination.parent.mkdir(parents=True, exist_ok=True)
     command = ['sips', '-Z', str(size), '-s', 'format', 'jpeg' if jpeg else 'png']
     if jpeg:
-        command += ['-s', 'formatOptions', '85']
+        command += ['-s', 'formatOptions', '75']
     subprocess.run([*command, str(source), '--out', str(destination)], check=True, capture_output=True)
 
 
@@ -31,7 +31,7 @@ def main() -> None:
         assert source.is_file(), source
     export(args.avatar, args.mod/'workshop/preview.png', 512)
     export(args.avatar, runtime/'icon.png', 256)
-    export(args.hero, args.hero.with_suffix('.jpg'), 1536, jpeg=True)
+    export(args.hero, args.hero.with_suffix('.jpg'), 1280, jpeg=True)
     # The game reads multiple poster= lines in their declared order.
     for index, source in enumerate(sources):
         export(source, runtime/('poster'+('_'+str(index) if index else '')+'.png'), 1440)
