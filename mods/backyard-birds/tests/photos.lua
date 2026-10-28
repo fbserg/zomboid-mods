@@ -69,7 +69,10 @@ Events.OnTick.Add(function()
     clearZombies()
     reveal()
     if step == "place" then
-        if not getCell():getGridSquare(X + 4, Y + 3, 0) then return end
+        -- Chunks arrive independently after the demo teleport. Wait before any world writes.
+        for _,bath in ipairs(BATHS) do
+            if not getCell():getGridSquare(X+bath.dx,Y+bath.dy,0) then return end
+        end
         getGameTime():setTimeOfDay(12)
         getClimateManager():stopWeatherAndThunder()
         -- Pin fog, clouds and rain off, as the farm photos do.

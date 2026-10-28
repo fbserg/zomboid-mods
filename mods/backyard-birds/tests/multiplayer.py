@@ -1,5 +1,8 @@
 """Loopback multiplayer: a headless server and a native client on this Mac. Run through project-test --local --suite birds-multiplayer."""
 from pathlib import Path
+import sys
+sys.path.insert(0,str(Path(__file__).resolve().parents[3]/"tools/pz-test"))
+from window import build_policy, assert_hidden
 import plistlib
 import shutil
 import subprocess
@@ -55,7 +58,10 @@ subprocess.run([JAVAC, "--release", "25", "-cp", str(GAME / "projectzomboid.jar"
 info = plistlib.loads((GAME.parent / "Info.plist").read_bytes())
 info.update(CFBundleIdentifier="lol.serg.backyardbirds.mp", CFBundleName="Backyard Birds MP", CFBundleDisplayName="Backyard Birds MP",
             JVMMainClassName="FarmPhotoMain", JVMArguments=["-nosteam", "-cachedir=" + str(client_cache)], LSUIElement=True)
+agent,auditor=build_policy(ROOT)
+info["LSUIElement"] = True
 info["JVMOptions"] = [value for value in info["JVMOptions"] if not value.startswith(("-Xmx", "-Dzomboid.steam="))] + ["-Xmx3g", "-Dzomboid.steam=0"]
+info["JVMOptions"].append("-javaagent:"+str(agent))
 (contents / "Info.plist").write_bytes(plistlib.dumps(info))
 
 
@@ -80,12 +86,14 @@ with server_log.open("w") as server_out, client_log.open("w") as client_out:
         client = subprocess.Popen([str(contents / "MacOS/JavaAppLauncher")], cwd=contents / "Java", stdout=client_out, stderr=subprocess.STDOUT)
         deadline = time.monotonic() + 600
         while True:
+            assert_hidden(auditor,[client.pid])
             server_text, client_text = server_log.read_text(errors="replace"), client_log.read_text(errors="replace")
             markers(server_text + "\n" + client_text, seen)
             errors = [line for line in (server_text + client_text).splitlines() if "MOD:BirdsMP" in line or "MOD:Backyard" in line]
-            if errors or "BIRDS_MP_CLIENT_FAIL" in client_text or "BIRDS_MP_SERVER_FAIL" in server_text:
+            if "PZ_TEST_FAIL" in client_text or errors or "BIRDS_MP_CLIENT_FAIL" in client_text or "BIRDS_MP_SERVER_FAIL" in server_text:
                 raise SystemExit("Multiplayer probe failed\n" + "\n".join(errors) + "\nSERVER\n" + server_text[-4000:] + "\nCLIENT\n" + client_text[-6000:])
             if "BIRDS_MP_CLIENT_PASS" in client_text:
+                assert "PZ_TEST_HIDDEN_WINDOW_PASS" in client_text, "Window policy not observed"
                 break
             if server.poll() is not None or client.poll() is not None or time.monotonic() > deadline:
                 raise SystemExit("Multiplayer probe did not finish\nSERVER\n" + server_text[-4000:] + "\nCLIENT\n" + client_text[-6000:])

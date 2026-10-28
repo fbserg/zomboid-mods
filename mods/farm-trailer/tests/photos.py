@@ -1,5 +1,8 @@
 """Launch an isolated native graphical client for real Workshop photographs."""
 from pathlib import Path
+import sys
+sys.path.insert(0,str(Path(__file__).resolve().parents[3]/"tools/pz-test"))
+from window import build_policy, assert_hidden
 import shutil
 import plistlib
 import subprocess
@@ -51,7 +54,10 @@ info["CFBundleDisplayName"] = "Farm Trailer Photos"
 subprocess.run(["/opt/homebrew/opt/openjdk/bin/javac", "--release", "25", "-cp", str(GAME / "projectzomboid.jar"), "-d", str(contents / "Java"), "mods/farm-trailer/tests/FarmPhotoMain.java"], check=True)
 info["JVMMainClassName"] = "FarmPhotoMain"
 info["JVMArguments"] = ["-nosteam", "-nosound", "-cachedir=" + str(CACHE)]
+agent,auditor=build_policy(CACHE)
+info["LSUIElement"] = True
 info["JVMOptions"] = [value for value in info["JVMOptions"] if not value.startswith(("-Xmx", "-Dzomboid.steam="))] + ["-Xmx4g" if args.full_stack else "-Xmx3g", "-Dzomboid.steam=0"]
+info["JVMOptions"].append("-javaagent:"+str(agent))
 (contents / "Info.plist").write_bytes(plistlib.dumps(info))
 command = [str(contents / "MacOS/JavaAppLauncher")]
 
@@ -64,8 +70,9 @@ with (CACHE / "client.log").open("w") as log:
         deadline = time.monotonic() + 900
         seen = set()
         while process.poll() is None and time.monotonic() < deadline:
+            assert_hidden(auditor,[process.pid])
             text = (CACHE / "client.log").read_text(errors="replace")
-            if any(marker in text for marker in ("Lua((MOD:FarmPhotos)).", "Lua((MOD:Farm Trailer)).", "Lua((MOD:FarmTrailer)).")):
+            if "PZ_TEST_FAIL" in text or any(marker in text for marker in ("Lua((MOD:FarmPhotos)).", "Lua((MOD:Farm Trailer)).", "Lua((MOD:FarmTrailer)).")):
                 raise RuntimeError("Photo fixture failed\n" + text[-6000:])
             for line in text.splitlines():
                 if "FARM_PHOTO" in line and line not in seen:
@@ -73,6 +80,7 @@ with (CACHE / "client.log").open("w") as log:
                     seen.add(line)
             captures = list((CACHE / "Screenshots").glob("farm-*.png"))
             if len(captures) == 3:
+                assert "PZ_TEST_HIDDEN_WINDOW_PASS" in text, "Window policy not observed"
                 verify_loaded(text, active)
                 write_error_report(text, Path("mods/farm-trailer/tests/last-client-errors.json"), args.baseline)
                 for capture in captures:
