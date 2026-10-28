@@ -1,1 +1,1 @@
-Redneck Camo for the school and prison buses. Optional Oshkosh P19A colors. The server now re-checks every paint job before it spends paint, and the painter must stay at the driver door. Update server and clients, then restart.
+Fills in the in-game mod panel: description, author, version, link, category and screenshots. No gameplay changes.

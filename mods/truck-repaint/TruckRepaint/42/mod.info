@@ -1,5 +1,22 @@
 name=Truck Repaint
 id=TruckRepaint
 require=\87fordB700
-description=Repaint KI5 '87 Ford B700/F700 trucks into their plain factory skins with vanilla paint buckets.
+description=Repaint KI5's '87 Ford B700/F700 trucks into their plain factory colors with a paintbrush and vanilla paint buckets. <LINE> <LINE> 
+description=<H2> How it works <LINE> <TEXT> 
+description=Carry a paintbrush and paint buckets. Right-click a supported truck, choose Repaint Truck, then a color. A solid color uses one full bucket. A two-tone job uses half a bucket of each. <LINE> <LINE> 
+description=<H2> Colors <LINE> <TEXT> 
+description=- F700 box, bank and SWAT trucks: plain factory colors <LINE> 
+description=- B700 military, school and prison buses: Redneck Camo <LINE> 
+description=- Oshkosh P19A military and fire trucks, if KI5's '86 Oshkosh P19A is enabled <LINE> <LINE> 
+description=Paint covers a livery but never creates one. Safe to add or remove. Works in multiplayer.
+author=ModeratExtremist
+modversion=1.0
+url=https://steamcommunity.com/sharedfiles/filedetails/?id=3828587831
+category=vehicle
+poster=poster.png
+poster=poster_1.png
+poster=poster_2.png
+poster=poster_3.png
+poster=poster_4.png
+icon=icon.png
 versionMin=42.21.0

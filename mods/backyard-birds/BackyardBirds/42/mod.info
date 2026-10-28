@@ -1,4 +1,20 @@
 name=Backyard Birds
 id=BackyardBirds
-description=Wild birds visit bird baths in daylight.
+description=Wild Kentucky birds visit the vanilla bird bath. They land one at a time, drink, splash, sing, and leave when you get too close. <LINE> <LINE> 
+description=<H2> How it works <LINE> <TEXT> 
+description=- Birds come in the morning and the evening. Night, rain and frozen water mean no birds. Hot days and fresh rain bring more. <LINE> 
+description=- Walk up and they scatter. Sneak to get closer. Zombies scare them too. <LINE> 
+description=- A visit lifts boredom and unhappiness a little, at most once an hour. <LINE> <LINE> 
+description=<H2> Who comes by <LINE> <TEXT> 
+description=Northern Cardinal, Blue Jay, Carolina Chickadee, American Robin, American Goldfinch and, rarely, an Eastern Bluebird. <LINE> <LINE> 
+description=Safe to add or remove. The mod adds no items or tiles and saves nothing. Multiplayer needs it on the server and every player.
+author=ModeratExtremist
+modversion=1.0
+url=https://steamcommunity.com/sharedfiles/filedetails/?id=3828619587
+category=features
+poster=poster.png
+poster=poster_1.png
+poster=poster_2.png
+poster=poster_3.png
+icon=icon.png
 versionMin=42.21.0

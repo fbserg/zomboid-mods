@@ -34,3 +34,8 @@ appears that the server check cannot reach.
 Truck Repaint and Farm Trailer share no runtime code and have different dependencies. Each Workshop listing links its own
 source and issue tracker. The native test harness stays in `fbserg/etc`. Reopen at a third mod, or when copying the harness
 between repos becomes routine. Then consider one `pz-mods` repo with a folder per mod.
+
+
+## 2026-10-28: consolidated source
+
+The root DECISIONS.md supersedes the earlier separate-repository choice. Develop here. Keep the old Workshop item ID. The original repository remains intact as provenance.

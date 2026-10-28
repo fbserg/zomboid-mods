@@ -38,3 +38,8 @@ It launches as a UI-element app with all volumes at 0, so it takes no focus and 
 Truck Repaint's decision said to reopen the one-repo-per-mod rule at a third mod. This mod shares no runtime code with the other two
 and has no dependencies, so it got its own repo, `fbserg/backyard-birds`, like the others. Its native harness stays in `fbserg/etc` and
 reuses `farm-trailer/tests/FarmEngineMain.java` and `FarmPhotoMain.java` by path. Reopen at a fourth mod, or when mods start sharing Lua.
+
+
+## 2026-10-28: consolidated source
+
+The root DECISIONS.md supersedes the earlier separate-repository choice. Develop here. Keep the old Workshop item ID. The original repository remains intact as provenance.
