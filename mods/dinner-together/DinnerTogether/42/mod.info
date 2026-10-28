@@ -1,0 +1,6 @@
+name=Dinner Together
+id=DinnerTogether
+author=ModeratExtremist
+modversion=0.1.0
+versionMin=42.21.0
+description=Share a meal with another survivor nearby. Both feel a little better. No plates or furniture required. Each person must finish at least 5 hunger points of food within ten game minutes, within four tiles and clear sight. The comfort benefit applies once per 24 game hours. Install on the server and all clients.

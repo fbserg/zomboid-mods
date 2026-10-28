@@ -1,0 +1,72 @@
+#!/usr/bin/env python3
+"""Stage a Project Zomboid mod folder and drive the game's own Workshop uploader.
+
+Usage: pz-workshop {status,validate,publish,description,preview} MOD_DIR [--new]
+
+publish sends content, title and description. description and preview send only that field.
+
+MOD_DIR holds one runtime folder (NAME/42/mod.info) and workshop/{workshop.txt,preview.png,changenote.txt}.
+workshop.txt carries the item's id= line. --new is required to create an item when it has none.
+Gallery images and required items have no API in the game's uploader. Set them on the Steam item page.
+"""
+from pathlib import Path
+import hashlib
+import os
+import re
+import shutil
+import subprocess
+import sys
+
+OWNER = "76561198033173095"  # ModeratExtremist, verified in Steam's public profile and the native client
+GAME = Path.home() / "Library/Application Support/Steam/steamapps/common/ProjectZomboid/Project Zomboid.app/Contents/Java"
+CACHE = Path.home() / "Zomboid"  # The uploader requires stages under its cache-directory Workshop prefix.
+SOURCE = Path(__file__).resolve().with_name("WorkshopTool.java")
+
+
+def item_id(workshop_txt: Path) -> str | None:
+    match = re.search(r"^id=(\d+)$", workshop_txt.read_text(), re.M)
+    return match.group(1) if match else None
+
+
+def compiled() -> Path:
+    classes = Path.home() / ".cache/pz-workshop" / hashlib.sha256(SOURCE.read_bytes()).hexdigest()[:16]
+    if not (classes / "WorkshopTool.class").exists():
+        subprocess.run(["/opt/homebrew/opt/openjdk/bin/javac", "--release", "25", "-cp", str(GAME / "projectzomboid.jar"), "-d", str(classes), str(SOURCE)], check=True)
+    return classes
+
+
+def stage(mod: Path) -> tuple[Path, str]:
+    (runtime,) = [info.parents[1] for info in mod.glob("*/42/mod.info")]
+    source_id = item_id(mod / "workshop/workshop.txt")
+    target = CACHE / "Workshop" / runtime.name
+    if (target / "workshop.txt").exists() and item_id(target / "workshop.txt") != source_id:
+        sys.exit(f"Stage {target} is item {item_id(target / 'workshop.txt')}, source is {source_id}. Reconcile before staging.")
+    shutil.rmtree(target / "Contents", ignore_errors=True)
+    shutil.copytree(runtime, target / "Contents/mods" / runtime.name, ignore=shutil.ignore_patterns(".DS_Store"))
+    for name in ("workshop.txt", "preview.png", "changenote.txt"):
+        shutil.copy(mod / "workshop" / name, target / name)
+    return target, source_id
+
+
+def main() -> None:
+    if len(sys.argv) < 3 or sys.argv[1] not in ("status", "validate", "publish", "description", "preview"):
+        sys.exit(__doc__)
+    mode, mod, new = sys.argv[1], Path(sys.argv[2]).resolve(), "--new" in sys.argv[3:]
+    target, source_id = stage(mod)
+    if mode in ("publish", "description", "preview") and not source_id and not new:
+        sys.exit("workshop.txt has no id= line. Pass --new to create a new Workshop item.")
+    java = GAME.parent / "PlugIns/jre-aarch64/Contents/Home/bin/java"
+    command = [str(java), "-Djava.awt.headless=true", "-Djava.library.path=.", "--enable-native-access=ALL-UNNAMED", "-Dzomboid.steam=1",
+               "-cp", ".:projectzomboid.jar:" + str(compiled()), "WorkshopTool", mode, str(target), str(CACHE), OWNER, source_id or "new"]
+    result = subprocess.run(command, cwd=GAME, env={**os.environ, "SteamAppId": "108600"}, capture_output=True, text=True)
+    lines = [line for line in (result.stdout + result.stderr).splitlines()
+             if re.match(r"(VALID|STEAM_ACCOUNT|CREATED|PUBLISHED|DESCRIPTION_UPDATED|PREVIEW_UPDATED|UPLOAD_CALLBACKS_READY)\b", line) or "Exception" in line]
+    print("\n".join(lines))
+    if result.returncode or not lines or any("Exception" in line for line in lines):
+        sys.exit(result.returncode or 1)
+    if mode == "publish" and not source_id:
+        shutil.copy(target / "workshop.txt", mod / "workshop/workshop.txt")
+        print(f"Recorded the new item ID in {mod / 'workshop/workshop.txt'}. Commit it.")
+
+
+main()

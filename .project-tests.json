@@ -1,0 +1,210 @@
+{
+  "name": "zomboid-mods",
+  "snapshot_paths": [
+    ".project-tests.json",
+    "mods",
+    "tools",
+    "docs",
+    "README.md",
+    "DECISIONS.md",
+    "AGENTS.md"
+  ],
+  "suites": {
+    "farm-trailer": {
+      "command": [
+        "uv",
+        "run",
+        "--no-project",
+        "--python",
+        "3.12",
+        "--with",
+        "lupa==2.6",
+        "python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "mods/farm-trailer/tests",
+        "-p",
+        "test_*.py",
+        "-v"
+      ]
+    },
+    "farm-engine": {
+      "command": [
+        "python3",
+        "mods/farm-trailer/tests/engine.py"
+      ],
+      "platform": "darwin",
+      "shutdown_grace": 15
+    },
+    "truck-repaint": {
+      "command": [
+        "uv",
+        "run",
+        "--no-project",
+        "--python",
+        "3.12",
+        "--with",
+        "lupa==2.6",
+        "python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "mods/truck-repaint/tests",
+        "-p",
+        "test_*.py",
+        "-v"
+      ]
+    },
+    "truck-engine": {
+      "command": [
+        "python3",
+        "mods/truck-repaint/tests/engine.py"
+      ],
+      "platform": "darwin",
+      "shutdown_grace": 15
+    },
+    "farm-photos": {
+      "command": [
+        "python3",
+        "mods/farm-trailer/tests/photos.py"
+      ],
+      "platform": "darwin",
+      "shutdown_grace": 15
+    },
+    "farm-full-stack-engine": {
+      "command": [
+        "python3",
+        "mods/farm-trailer/tests/engine.py",
+        "--full-stack"
+      ],
+      "platform": "darwin",
+      "shutdown_grace": 15
+    },
+    "farm-full-stack-photos": {
+      "command": [
+        "python3",
+        "mods/farm-trailer/tests/photos.py",
+        "--full-stack"
+      ],
+      "platform": "darwin",
+      "shutdown_grace": 15
+    },
+    "farm-stack-baseline": {
+      "command": [
+        "python3",
+        "mods/farm-trailer/tests/photos.py",
+        "--full-stack",
+        "--baseline"
+      ],
+      "platform": "darwin",
+      "shutdown_grace": 15
+    },
+    "backyard-birds": {
+      "command": [
+        "uv",
+        "run",
+        "--no-project",
+        "--python",
+        "3.12",
+        "--with",
+        "lupa==2.6",
+        "python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "mods/backyard-birds/tests",
+        "-p",
+        "test_*.py",
+        "-v"
+      ]
+    },
+    "birds-engine": {
+      "command": [
+        "python3",
+        "mods/backyard-birds/tests/engine.py"
+      ],
+      "platform": "darwin",
+      "shutdown_grace": 15
+    },
+    "birds-photos": {
+      "command": [
+        "python3",
+        "mods/backyard-birds/tests/photos.py"
+      ],
+      "platform": "darwin",
+      "shutdown_grace": 15
+    },
+    "birds-multiplayer": {
+      "command": [
+        "python3",
+        "mods/backyard-birds/tests/multiplayer.py"
+      ],
+      "platform": "darwin",
+      "shutdown_grace": 30
+    },
+    "dinner-together": {
+      "command": [
+        "uv",
+        "run",
+        "--no-project",
+        "--python",
+        "3.12",
+        "--with",
+        "lupa==2.6",
+        "python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "mods/dinner-together/tests",
+        "-p",
+        "test_*.py",
+        "-v"
+      ]
+    },
+    "dinner-engine": {
+      "command": [
+        "python3",
+        "tools/pz-test/native.py",
+        "mods/dinner-together"
+      ],
+      "platform": "darwin",
+      "shutdown_grace": 45
+    },
+    "dinner-multiplayer": {
+      "command": [
+        "python3",
+        "tools/pz-test/native.py",
+        "mods/dinner-together",
+        "--multiplayer"
+      ],
+      "platform": "darwin",
+      "shutdown_grace": 45
+    },
+    "dinner-static": {
+      "command": [
+        "python3",
+        "tools/pz-test/static.py",
+        "mods/dinner-together",
+        "--prove"
+      ],
+      "platform": "darwin"
+    },
+    "dinner-warm": {
+      "command": [
+        "python3",
+        "tools/pz-test/native.py",
+        "mods/dinner-together",
+        "--multiplayer",
+        "--rounds",
+        "2"
+      ],
+      "platform": "darwin",
+      "shutdown_grace": 45
+    }
+  }
+}
