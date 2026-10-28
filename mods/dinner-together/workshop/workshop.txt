@@ -1,4 +1,5 @@
 version=1
+id=3828971865
 title=Dinner Together [B42] - A Meal With Good Company
 description=[h1]The apocalypse is a lousy dinner guest.[/h1]
 description=Eat with a friend. Feel a little better. Dinner Together adds a small comfort bonus when survivors share a meal nearby. Soup in a safehouse, sandwiches by the road, two apples after a supply run. It all counts.
