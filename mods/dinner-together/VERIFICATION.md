@@ -8,11 +8,25 @@ The complete required check command passed on 2026-10-28. Exact receipts, execut
 - Installed-build static/API compilation: pass with two discriminating negative controls.
 - Native behavior: six scenarios including a full server save and process restart pass on SERGBOOK.local.
 - Multiplayer: two real clients, two rounds, a fresh Beth process/reconnect, forged command rejection, real food completion, world/stat agreement, exactly two total production notifications and preserved cooldowns pass on SERGBOOK.local.
-- Performance: added p95 batch mean is within timer noise at two native actors, 0.0625 ms at 16, and 0.21875 ms at 64. Budgets are 0.5/0.5/2 ms. Retained whole-JVM heap after 10,000 cooldown meals was 140.77 KiB, below 16 MiB. Zero notifications. The slow callback and native object leak negative controls both passed. Synthetic scaling actors are not network clients.
+- Performance: added p95 batch mean is within timer noise at two native actors, 0.09375 ms at 16, and 0.1875 ms at 64. Budgets are 0.5/0.5/2 ms. Retained whole-JVM heap after 10,000 cooldown meals was 12.85 KiB, below 16 MiB. Zero notifications. The slow callback and native object leak negative controls both passed. Synthetic scaling actors are not network clients.
 - Every monitored game window stayed invisible/unfocused by native attributes and the owned-PID macOS audit. Both native guard negative controls passed without showing a window. Real game screenshots still render.
 - The runtime-only package, native Workshop validation and hash-backed visual review passed. The two new home photos show ordinary queued food actions and real reward text in an existing furnished kitchen. The avatar and lead illustration remain unchanged. No furniture is required or added by the mod.
 
 Runtime Lua and translation are byte-identical to 0.1.0. The release changes metadata and the two game posters. Physical split-screen controller UI flow and arbitrary mod-list compatibility remain unverified. One earlier MP qualification attempt failed before the client fixture safeguards/traces were aligned. It is not counted as a pass.
+
+## 0.1.1 live and downloaded proof
+
+Published to the existing [Workshop item 3828971865](https://steamcommunity.com/sharedfiles/filedetails/?id=3828971865). Public metadata reports result 1, app 108600, creator 76561198033173095, visibility 0 and banned 0. Exact authored title/description, preview and every gallery byte match. The illustration slot/URL is unchanged. Only the two gameplay slots were replaced. The new replacement helper's idempotent read-only retry also verified every public image byte. See workshop/published.json and public-metadata.json in the evidence bundle.
+
+The final complete checker used --published. Its MP gate hashes and stages the actual Steam download. SERGBOOK.local, snapshot ddea308e3b866f81796b4af4ec5ca867a513d315, tree 1a1df90490104dd43116bbdfa40b9ef6e4be6d47, 157.298 s, exit 0, cleanup true. Both real clients completed both normal food actions, Beth restarted/rejoined, world/stats agreed, Alice kept one notice and the reconnected Beth received zero new notices. The server sent exactly two production notifications across both rounds. The native visibility/focus guards and owned-PID OS audit passed for all three client processes. All seven runtime files match workshop/runtime-sha256.json.
+
+The final native fixture declares and asserts a zero-zombie sandbox and disables PvP. Earlier native hit reactions could cancel an unrelated meal despite safety flags. Both failed postflight/qualification attempts remain documented and were not counted. The ordinary timed actions and their completion assertions remain intact.
+
+The full uploader's submission-description getter appended a footer after the earlier metadata-only getter fix. A native regression guard first failed before a write, then passed after both getters returned the authored text. A repeated full upload and exact public API comparison verified the corrected path. No runtime file changed for that publisher fix.
+
+The known seven-file local prototype was checked against the old manifest before update, then verified against 0.1.1. Saves and active mod lists stayed untouched.
+
+Runtime-only ZIP: DinnerTogether-0.1.1-b42.21.zip, SHA-256 2d375083ab8182d6118dc0caaebc839d7b9dbbdf607ac4a4006961281cdfde18. No development helper enters this archive.
 
 ## 0.1.0 historical verification
 

@@ -47,18 +47,22 @@ def main() -> None:
     parser=argparse.ArgumentParser(__doc__)
     parser.add_argument('mod',type=Path)
     parser.add_argument('--fast',action='store_true',help='Portable and static checks only. This is not release qualification.')
+    parser.add_argument('--published',action='store_true',help='Qualify the downloaded published runtime in the configured MP gate')
     args=parser.parse_args()
+    assert not (args.fast and args.published),'Published qualification requires the full checks'
     repo=Path.cwd();mod=args.mod.resolve()
     policy=json.loads((mod/'tests/checks.json').read_text())
     suites=json.loads((repo/'.project-tests.json').read_text())['suites']
-    gates=policy['gates'];validate_gates(gates,suites)
+    gates=dict(policy['gates'])
+    if args.published: gates['multiplayer']={'suite':policy['published_multiplayer_suite']}
+    validate_gates(gates,suites)
     game_hash=hashlib.sha256((GAME/'projectzomboid.jar').read_bytes()).hexdigest()
     assert game_hash==policy['game_jar_sha256'],'Installed game changed. Recheck the build and update the declared engine pin.'
     stamp=fingerprint(mod,repo)
     output=repo/'output/checks'/f'{mod.name}-{time.time_ns()}'
     output.mkdir(parents=True)
     results={};completed={}
-    report={'mod':mod.name,'build':policy['build'],'game_jar_sha256':game_hash,'support_limits':policy['limits'],'mode':'fast' if args.fast else 'release','source_fingerprint':stamp,'gates':results,'outcome':'incomplete'}
+    report={'mod':mod.name,'build':policy['build'],'game_jar_sha256':game_hash,'support_limits':policy['limits'],'mode':'fast' if args.fast else ('published' if args.published else 'release'),'source_fingerprint':stamp,'gates':results,'outcome':'incomplete'}
     (output/'report.json').write_text(json.dumps(report,indent=2)+'\n')
     for gate in (('portable','static') if args.fast else REQUIRED):
         entry=gates[gate];suite=entry['suite']

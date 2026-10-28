@@ -27,5 +27,6 @@
     "compatibility": "Vanilla Build 42.21, no dependencies. A mod that replaces eat completion without chaining can block the feature.",
     "performance": "32-call batch averages from a 1ms native clock. Whole-JVM retained heap, not Lua-only allocations. Synthetic 2/16/64 native players test scaling, not 64 network connections. No custom per-frame render or idle hook."
   },
-  "game_jar_sha256": "e1a69eb743ede60b213a0fe7f8b83d4fcab773036d256cc4543a336f3b058a33"
+  "game_jar_sha256": "e1a69eb743ede60b213a0fe7f8b83d4fcab773036d256cc4543a336f3b058a33",
+  "published_multiplayer_suite": "dinner-release"
 }

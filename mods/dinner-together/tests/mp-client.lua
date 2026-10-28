@@ -64,6 +64,7 @@ Events.OnTick.Add(function()
     if eat and not queued then
         local food = p:getInventory():getItemById(eat.foodID)
         if food then
+            assert(getCell():getZombieList():size()==0,'Live encounter intruded on the deterministic meal fixture')
             queued = true
             ISTimedActionQueue.add(ISEatFoodAction:new(p, food, 1))
             print('PZ_TEST_PASS queued vanilla food action ' .. role .. ' round='..eat.round..' item='..food:getID())

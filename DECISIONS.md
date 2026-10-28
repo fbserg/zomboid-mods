@@ -41,3 +41,9 @@ Reopen: the installed GLFW/game implementation changes, a policy check fails, or
 Decision: replace Dinner Together's roadside captures with an authentic native furnished home. Keep illustration, staged props and actual gameplay distinct. Bind visual approval to asset hashes.
 Evidence: Serg rejected the cold roadside mood. The first kitchen frames passed gameplay checks but still failed visual review due to foreground lines. A functional test alone cannot approve listing images.
 Reopen: thumbnail or native poster inspection fails readability, warmth or an honest feature demonstration.
+
+## 2026-10-28: deterministic encounters in meal fixtures
+
+Decision: disable PvP and declare a versioned zero-zombie sandbox for the disposable social-mod runner. Assert the setting and no local zombies, keep normal action duration and fail on cancellation.
+Evidence: a downloaded-runtime run showed PlayerHitReactionState during a cancelled food action despite ghost/invincible flags. The installed 42.21 sandbox defines Zombie Count option 6 as None and PopulationMultiplier zero. The real download then completed both meal rounds and a fresh client reconnect with ordinary native actions and state agreement.
+Reopen: a combat/encounter mod needs an explicit mod-owned sandbox and encounter probe. Do not use a peaceful social fixture as combat proof.

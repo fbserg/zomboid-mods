@@ -68,8 +68,11 @@ public final class WorkshopTool {
             .collect(java.util.stream.Collectors.joining("\n"));
         SteamWorkshopItem item = new SteamWorkshopItem(stage.toString()) {
             @Override public String getDescription() { return description; }
+            @Override public String getSubmitDescription() { return description; }
         };
         if (!item.readWorkshopTxt()) throw new IllegalStateException("Cannot read workshop.txt");
+        if (!item.getDescription().equals(description) || !item.getSubmitDescription().equals(description))
+            throw new IllegalStateException("Workshop submission changes authored description");
         String error = item.validateContents();
         if (error != null) throw new IllegalStateException(error + ": " + item.getExtendedErrorInfo(error));
         System.out.println("VALID title=" + item.getTitle() + " id=" + item.getID() + " visibility=" + item.getVisibility() + " tags=" + item.getTags());

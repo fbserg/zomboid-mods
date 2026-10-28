@@ -19,7 +19,10 @@ function ISEatFoodAction:complete()
     print('PZ_TEST_PASS server food completion '..name..' item='..self.item:getID()..' count='..completed[name])
     return result
 end
-Events.OnServerStarted.Add(function() print('PZ_TEST_SERVER_UP') end)
+Events.OnServerStarted.Add(function()
+    assert(SandboxVars.Zombies==6 and SandboxVars.ZombieConfig.PopulationMultiplier==0,'Meal test world must have zero zombie population')
+    print('PZ_TEST_ZERO_POPULATION_PASS');print('PZ_TEST_SERVER_UP')
+end)
 Events.OnClientCommand.Add(function(module, command, player)
     if module ~= 'DinnerProbe' then return end
     if command == 'verified' then

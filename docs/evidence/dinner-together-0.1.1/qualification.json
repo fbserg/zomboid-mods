@@ -7,74 +7,74 @@
     "compatibility": "Vanilla Build 42.21, no dependencies. A mod that replaces eat completion without chaining can block the feature.",
     "performance": "32-call batch averages from a 1ms native clock. Whole-JVM retained heap, not Lua-only allocations. Synthetic 2/16/64 native players test scaling, not 64 network connections. No custom per-frame render or idle hook."
   },
-  "mode": "release",
-  "source_fingerprint": "f5bb5151a2a09400c4cbb751cbb7c68fecd9c3097f7fb2f4f548acdb6ca673d5",
+  "mode": "published",
+  "source_fingerprint": "0664e4004fd234a2bddbebb3fee52a114a9008c81de4f4f41e59c3c36688245a",
   "gates": {
     "portable": {
-      "id": "20261028T182834-c735c71d760a",
+      "id": "20261028T184031-b6f82ec632a8",
       "suite": "dinner-together",
       "executor": "sublet",
-      "source_commit": "a93f2c3acfd826063055c168134d88cf5289a2e0",
-      "commit": "d29553a6e46657383e37cfc0caf464f28d12886d",
-      "tree": "f59ce932150888453aff9994451ba66c2871789e",
+      "source_commit": "5320b49e533b08ce9a6594c3ad5fe096c7799161",
+      "commit": "a9328f3566b66cac944198816fc3899cf24a3668",
+      "tree": "c68d1ed624ee8e9fc6f9e8a67c344f773743927d",
       "outcome": "passed",
       "cleanup": true,
-      "seconds": 0.154
+      "seconds": 0.181
     },
     "static": {
-      "id": "20261028T182837-21a196b772ad",
+      "id": "20261028T184034-71489fd0e924",
       "suite": "dinner-static",
       "executor": "SERGBOOK.local",
-      "source_commit": "a93f2c3acfd826063055c168134d88cf5289a2e0",
-      "commit": "d19a9affadbd9fdfca26a64c0a0a704d53524d5e",
-      "tree": "f59ce932150888453aff9994451ba66c2871789e",
+      "source_commit": "5320b49e533b08ce9a6594c3ad5fe096c7799161",
+      "commit": "ac4294ed8e4e143d4f4d77062a4926ca8d0544db",
+      "tree": "c68d1ed624ee8e9fc6f9e8a67c344f773743927d",
       "outcome": "passed",
       "cleanup": true,
-      "seconds": 4.435
+      "seconds": 4.284
     },
     "native": {
-      "id": "20261028T182843-2062680a8fe3",
+      "id": "20261028T184040-cb50103da2de",
       "suite": "dinner-engine",
       "executor": "SERGBOOK.local",
-      "source_commit": "a93f2c3acfd826063055c168134d88cf5289a2e0",
-      "commit": "9d096ed9c0e3749f045f7f2d192814e37d9dd442",
-      "tree": "f59ce932150888453aff9994451ba66c2871789e",
+      "source_commit": "5320b49e533b08ce9a6594c3ad5fe096c7799161",
+      "commit": "15d7dc9fce998c6aa13d1700ce7698ce10e8c831",
+      "tree": "c68d1ed624ee8e9fc6f9e8a67c344f773743927d",
       "outcome": "passed",
       "cleanup": true,
-      "seconds": 75.145
+      "seconds": 76.47
     },
     "multiplayer": {
-      "id": "20261028T182959-6b84e5bf4bdb",
-      "suite": "dinner-qualified-mp",
+      "id": "20261028T184157-a609ad5ca7dd",
+      "suite": "dinner-release",
       "executor": "SERGBOOK.local",
-      "source_commit": "a93f2c3acfd826063055c168134d88cf5289a2e0",
-      "commit": "d914a1bc287733a7312102a799e391472a053e80",
-      "tree": "ae14441b2989992ef90a6b87d066ab6debc285cd",
+      "source_commit": "5320b49e533b08ce9a6594c3ad5fe096c7799161",
+      "commit": "ddea308e3b866f81796b4af4ec5ca867a513d315",
+      "tree": "1a1df90490104dd43116bbdfa40b9ef6e4be6d47",
       "outcome": "passed",
       "cleanup": true,
-      "seconds": 182.824
+      "seconds": 157.298
     },
     "persistence": {
-      "id": "20261028T182843-2062680a8fe3",
+      "id": "20261028T184040-cb50103da2de",
       "suite": "dinner-engine",
       "executor": "SERGBOOK.local",
-      "source_commit": "a93f2c3acfd826063055c168134d88cf5289a2e0",
-      "commit": "9d096ed9c0e3749f045f7f2d192814e37d9dd442",
-      "tree": "f59ce932150888453aff9994451ba66c2871789e",
+      "source_commit": "5320b49e533b08ce9a6594c3ad5fe096c7799161",
+      "commit": "15d7dc9fce998c6aa13d1700ce7698ce10e8c831",
+      "tree": "c68d1ed624ee8e9fc6f9e8a67c344f773743927d",
       "outcome": "passed",
       "cleanup": true,
-      "seconds": 75.145
+      "seconds": 76.47
     },
     "performance": {
-      "id": "20261028T183304-cbb4ba7bc2b6",
+      "id": "20261028T184436-11f8e1bd2c02",
       "suite": "dinner-performance",
       "executor": "SERGBOOK.local",
-      "source_commit": "a93f2c3acfd826063055c168134d88cf5289a2e0",
-      "commit": "4de97c6947f3f493f1b345b4c56fa85327310302",
-      "tree": "39a93c0787766bbf23c2c3bd342a4ed2710512d7",
+      "source_commit": "5320b49e533b08ce9a6594c3ad5fe096c7799161",
+      "commit": "574ddcb3b1a0a0e7c99cdcff1840b07071006470",
+      "tree": "1a1df90490104dd43116bbdfa40b9ef6e4be6d47",
       "outcome": "passed",
       "cleanup": true,
-      "seconds": 41.534
+      "seconds": 41.574
     },
     "visual": {
       "outcome": "reviewed",
@@ -82,7 +82,7 @@
     },
     "package": {
       "outcome": "passed",
-      "sha256": "6f36694ac5274463232563d9b04d8661910d7edf89a27aa4501a304302e0529a"
+      "sha256": "2d375083ab8182d6118dc0caaebc839d7b9dbbdf607ac4a4006961281cdfde18"
     }
   },
   "outcome": "passed"

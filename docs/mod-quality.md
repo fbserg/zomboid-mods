@@ -6,7 +6,9 @@ Use one release command from the repository root:
 python3 tools/pz-test/check.py mods/dinner-together
 ```
 
-For quick edits, add `--fast`. That runs portable and static checks only and does not qualify a release. The adapter calls the existing project-test executor, not another test service. Portable tests run on sublet. Native game tests use explicit `--local` on SERGBOOK. No test process, world or game copy survives its lease.
+After publication/download, `--published` uses the declared downloaded-release multiplayer suite in place of the source MP gate. This lets a full postflight also qualify the current checks without a duplicate MP boot. It verifies downloaded runtime hashes before any action. Fast and published modes cannot be combined.
+
+For quick edits, add `--fast`. That runs portable and static checks only and does not qualify a release. The adapter calls the existing project-test executor, not another test service. Portable tests run on sublet. Native game tests use explicit `--local` on SERGBOOK. No test process, world or game copy survives its lease. Meal fixtures disable PvP and use a versioned zero-zombie sandbox, assert the configured population and reject any live local zombie before queuing food. Ghost/invincible flags alone did not stop a native hit reaction from cancelling an earlier action. Keep encounters out of an unrelated meal test, and keep cancellation a hard failure.
 
 Each mod declares `tests/checks.json`. All six test categories need real configured suites. A missing declaration, failed receipt, failed cleanup, changed test/runtime source or changed image fails the command. Native and persistence can share the same restart suite and run once. The report records the executor, exact snapshot/tree, timings and stated coverage limits for each check. Performance data returns as a JSON artifact. The final package and visual checks run after the suites.
 

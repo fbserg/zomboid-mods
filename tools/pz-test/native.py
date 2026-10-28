@@ -117,8 +117,10 @@ def main() -> None:
             (cache / 'Server').mkdir()
             (cache / 'Server/pz-test.ini').write_text(
                 'Public=false\nOpen=true\nDefaultPort=16511\nUDPPort=16512\nSteamVAC=false\n'
-                'BackupsOnStart=false\nMap=Muldraugh, KY\nWorkshopItems=\nPauseEmpty=false\n'
+                'BackupsOnStart=false\nMap=Muldraugh, KY\nWorkshopItems=\nPauseEmpty=false\nPVP=false\n'
                 f'Mods={runtime.name};PZProbe\nDoLuaChecksum=false\nSpawnPoint={spawn[0]},{spawn[1]},{spawn[2]}\n')
+            (cache / 'Server/pz-test_SandboxVars.lua').write_text(
+                'SandboxVars = { VERSION=6, Zombies=6, ZombieConfig={PopulationMultiplier=0.0, PopulationStartMultiplier=0.0, PopulationPeakMultiplier=0.0, RespawnHours=0.0, RespawnMultiplier=0.0} }\n')
             classes = root / 'classes'
             classes.mkdir()
             subprocess.run([JAVAC, '--release', '25', '-cp', str(GAME / 'projectzomboid.jar'), '-d', str(classes),

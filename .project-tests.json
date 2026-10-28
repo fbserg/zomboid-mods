@@ -248,7 +248,8 @@
         "--multiplayer",
         "--rounds",
         "2",
-        "--workshop"
+        "--workshop",
+        "--reconnect"
       ],
       "platform": "darwin",
       "shutdown_grace": 45

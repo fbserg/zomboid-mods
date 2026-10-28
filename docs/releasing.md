@@ -72,10 +72,10 @@ Finally download the item with `python3 tools/pz-workshop/ugc.py download MOD_DI
 - The Steam application can be closed even when the game is installed. Start Steam in the background, then recheck the exact account. No passwords or cookies enter scripts.
 
 - Preflight the whole gallery batch with `ugc.py quota MOD_DIR`. This account/app's observed Cloud quota is 1,000,000 bytes total, so three individually valid sub-1MB files can still exceed it. Dinner Together's 910,343-byte batch passed. Keep the PNG masters. The wide gallery JPEG exports at 1280px, quality 75. Never remove unrelated Cloud files to make room. A failed batch can reserve space for its own temporary files. Inspect the actual names, sizes and empty gallery before cleaning only that failed job's staging.
-- The vanilla Workshop description getter appends an ID footer. The shared publisher overrides that getter with authored description lines. Exact public API comparison caught this behavior, and description-only submission verified the fix.
+- The vanilla Workshop description getter appends an ID footer. The shared publisher overrides both getDescription and getSubmitDescription with authored description lines. The full uploader calls the latter, while metadata-only updates call the former. A native preflight rejects either getter if it changes the authored text. Exact public API comparison caught this distinction after a full content upload.
 - A warm test must target the server-issued food ID and wait for the previous native action to finish. Taking the first item of a type can race with inventory/action cleanup. The fixed fixture asserts real hunger consumption for each round.
 
-For final release proof use `project-test --local --suite dinner-release`. It hashes the Steam download against source, stages that downloaded runtime and runs two real-client rounds.
+For final release proof use `project-test --local --suite dinner-release`. It hashes the Steam download against source, stages that downloaded runtime, restarts Beth and runs two real-client rounds. If the test harness itself changed during postflight, use `python3 tools/pz-test/check.py mods/dinner-together --published` to requalify all gates with that downloaded MP run instead of duplicating it.
 
 Use the visual brief as a gate. For cozy mods, a technically valid roadside frame is not a suitable gallery image. Use a furnished home, warm native light and a clear view of the actual mechanic. Keep foreground wires, setup panels and clutter out of the capture.
 
