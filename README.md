@@ -3,7 +3,7 @@
 One source repository for Farm Trailer, Truck Repaint, Backyard Birds and Dinner Together.
 Runtime folders stay independent. Existing Workshop IDs stay the same.
 
-See [the release playbook](docs/releasing.md), [development](docs/zomboid-mod-development.md) and [decisions](DECISIONS.md).
+See [the required quality checks](docs/mod-quality.md), [the release playbook](docs/releasing.md), [development](docs/zomboid-mod-development.md) and [decisions](DECISIONS.md).
 
 | Mod | Workshop | Runtime |
 |---|---|---|

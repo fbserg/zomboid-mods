@@ -1,1 +1,11 @@
-["dinner-meal.png", "dinner-company.png"]
+{
+  "spawn": [
+    10767,
+    10634,
+    0
+  ],
+  "captures": [
+    "dinner-meal.png",
+    "dinner-company.png"
+  ]
+}

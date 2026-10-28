@@ -114,6 +114,43 @@ class Steam:
         assert [p['file'] for p in actual]==[p.name for p in images], actual
         print('GALLERY_PUBLISHED '+json.dumps(actual),flush=True)
 
+    def replace_gallery(self,item: int,images: list[Path],record: Path) -> None:
+        expected=json.loads(record.read_text())
+        assert int(expected['publishedfileid'])==item,'Publication record names a different item'
+        current=self.previews(item)
+        assert current==expected['gallery'],'Remote gallery changed since the saved publication record. Reconcile before replacement.'
+        assert [p['file'] for p in current]==[p.name for p in images],'Replacement must preserve every slot and filename'
+        changes=[]
+        storage=self.bind('SteamRemoteStorage_v016',PTR,[])()
+        size=self.bind('ISteamRemoteStorage_GetFileSize',C.c_int,[PTR,C.c_char_p])
+        growth=0
+        for index,(preview,image) in enumerate(zip(current,images)):
+            assert image.is_file() and image.stat().st_size<1_000_000,image
+            if urllib.request.urlopen(preview['url'],timeout=30).read()!=image.read_bytes():
+                old_size=size(storage,f'{item}_preview_{image.name}'.encode())
+                growth+=max(0,image.stat().st_size-old_size)
+                changes.append((index,image))
+        if not changes:
+            print('GALLERY_ALREADY_SET bytes verified');return
+        total,available=self.quota()
+        assert growth<=available,f'Replacement needs {growth} extra bytes, Cloud has {available}/{total}'
+        handle=self.bind('ISteamUGC_StartItemUpdate',U64,[PTR,U32,U64])(self.ugc,108600,item)
+        assert handle!=2**64-1
+        update=self.bind('ISteamUGC_UpdateItemPreviewFile',BOOL,[PTR,U64,U32,C.c_char_p])
+        for index,image in changes:
+            assert update(self.ugc,handle,index,os.fsencode(image)),image
+        call=self.bind('ISteamUGC_SubmitItemUpdate',U64,[PTR,U64,C.c_char_p])(self.ugc,handle,b'Replace gameplay screenshots with a furnished safehouse scene.')
+        result=UpdateResult();self.wait(call,result,3404)
+        assert not result.legal and result.item==item
+        actual=self.previews(item)
+        assert [p['file'] for p in actual]==[p.name for p in images]
+        for index,(preview,image) in enumerate(zip(actual,images)):
+            assert urllib.request.urlopen(preview['url'],timeout=30).read()==image.read_bytes(),image
+            if index not in {i for i,_ in changes}: assert preview==current[index],'Untargeted gallery slot changed'
+        expected['gallery']=actual
+        record.write_text(json.dumps(expected,indent=2)+'\n')
+        print('GALLERY_REPLACED '+json.dumps(actual),flush=True)
+
     def download(self,item: int) -> Path:
         # Downloads owner content for release verification. Does not alter subscriptions.
         assert self.bind('ISteamUGC_DownloadItem',BOOL,[PTR,U64,BOOL])(self.ugc,item,True), 'Download rejected'
@@ -132,7 +169,7 @@ class Steam:
 
 def main() -> None:
     parser=argparse.ArgumentParser(__doc__)
-    parser.add_argument('mode',choices=('status','query','gallery','download','quota'))
+    parser.add_argument('mode',choices=('status','query','gallery','download','quota','replace-gallery'))
     parser.add_argument('mod',type=Path)
     parser.add_argument('images',nargs='*',type=Path)
     args=parser.parse_args()
@@ -145,6 +182,7 @@ def main() -> None:
         if args.mode=='quota': print('STEAM_CLOUD_QUOTA '+str(steam.quota()))
         elif args.mode=='query': print(json.dumps(steam.previews(item),indent=2))
         elif args.mode=='gallery': steam.gallery(item,images)
+        elif args.mode=='replace-gallery': steam.replace_gallery(item,images,args.mod/'workshop/published.json')
         elif args.mode=='download': steam.download(item)
     finally:
         steam.shutdown()

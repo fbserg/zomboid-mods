@@ -1,0 +1,31 @@
+{
+  "runtime": "DinnerTogether",
+  "build": "42.21.0",
+  "gates": {
+    "portable": {
+      "suite": "dinner-together"
+    },
+    "static": {
+      "suite": "dinner-static"
+    },
+    "native": {
+      "suite": "dinner-engine"
+    },
+    "multiplayer": {
+      "suite": "dinner-qualified-mp"
+    },
+    "persistence": {
+      "suite": "dinner-engine"
+    },
+    "performance": {
+      "suite": "dinner-performance",
+      "artifact": ".pz-native-cache/server/Lua/dinner-performance.json"
+    }
+  },
+  "limits": {
+    "singleplayer": "Local-slot logic has portable coverage. Native food/geometry checks use synthetic actors on a headless authority, not two physical split-screen controllers.",
+    "compatibility": "Vanilla Build 42.21, no dependencies. A mod that replaces eat completion without chaining can block the feature.",
+    "performance": "32-call batch averages from a 1ms native clock. Whole-JVM retained heap, not Lua-only allocations. Synthetic 2/16/64 native players test scaling, not 64 network connections. No custom per-frame render or idle hook."
+  },
+  "game_jar_sha256": "e1a69eb743ede60b213a0fe7f8b83d4fcab773036d256cc4543a336f3b058a33"
+}

@@ -7,7 +7,8 @@
     "docs",
     "README.md",
     "DECISIONS.md",
-    "AGENTS.md"
+    "AGENTS.md",
+    "tests"
   ],
   "suites": {
     "farm-trailer": {
@@ -261,6 +262,32 @@
       ],
       "platform": "darwin",
       "shutdown_grace": 45
+    },
+    "dinner-qualified-mp": {
+      "command": [
+        "python3",
+        "tools/pz-test/native.py",
+        "mods/dinner-together",
+        "--multiplayer",
+        "--rounds",
+        "2",
+        "--reconnect"
+      ],
+      "platform": "darwin",
+      "shutdown_grace": 45
+    },
+    "check-runner": {
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_*.py",
+        "-v"
+      ]
     }
   }
 }

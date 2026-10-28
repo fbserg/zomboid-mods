@@ -28,29 +28,12 @@ Another mod that replaces ISEatFoodAction.complete without chaining is incompati
 
 ## Verification
 
-Portable boundaries: `project-test --suite dinner-together` on sublet.
-Native food/geometry/restart: `project-test --local --suite dinner-engine` on the Mac.
-Two-client network actions: `project-test --local --suite dinner-multiplayer` on the Mac.
-The native suites require the installed Steam game and JDK, not a Steam upload.
+Release qualification: `python3 tools/pz-test/check.py mods/dinner-together` from the repository root. The [quality contract](../../docs/mod-quality.md) requires portable boundaries, native food/geometry/restart, two real clients with reconnect and world/stat agreement, performance budgets, visual review and package validation. Portable tests run on sublet. Native tests run invisibly on SERGBOOK through project-test. No test helper ships to players.
 
-See [the development playbook](../../docs/zomboid-mod-development.md) for sources, repeatable
-methods and the shared runner. Issue [#141](https://github.com/fbserg/etc/issues/141) and
-PR [#145](https://github.com/fbserg/etc/pull/145) hold the original implementation evidence.
-[Subscribe on Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3828971865).
+Build 42.21.0 is the tested engine. The native authority probe uses synthetic actors. Physical split-screen controller flow and arbitrary mod combinations have not been verified. The actual public release, exact test snapshots and coverage limits are in [VERIFICATION.md](VERIFICATION.md).
 
-New source and bugs: [fbserg/zomboid-mods](https://github.com/fbserg/zomboid-mods).
-Release assets and native screenshots now live beside the runtime. The current publication status and exact check receipts are in [VERIFICATION.md](VERIFICATION.md).
-
-Observed on 2026-10-28, Build 42.21.0, with executor cleanup confirmed:
-
-| Gate | Host | Tested snapshot | Result |
-|---|---|---|---|
-| Portable Lua 5.1 | sublet | b4b0489157ade89fb20a381da633d1e467c79880 | 12 pass, 0.161 s executor time |
-| Native food, geometry and restart | SERGBOOK.local | f8251829d60b6e898d1afb3d4c8f63a02d75c104 | 6 scenarios pass, 249.46 s |
-| Dedicated server and two real clients | SERGBOOK.local | a932e37f02b6d134dac02c01a10a0996059a3540 | server and both clients pass, 219.577 s |
-
-The negative control disabled the reward hook and failed four tests. The original prototype package and local install verified the three initial runtime files by SHA-256. The release verification record covers the added art and posters. Existing save mod lists stayed untouched.
+[Subscribe on Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3828971865). Source and bugs: [fbserg/zomboid-mods](https://github.com/fbserg/zomboid-mods).
 
 ## Artwork and release
 
-[Release playbook](../../docs/releasing.md). Selected generated illustrations and exact built-in image_gen prompts are in [workshop/art](workshop/art/PROMPTS.md). Gameplay images are native captures with two connected clients in a disposable scene. No furniture is required by the mod.
+[Release playbook](../../docs/releasing.md). Selected generated illustrations and exact built-in image_gen prompts are in [workshop/art](workshop/art/PROMPTS.md). Gameplay images are native captures with two connected clients in a disposable scene. The home, lighting, food, time and starting stats are staged for the photos. No furniture is required by the mod.

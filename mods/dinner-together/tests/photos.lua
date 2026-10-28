@@ -3,12 +3,11 @@ local photoTicks, photoReward, capturedMeal, capturedReward = 0, false, false, f
 local mealTicks=0
 Events.OnGameStart.Add(function()
     local p = getSpecificPlayer(0)
-    if PZ_PHOTO_ROLE == 'Beth' then
-        p:setX(p:getX()+2); p:setLastX(p:getX()); p:setCurrent(getCell():getGridSquare(math.floor(p:getX()),math.floor(p:getY()),0))
-    end
     p:setInvincible(true); p:setGhostMode(true)
     getCore():setAutoZoom(0,false)
     for i=1,8 do getCore():doZoomScroll(0,-1) end
+    getGameTime():setTimeOfDay(20.5)
+    getCell():addLamppost(PZ_TEST_SPAWN.x,PZ_TEST_SPAWN.y,0,1.0,0.78,0.45,8)
     ISUIHandler.setVisibleAllUI(false)
     getClimateManager():stopWeatherAndThunder()
     for _,id in ipairs({3,5,8}) do
@@ -27,13 +26,15 @@ Events.OnTick.Add(function()
     photoTicks=photoTicks+1
     local zombies=getCell():getZombieList()
     for i=zombies:size()-1,0,-1 do zombies:get(i):removeFromWorld() end
-    for x=10610,10645 do
-        for y=10640,10675 do
+    for x=PZ_TEST_SPAWN.x-15,PZ_TEST_SPAWN.x+15 do
+        for y=PZ_TEST_SPAWN.y-15,PZ_TEST_SPAWN.y+15 do
             local square=getCell():getGridSquare(x,y,0)
             if square then square:setIsSeen(0,true) end
         end
     end
     if photoTicks==100 then
+        assert(p:getSquare():getRoom(),'Photo actor did not spawn inside a home')
+        p:faceLocation(PZ_TEST_SPAWN.x+1,PZ_TEST_SPAWN.y+1)
         getPlayerInfoPanel(0):setVisible(false)
         ISUIHandler.setVisibleAllUI(false)
     end

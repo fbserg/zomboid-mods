@@ -44,6 +44,16 @@ public final class FocusAgent {
                     int[] suppressed = {0};
                     var transform = ClassTransform.transformingMethodBodies((builder, element) -> {
                         if (element instanceof InvokeInstruction call && call.owner().asInternalName().equals("org/lwjgl/glfw/GLFW")) {
+                            if (call.name().stringValue().equals("glfwInit")) {
+                                builder.loadConstant(GLFW.GLFW_COCOA_MENUBAR).iconst_0().invokestatic(
+                                    ClassDesc.of("org.lwjgl.glfw.GLFW"), "glfwInitHint", MethodTypeDesc.ofDescriptor("(II)V"));
+                            }
+                            if (call.name().stringValue().equals("glfwCreateWindow")) {
+                                for (int hint : new int[]{GLFW.GLFW_VISIBLE, GLFW.GLFW_FOCUSED, GLFW.GLFW_FOCUS_ON_SHOW}) {
+                                    builder.loadConstant(hint).iconst_0().invokestatic(ClassDesc.of("org.lwjgl.glfw.GLFW"),
+                                        "glfwWindowHint", MethodTypeDesc.ofDescriptor("(II)V"));
+                                }
+                            }
                             if (call.type().stringValue().equals("(J)V") &&
                                 (call.name().stringValue().equals("glfwFocusWindow") || call.name().stringValue().equals("glfwShowWindow"))) {
                                 builder.pop2(); suppressed[0]++; return;

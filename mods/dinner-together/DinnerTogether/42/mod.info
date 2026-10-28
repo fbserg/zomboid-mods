@@ -1,7 +1,7 @@
 name=Dinner Together
 id=DinnerTogether
 author=ModeratExtremist
-modversion=0.1.0
+modversion=0.1.1
 versionMin=42.21.0
 category=features
 url=https://github.com/fbserg/zomboid-mods/tree/main/mods/dinner-together

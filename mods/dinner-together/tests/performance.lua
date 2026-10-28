@@ -58,6 +58,7 @@ Events.OnTick.Add(function()
             local mod=samples(function() eat(wrapped) end)
             local baseline=(a.p95+b.p95)/2
             local noise=math.max(math.abs(a.p95-b.p95),1/32)
+            assert(noise<=(count==64 and 1 or 0.25),'Baseline is too noisy for its declared budget')
             local added=math.max(0,mod.p95-baseline)
             local limit=count==64 and 2 or 0.5
             assert(budget(added,limit),'Meal callback over budget at '..count..' players: '..added..' ms')

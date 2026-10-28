@@ -1,0 +1,35 @@
+{
+  "scene": "Existing furnished home at 10767,10634,0. Native kitchen/cupboards/fridge magnets, dining table/lamp. Server-provided clothing and food, controlled time/weather, warm native light and starting stats. Real two-client vanilla food actions and unchanged production notification. No extra furniture is spawned.",
+  "capture_snapshot": "ec6158b98fb27d741c0e9bc464e7aba230fac223",
+  "capture_receipt": "20261028T182128-4be7e83335e0",
+  "reviewed": "2026-10-28",
+  "art_sources": [
+    "workshop/art/dinner-avatar.png",
+    "workshop/art/good-company.png",
+    "workshop/art/good-company.jpg"
+  ],
+  "screenshots": [
+    "dinner-meal.jpg",
+    "dinner-company.jpg"
+  ],
+  "criteria": {
+    "feature_visible": true,
+    "scene_matches_benefit": true,
+    "no_clutter": true,
+    "text_readable": true,
+    "honest_staging": true
+  },
+  "notes": "Reviewed both full-size JPEGs, all posters and avatar at 128/268 pixels. Food action and real reward text visible. No foreground lines across the survivors. Generated art remains identified as illustration. Table/chairs are native scene props and optional. Earlier roadside/tiny-kitchen frames failed this brief.",
+  "files": {
+    "workshop/preview.png": "2db5b840da77febc07dcde02ff24a226ad1363622c147889f59a5fe86b795e82",
+    "workshop/art/dinner-avatar.png": "0a47b4e15abeb53ad00efddacd9e8f0b175b40455bd086761378ea253fa171db",
+    "workshop/art/good-company.png": "5f1d8fe6b81994c8fbba1e52db6faadfcd8038a34720a8de3bdc0102e739219f",
+    "workshop/art/good-company.jpg": "d614be3b53507ace8e010d5074e47c0264f02ff454027f5bf566a726cc4a7093",
+    "DinnerTogether/42/icon.png": "e35b104d774748b8537dcb05c8363499e004a451e6e73ace9d940800fa8300f7",
+    "DinnerTogether/42/poster.png": "de0418ea28168b7666444b122e9a531d9124779bd28a4f3af0916b2978683692",
+    "DinnerTogether/42/poster_1.png": "8ea5747a4a3391e4043c3514f711bc1ebbfdbec6938b4d74161caf1dd2fbfe4e",
+    "DinnerTogether/42/poster_2.png": "c1582e43a602f060799680214e13c455bc05a7fec737ea8afdc7fa8be8094f71",
+    "workshop/screenshots/dinner-meal.jpg": "808ef7fc60cd15d96a02c161beac15b2a81893462c2524880f8f7ba94d4aaef5",
+    "workshop/screenshots/dinner-company.jpg": "3f36ccae0c20f01c6865893d284753e0f8f66399e7897f2e5b781de91db419a7"
+  }
+}

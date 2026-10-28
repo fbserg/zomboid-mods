@@ -1,5 +1,21 @@
 # Release verification
 
+## 0.1.1 quality and home captures
+
+The complete required check command passed on 2026-10-28. Exact receipts, executor hosts, snapshot commits/trees, measured performance and coverage limits are in [the evidence bundle](../../docs/evidence/dinner-together-0.1.1/README.md), [qualification.json](../../docs/evidence/dinner-together-0.1.1/qualification.json) and [performance.json](../../docs/evidence/dinner-together-0.1.1/performance.json).
+
+- Portable Dinner rules: 12 pass on sublet. The complete four-mod portable run passed 97 tests, and six check-runner evidence guards passed on sublet.
+- Installed-build static/API compilation: pass with two discriminating negative controls.
+- Native behavior: six scenarios including a full server save and process restart pass on SERGBOOK.local.
+- Multiplayer: two real clients, two rounds, a fresh Beth process/reconnect, forged command rejection, real food completion, world/stat agreement, exactly two total production notifications and preserved cooldowns pass on SERGBOOK.local.
+- Performance: added p95 batch mean is within timer noise at two native actors, 0.0625 ms at 16, and 0.21875 ms at 64. Budgets are 0.5/0.5/2 ms. Retained whole-JVM heap after 10,000 cooldown meals was 140.77 KiB, below 16 MiB. Zero notifications. The slow callback and native object leak negative controls both passed. Synthetic scaling actors are not network clients.
+- Every monitored game window stayed invisible/unfocused by native attributes and the owned-PID macOS audit. Both native guard negative controls passed without showing a window. Real game screenshots still render.
+- The runtime-only package, native Workshop validation and hash-backed visual review passed. The two new home photos show ordinary queued food actions and real reward text in an existing furnished kitchen. The avatar and lead illustration remain unchanged. No furniture is required or added by the mod.
+
+Runtime Lua and translation are byte-identical to 0.1.0. The release changes metadata and the two game posters. Physical split-screen controller UI flow and arbitrary mod-list compatibility remain unverified. One earlier MP qualification attempt failed before the client fixture safeguards/traces were aligned. It is not counted as a pass.
+
+## 0.1.0 historical verification
+
 Build 42.21.0, revision 4a0e9546ec. Runtime Lua is byte-identical to the original tested prototype. No dependencies.
 
 ## Consolidated repository checks
