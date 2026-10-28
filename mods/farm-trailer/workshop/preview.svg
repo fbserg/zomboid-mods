@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256">
+<rect width="256" height="256" rx="12" fill="#102b25"/>
+<circle cx="211" cy="44" r="17" fill="#e5bb64"/>
+<g stroke="#e5bb64" stroke-width="2"><path d="M211 18v-6m0 58v6m26-32h6m-58 0h-6m14-18-4-4m40 40 4 4m-40-4-4 4m40-40 4-4"/></g>
+<text x="20" y="39" fill="#a9cdb5" font-family="Helvetica,Arial,sans-serif" font-size="10" font-weight="700" letter-spacing="2">RV INTERIOR ADD-ON</text>
+<text x="18" y="82" fill="#fff3d6" font-family="Helvetica,Arial,sans-serif" font-size="41" font-weight="900">FARM</text>
+<text x="19" y="116" fill="#fff3d6" font-family="Helvetica,Arial,sans-serif" font-size="32" font-weight="900">TRAILER</text>
+<path d="M29 160l120-29 79 39-120 29z" fill="#446c42" stroke="#a9cdb5" stroke-width="2"/>
+<g stroke="#d4b46e" stroke-width="2" fill="none"><path d="M29 160v-17l120-29 79 39v17M149 131v-17M108 199v-17l120-29M29 143l79 39"/>
+<path d="M49 155v-17m22 12v-17m22 12v-17m22 12v-17m22 12v-17m-7 75v-17m22 12v-17m22 12v-17m22 12v-17"/></g>
+<g stroke="#b3df86" stroke-width="2.5" fill="none"><path d="M64 164v-13m-7 2 7 4 7-7m15 9v-13m-7 2 7 4 7-7m15 9v-13m-7 2 7 4 7-7m15 9v-13m-7 2 7 4 7-7"/></g>
+<rect x="20" y="222" width="216" height="1" fill="#517a66"/>
+<text x="20" y="243" fill="#fff3d6" font-family="Helvetica,Arial,sans-serif" font-size="10" font-weight="700" letter-spacing="1">12 × 40 · OPEN SKY · BUILD 42</text>
+</svg>

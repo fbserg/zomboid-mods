@@ -1,5 +1,21 @@
 name=Farm Trailer
 id=FarmTrailer
 require=\PROJECTRVInterior42,\KI5trailers
-description=Persistent open-sky farm trailer.
+description=Turn KI5's livestock trailer into a 12 x 40 outdoor farm you can tow. Grow crops, keep animals and build a little homestead inside. <LINE> <LINE> 
+description=Each trailer gets its own persistent plot with soil, wooden walls and two empty water collectors, 800 L total. No roof. Weather, seasons and animal care apply. <LINE> <LINE> 
+description=<H2> Get in <LINE> <TEXT> 
+description=Load map_distanciado before Muldraugh, KY in the world's map list. Stand beside an unlocked KI5 livestock trailer and choose the RV Interior entry in the vehicle radial. Inside, right-click the ground to leave. <LINE> <LINE> 
+description=<H2> Water and animals <LINE> <TEXT> 
+description=- To pump from a river or lake, carry a Rubber Hose, hitch the trailer to a vehicle with a charged battery, park within six tiles of the water and choose Fill farm tanks. <LINE> 
+description=- Load an animal into the trailer, then choose Bring livestock into farm in the vehicle radial. <LINE> <LINE> 
+description=Needs Project RV Interior, Trailers! and that DAMN Library. Works in multiplayer.
+author=ModeratExtremist
+modversion=1.0
+url=https://steamcommunity.com/sharedfiles/filedetails/?id=3826535986
+category=vehicle
+poster=poster.png
+poster=poster_1.png
+poster=poster_2.png
+poster=poster_3.png
+icon=icon.png
 versionMin=42.21.0

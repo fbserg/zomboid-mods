@@ -1,0 +1,597 @@
+{
+  "recorded_game_version": "42.21.0",
+  "source_log": "Logs/logs_2026-10-24_00-29/2026-10-23_22-20_DebugLog.txt",
+  "source_log_sha256": "979518ce308addf08c9c0f3d46eda651dbf15ce348f52a8ce4799d692f3de768",
+  "scope": "83 active mod IDs from the last successful multiplayer session, using the currently installed Workshop copies. Live remote server settings and version are not queried.",
+  "maps": [
+    "map_distanciado",
+    "Muldraugh, KY"
+  ],
+  "mods": [
+    {
+      "id": "PROJECTRVInterior42",
+      "workshop": "3543229299",
+      "folder": "modPROJECTRVInterior",
+      "info": "42/mod.info",
+      "info_sha256": "f2b18d6081aa061599efa2523ed73a544160feeb2e87275074cd839465865aee",
+      "content_sha256": "cac5c103c732927517440355e659feafcd724788a362ba27e2b3bb4b9446ad99"
+    },
+    {
+      "id": "StarlitLibrary",
+      "workshop": "3378285185",
+      "folder": "StarlitLibrary",
+      "info": "mod.info",
+      "info_sha256": "8796f517066c7828bf68e5c22ab730f115775bec88f1cf1e8956139dc2fbdaf8"
+    },
+    {
+      "id": "damnlib",
+      "workshop": "3171167894",
+      "folder": "damnlib",
+      "info": "mod.info",
+      "info_sha256": "9434b829f8f98e9fcacc075bd518b1844077a0163c20c0dcfced4dd858c6b13f",
+      "content_sha256": "1f1781a4ee8b0f2c406276af0ecf6f8ad3f846909fa02462c9379b01d2658064"
+    },
+    {
+      "id": "ProximityInventory",
+      "workshop": "2847184718",
+      "folder": "ProximityInventory",
+      "info": "mod.info",
+      "info_sha256": "47635af13b1188bdfd3f03b4cde52b57d5c1b8a2b2bd07acc07cd096769cc91a"
+    },
+    {
+      "id": "CVI",
+      "workshop": "3749026793",
+      "folder": "CarriableItems",
+      "info": "common/mod.info",
+      "info_sha256": "f5281bdcaf1ce9856a847506d0e5d141f8139d4f02b3c1742f099726598ac65c"
+    },
+    {
+      "id": "GasPumpIndicator",
+      "workshop": "3755993986",
+      "folder": "GasPumpIndicator",
+      "info": "mod.info",
+      "info_sha256": "3360c11a84c1323bcdb70558e39e7a01d78a07b22dc7ac9a8e481704ac57167a"
+    },
+    {
+      "id": "KI5trailers",
+      "workshop": "3330403100",
+      "folder": "KI5trailers",
+      "info": "mod.info",
+      "info_sha256": "f33de36b2f55b6273f2c262963a4259476e335efecc6b51fa2d79ba1c0fa2a57",
+      "content_sha256": "9da56a9f6e31560016d983b8833c77a315d361159690e2eabec1da2c60106bbd"
+    },
+    {
+      "id": "zdk",
+      "workshop": "3690770492",
+      "folder": "zdk",
+      "info": "common/mod.info",
+      "info_sha256": "881ec2bfabfad2853ca955c7938376abc5741c27eb407363d212f378f8d2385d"
+    },
+    {
+      "id": "PK42Psychopath",
+      "workshop": "3736555309",
+      "folder": "PsychoKiller42",
+      "info": "42/mod.info",
+      "info_sha256": "5fc604525761fe8faa8e2eb93d85c0ee1914019b046030d6674b52ef4b3b0629"
+    },
+    {
+      "id": "alicesWeaponSling",
+      "workshop": "3775549570",
+      "folder": "alicesWeaponSling",
+      "info": "42/mod.info",
+      "info_sha256": "b1f774ae33c543d140468a7ac127116e46e083d64398ccedffac70396202b381"
+    },
+    {
+      "id": "AutomaticStoveShutoff",
+      "workshop": "3526968739",
+      "folder": "Automatic Stove Shutoff",
+      "info": "mod.info",
+      "info_sha256": "417bdd5f8a9adad9a964d9714f1ab238b3c9f24dfc12dc9447e034581723bf1b"
+    },
+    {
+      "id": "NeatUI_Framework",
+      "workshop": "3508537032",
+      "folder": "NeatUI_Framework",
+      "info": "42/mod.info",
+      "info_sha256": "cdffbb4dc6c91716bbd8ec43dc347e4619b9cbd580ba0c1808400373c285cd05"
+    },
+    {
+      "id": "CleanUI",
+      "workshop": "3437629766",
+      "folder": "CleanUI",
+      "info": "42.14/mod.info",
+      "info_sha256": "cc57b0d4dbc6315a5cdd8d604ee2bf49c2773be7f72e0a98024fa87332deeae9"
+    },
+    {
+      "id": "CleanHotBar",
+      "workshop": "3461263912",
+      "folder": "CleanHotBar",
+      "info": "42.15/mod.info",
+      "info_sha256": "61374946ad31163af32ab51bc5bdcddb20833f227690685ecdec87be9e9fa9ce"
+    },
+    {
+      "id": "ModernStatus",
+      "workshop": "3451167732",
+      "folder": "MS",
+      "info": "42.13/mod.info",
+      "info_sha256": "2ba0a60f6c1ac354680050748ce407ef878eaf2ec030df5d0e206c2a4eeaa851"
+    },
+    {
+      "id": "Neat_Crafting",
+      "workshop": "3502080466",
+      "folder": "Neat_Crafting",
+      "info": "42.13/mod.info",
+      "info_sha256": "427e0075a3279539ed960c44b8290f28ed38087ed802252b1faea297b96d0233"
+    },
+    {
+      "id": "OCDInventory",
+      "workshop": "3773985930",
+      "folder": "OCDInventory",
+      "info": "42/mod.info",
+      "info_sha256": "eecb28aa98e18356702cd589eca3826e3faed07d6eb1f09d888ddbafc6057c6a"
+    },
+    {
+      "id": "TheShortcut",
+      "workshop": "3470659758",
+      "folder": "TheShortcut",
+      "info": "42.14/mod.info",
+      "info_sha256": "4a13c741eb94c002e296ecc8340641fc147db253b2dccf9d4d268504f356fa23"
+    },
+    {
+      "id": "CyesPushDoors",
+      "workshop": "3780683663",
+      "folder": "CyesPushDoors",
+      "info": "mod.info",
+      "info_sha256": "b28321479e093e7317c515e72c583d26d19be853dc89d8bb33a065ad4ebfb8e6"
+    },
+    {
+      "id": "deathmarker",
+      "workshop": "3727968998",
+      "folder": "deathmarker",
+      "info": "mod.info",
+      "info_sha256": "23ba39fd762df83b086cfda4b182cc0f90e39d0b1e50c4181d88f266c687c1f0"
+    },
+    {
+      "id": "TrippingZombies",
+      "workshop": "3746603021",
+      "folder": "TrippingZombies",
+      "info": "mod.info",
+      "info_sha256": "37d84c4344869286e1ca32c53a7e46b127edc1a8d16882bf22e87d8887433c0e"
+    },
+    {
+      "id": "69fordMustang",
+      "workshop": "3756938756",
+      "folder": "69fordMustang",
+      "info": "mod.info",
+      "info_sha256": "6981456309e2bea5f746fc55e7a8de21d4366094df3f8015a383cbddf70495c8"
+    },
+    {
+      "id": "69fordMustangExtra",
+      "workshop": "3756938756",
+      "folder": "69fordMustangExtra",
+      "info": "mod.info",
+      "info_sha256": "86beb32c23076f943500012f01c92cfc17315c9d73f04b19bc0cc51bad56d32f"
+    },
+    {
+      "id": "VB_CommonSense",
+      "workshop": "3750253491",
+      "folder": "CommonSense",
+      "info": "common/mod.info",
+      "info_sha256": "88f6732aa9bfec2b1981325974b1a65e4a2d32eaafc95fe186c22ca30e6da7b3"
+    },
+    {
+      "id": "VanillaVehiclesAnimated",
+      "workshop": "3281755175",
+      "folder": "VanillaVehiclesAnimated",
+      "info": "mod.info",
+      "info_sha256": "6a9d8e3d7b9594d3d6e09f9f4e236674040a6e5e87c189094f1d67d1754a11c8"
+    },
+    {
+      "id": "VVA_transparentWindows",
+      "workshop": "3281755175",
+      "folder": "VVA - TransparentWindow",
+      "info": "mod.info",
+      "info_sha256": "c1349bece5e7d153a9a846a02eb49f4f47fe93fe909cc7fbee3b8b44510f597c"
+    },
+    {
+      "id": "VASinked",
+      "workshop": "3685499657",
+      "folder": "VASinked",
+      "info": "mod.info",
+      "info_sha256": "60df3e087733b65527f97efef781160ea1be9a20a5b80415f47f0856f3ec4b74"
+    },
+    {
+      "id": "AutoShareMapNotes",
+      "workshop": "3635999559",
+      "folder": "AutoShareMapNotes",
+      "info": "mod.info",
+      "info_sha256": "02916113614e1609b937f7c633e0628d47bd5bbece061c9141377297e10c5217"
+    },
+    {
+      "id": "ArcadiaRefillablePropaneTanks_B42",
+      "workshop": "3786849936",
+      "folder": "ArcadiaRefillablePropaneTanks_B42",
+      "info": "mod.info",
+      "info_sha256": "ad5c2f0df874b8c0b17ef6f0d04b19dc4ec87e462911c71960e09b509c7e08ba"
+    },
+    {
+      "id": "RealisticNudeBody",
+      "workshop": "3780393505",
+      "folder": "RealisticNudeBody",
+      "info": "42/mod.info",
+      "info_sha256": "6b17e9d2d4c847b4c6752ebf803a9cd26d4e8c92b60a23eec74472f92173d0eb"
+    },
+    {
+      "id": "ProjectExile",
+      "workshop": "3790259769",
+      "folder": "ProjectExile",
+      "info": "mod.info",
+      "info_sha256": "0f589cb2d93c963dfc4ecdcfe9d46204afc56e447cf14477e44c117240266995"
+    },
+    {
+      "id": "CompanionDogs",
+      "workshop": "3740052292",
+      "folder": "CompanionDogs",
+      "info": "42/mod.info",
+      "info_sha256": "02b335fe7e071beba8a2703cffa7591170b3e0283ac2493b140274ee26cb9c1b"
+    },
+    {
+      "id": "CAExtendedCategories",
+      "workshop": "3650035249",
+      "folder": "CAExtendedCategories",
+      "info": "42/mod.info",
+      "info_sha256": "0c9cd8d2cdd78704a056916597d93cf441c6b140324174a4ef9628990d8d5570"
+    },
+    {
+      "id": "CompanionDogsRottweiler",
+      "workshop": "3762296152",
+      "folder": "CompanionDogsRottweiler",
+      "info": "42/mod.info",
+      "info_sha256": "63e852b9d95d8bce238969fce908e43ed413e273d93c3299a9a6ada2a848785a"
+    },
+    {
+      "id": "Neat_Rocco",
+      "workshop": "3723726293",
+      "folder": "Neat_Rocco",
+      "info": "42/mod.info",
+      "info_sha256": "100139968b20a8997ec4fa8c5254647ec908aea020d5759c7aa504624ac36953"
+    },
+    {
+      "id": "AnimalsNoThumping",
+      "workshop": "3797596092",
+      "folder": "AnimalsNoThumping",
+      "info": "42/mod.info",
+      "info_sha256": "2479faebcec0fbb6dc1b841552643cf56e85991d186e79a11ff8ab562ed21a70"
+    },
+    {
+      "id": "ForestWildlifeDensity",
+      "workshop": "3799499804",
+      "folder": "ForestWildlifeDensity",
+      "info": "mod.info",
+      "info_sha256": "0367e295a01e92b2c0332d32372b8c4a9f82e28c3328fb04c3719ca5270c6b1c"
+    },
+    {
+      "id": "SeedSeasonIndicator",
+      "workshop": "3734639991",
+      "folder": "SeedSeasonIndicator",
+      "info": "mod.info",
+      "info_sha256": "6f9570370eeb8bcff0a680475dad513994f59a553757a21225bcec426c8b4fb3"
+    },
+    {
+      "id": "HeartHealthMeter",
+      "workshop": "3805849470",
+      "folder": "HeartHealthMeter",
+      "info": "42/mod.info",
+      "info_sha256": "5c4d9f36eea421e59cd38936d18f7930e06cf360827a2f481d8e266df7a73354"
+    },
+    {
+      "id": "MoreDamagedObjects",
+      "workshop": "3413150945",
+      "folder": "MoreDamagedObjects",
+      "info": "mod.info",
+      "info_sha256": "be66c503051a27fc9a8e8a782f8fb5e81f765656d4bac5d27649a51e94abb874"
+    },
+    {
+      "id": "PFHDTrueCargo",
+      "workshop": "3806955469",
+      "folder": "PFHDTrueCargo",
+      "info": "mod.info",
+      "info_sha256": "08e7711e6c4b8ab205e23c59bab828b0b0e2f41ff464513c9d74ff58f8a0931c"
+    },
+    {
+      "id": "63beetle",
+      "workshop": "3005903549",
+      "folder": "63beetle",
+      "info": "mod.info",
+      "info_sha256": "4594a3885c9674ef76003033019f48a3a60fbeaf4cdbb589a457458336f07eba"
+    },
+    {
+      "id": "63Type2Van",
+      "workshop": "3041122351",
+      "folder": "63Type2Van",
+      "info": "mod.info",
+      "info_sha256": "5ef8f24f5843067c5fee937eadcb9e5d813703bd1c2f86efe03cc6ff98e0cc83"
+    },
+    {
+      "id": "67gt500",
+      "workshop": "3026723485",
+      "folder": "67gt500",
+      "info": "mod.info",
+      "info_sha256": "a7251645396151caac0411e75c5a8bd9982c924bfdaf787288dc632592721a9f"
+    },
+    {
+      "id": "69mini",
+      "workshop": "2937786633",
+      "folder": "69mini",
+      "info": "mod.info",
+      "info_sha256": "d00922b22d0d418427995962331092789486cb7287330ed03115ed970588b889"
+    },
+    {
+      "id": "69mini_ItalianJob",
+      "workshop": "2937786633",
+      "folder": "69mini_ItalianJob",
+      "info": "mod.info",
+      "info_sha256": "839861675c089dedcfa6cd7ee983ed9d8adfc1dd627dc12bdf47453c1bc5c697"
+    },
+    {
+      "id": "69mini_MrBean",
+      "workshop": "2937786633",
+      "folder": "69mini_MrBean",
+      "info": "mod.info",
+      "info_sha256": "b96d093deeabc6dd38774b7128aa89166c362eb5994130108483af8d5b143948"
+    },
+    {
+      "id": "69mini_PitbullSpecial",
+      "workshop": "2937786633",
+      "folder": "69mini_PitbullSpecial",
+      "info": "mod.info",
+      "info_sha256": "ab69268803b350de957db35c9a7dbd213f4dfae50f0ea300358804666e1e0111"
+    },
+    {
+      "id": "82porsche911",
+      "workshop": "3379334330",
+      "folder": "82porsche911",
+      "info": "mod.info",
+      "info_sha256": "d483cc9034cbc379fd3cc162c8669ae6204fda1802b2cd4d354aa6fd012e2081"
+    },
+    {
+      "id": "83gmcGseriesVans",
+      "workshop": "3799732653",
+      "folder": "83gmcGseriesVans",
+      "info": "mod.info",
+      "info_sha256": "8e23ccb432d97364c7e44f4098963881aa55800016ba6922cbae78b6cae547f7"
+    },
+    {
+      "id": "83gmcVanduraATeam",
+      "workshop": "3799732653",
+      "folder": "83gmcVanduraATeam",
+      "info": "mod.info",
+      "info_sha256": "26e11d84c3f198df6f4233f8c1a559c22bf67530e78ae22196e2e79949912489"
+    },
+    {
+      "id": "86oshkoshP19A",
+      "workshop": "2566953935",
+      "folder": "86oshkoshP19A",
+      "info": "mod.info",
+      "info_sha256": "b0cb32f99c8c7d474b6ba8a03366f9e4abbfd2fdd8b4ca03a2e7c82c3c1b9908"
+    },
+    {
+      "id": "87fordB700",
+      "workshop": "3110911330",
+      "folder": "87fordB700",
+      "info": "mod.info",
+      "info_sha256": "c64ecc34bea60c0ca0683e22e148d7c507f0b1b0467be7f1e8cca91515d379be"
+    },
+    {
+      "id": "87toyotaMR2",
+      "workshop": "3052360250",
+      "folder": "87toyotaMR2",
+      "info": "mod.info",
+      "info_sha256": "f22aa87810c1dc0d64e039d6803be2614bf0f27b08db57c0cb8150677c030350"
+    },
+    {
+      "id": "93townCar",
+      "workshop": "2932547723",
+      "folder": "93townCar",
+      "info": "mod.info",
+      "info_sha256": "cd454e3fb50d046101bafe2c91b473cf0cc463bb4918a94ba1d356b59e3201f0"
+    },
+    {
+      "id": "CoopModSync",
+      "workshop": "3792210060",
+      "folder": "CoopModSync",
+      "info": "42/mod.info",
+      "info_sha256": "a4b56275fdd4d5b2586a4d0d4bd39d47bad093219ef6fc143ebaf103da5b85cc"
+    },
+    {
+      "id": "isoContainers",
+      "workshop": "2625625421",
+      "folder": "isoContainers",
+      "info": "mod.info",
+      "info_sha256": "8410e1750c6024530b81a7991238c68017982cf074f4d9cf32395f0454fc6a21"
+    },
+    {
+      "id": "CurlUp",
+      "workshop": "3805221815",
+      "folder": "CurlUp",
+      "info": "42/mod.info",
+      "info_sha256": "5dc2470393782ad385d9318505d5a85896752784105c6a732b0e90d4505a6bee"
+    },
+    {
+      "id": "ElPezuAutoCleanHenhouse",
+      "workshop": "3809594681",
+      "folder": "ElPezuAutoCleanHenhouse",
+      "info": "mod.info",
+      "info_sha256": "70c09e96e49c00e711667c1e98e406947f0fb451d4aef9d58a66bd63a9ddd67a"
+    },
+    {
+      "id": "ETO_B",
+      "workshop": "3119788162",
+      "folder": "Every Texture Optimized",
+      "info": "42/mod.info",
+      "info_sha256": "8dc96e5ace72dea0f50fb3505e4e8a21c42ea9069ec432ce03d0678379024fcc"
+    },
+    {
+      "id": "FoggyBreath",
+      "workshop": "3799314878",
+      "folder": "foggybreath",
+      "info": "mod.info",
+      "info_sha256": "1eb6b913a547020f3c824ede2c97bbf610be84b5bab15dd66a76ec319062fb92"
+    },
+    {
+      "id": "HugThePlushie",
+      "workshop": "3807099610",
+      "folder": "HugThePlushie",
+      "info": "42/mod.info",
+      "info_sha256": "55f1773bdb014f6639d9d661d0e443dfd6fea0528ea56b7e9a3fae3011e5931e"
+    },
+    {
+      "id": "KentuckyCannabis",
+      "workshop": "3806443105",
+      "folder": "KentuckyCannabis",
+      "info": "42/mod.info",
+      "info_sha256": "46b8ad857a01ea1e35b3d18b17bcbea4d4affda0475ecd46469484e7b1e89d02"
+    },
+    {
+      "id": "lockMartM577",
+      "workshop": "3652371248",
+      "folder": "lockMartM577",
+      "info": "mod.info",
+      "info_sha256": "53015b595179c9027bc1fe3b1543037c82b9432af599373b0a5a9405f31a4c12"
+    },
+    {
+      "id": "CraftRubberStrips",
+      "workshop": "3799236429",
+      "folder": "Craft Rubber Strips",
+      "info": "42.20/mod.info",
+      "info_sha256": "263a56cf15c48b74301894ee3a94198a1818dc40991dcbc20f406a6822995d78"
+    },
+    {
+      "id": "RoosterCrow",
+      "workshop": "3808848579",
+      "folder": "RoosterCrow",
+      "info": "mod.info",
+      "info_sha256": "e7d14988cf625f09cc6316b1b5a81e5ea4009a7994777ea4083aa2d326965398"
+    },
+    {
+      "id": "SmartAnimalWaste",
+      "workshop": "3808507911",
+      "folder": "SmartAnimalWaste",
+      "info": "42/mod.info",
+      "info_sha256": "3b70e147d55c770786837fb3e0a3f14912e995c26ed2ed247053c329a1bded46"
+    },
+    {
+      "id": "SurvivorBriefing",
+      "workshop": "3808944882",
+      "folder": "SurvivorBriefing",
+      "info": "common/mod.info",
+      "info_sha256": "d0cc575e95a71de86474e44822ec6195bf50f6c68afda2352114f65d4b6bb919"
+    },
+    {
+      "id": "AttachmentsUI",
+      "workshop": "3816324722",
+      "folder": "AttachmentsUI",
+      "info": "42/mod.info",
+      "info_sha256": "a18a16fea3c5a06ac166777776e513a78d413f63eede17c50a026cc5eac13cb1"
+    },
+    {
+      "id": "WeaponModifiersFrameworkB42",
+      "workshop": "3781966719",
+      "folder": "WeaponModifiersB42-Framework",
+      "info": "42.20/mod.info",
+      "info_sha256": "0eb0011f45c6fd411c81d43bc544af2073e5274fb1b272f04d578ebb6fcb5177"
+    },
+    {
+      "id": "WeaponModifiersExtensiveB42",
+      "workshop": "3781966719",
+      "folder": "WeaponModifiersB42-Extensive",
+      "info": "42.20/mod.info",
+      "info_sha256": "74d218ff434e339b7e7e4bf5bc4269e612ba102e047a5c55eccd649f5a55f91b"
+    },
+    {
+      "id": "RainWashLKC",
+      "workshop": "3813773958",
+      "folder": "RainWashLKC",
+      "info": "42/mod.info",
+      "info_sha256": "6392188d4b93107e3346ed1ac5ab34f81f2ce9829d9d3fa4314dab3fdca7e8ec"
+    },
+    {
+      "id": "ExerciseWithCorpses",
+      "workshop": "3404074048",
+      "folder": "ExerciseWithCorpses",
+      "info": "mod.info",
+      "info_sha256": "af996908bd6c3667c5a1e60245e3d977f9a8b14140b7bdc4f9bcd44943ef38a9"
+    },
+    {
+      "id": "GetInTheDamnCar",
+      "workshop": "3802614552",
+      "folder": "GetInTheDamnCar",
+      "info": "42.20/mod.info",
+      "info_sha256": "dec22fad230617c08016510cce8258bd18e472a74ffe273f308ad6a0ca3a4f5e"
+    },
+    {
+      "id": "RadArchery",
+      "workshop": "3775407541",
+      "folder": "RadArchery",
+      "info": "mod.info",
+      "info_sha256": "c22d2b197ce39e8bbb008e58a45cf00411e68678c683a5c03c179d10f911bb95"
+    },
+    {
+      "id": "TheOnlyCurePlus",
+      "workshop": "3818733381",
+      "folder": "TheOnlyCurePlus",
+      "info": "mod.info",
+      "info_sha256": "22c9157aaee74b9c7e17c1b36c8f2c16f34a6274a04bb5fe7ce294ac2c24995e"
+    },
+    {
+      "id": "TilterLab",
+      "workshop": "3817268210",
+      "folder": "TilterLab",
+      "info": "42/mod.info",
+      "info_sha256": "c41fe71fbdae24d4b9ef8d35bcd68a82c080f67dcdda7c2f20e54d65c389cd89"
+    },
+    {
+      "id": "50PercentFasterZombieHitReactionsB42",
+      "workshop": "3417772889",
+      "folder": "50PercentFasterZombieHitReactionsB42",
+      "info": "mod.info",
+      "info_sha256": "9de9a961f4ad6bc839b2eb7bcbb0c59d7296c58c328bfebb8b1d4565050def35"
+    },
+    {
+      "id": "DBFaster50",
+      "workshop": "3393821407",
+      "folder": "DragBodiesFaster 50%",
+      "info": "42/mod.info",
+      "info_sha256": "4cd1c9cc5c8df8dd7696c6a16c5d9b0d0b4387356ead3e108c7061cbffa87917"
+    },
+    {
+      "id": "NeverDraggedDown",
+      "workshop": "3800937913",
+      "folder": "NeverDraggedDown",
+      "info": "mod.info",
+      "info_sha256": "6e91faae2ac762e3bd9d04357f32c386d4c2720c7434e8088b42a67509707d3a"
+    },
+    {
+      "id": "WeaponModifiersReforgeB42",
+      "workshop": "3781966719",
+      "folder": "WeaponModifiersB42-Reforge",
+      "info": "42.20/mod.info",
+      "info_sha256": "2f8c6a066b092c35a9e299f85f025b9d664e3197594a15d7bf93e2c0d17fbf68"
+    },
+    {
+      "id": "TotalWeightRebalance",
+      "workshop": "3786993262",
+      "folder": "TotalWeightRebalance",
+      "info": "42/mod.info",
+      "info_sha256": "4bbc3bb472b2e3340d380ff61ea9d68d72321a04493292dd62edab0813671096"
+    },
+    {
+      "id": "Tempo_PerfKit",
+      "workshop": "3736629791",
+      "folder": "Tempo_PerfKit",
+      "info": "42/mod.info",
+      "info_sha256": "fd8a7bd553c095fcbf1f42d3966fc6ee07a8bb9bc9dbe01d4c370e5ce901fdc0"
+    }
+  ],
+  "dependency_review_date": "2026-10-26"
+}

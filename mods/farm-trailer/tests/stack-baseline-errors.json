@@ -1,0 +1,111 @@
+{
+  "farm_trailer_enabled": false,
+  "native_error_lines": [
+    "AngelCodeFont failed to load page 0 texture <game>/media/mainfont_0.png",
+    "AngelCodeFont failed to load page 0 texture <game>/media/mainfont2_0.png",
+    "AngelCodeFont failed to load page 0 texture <game>/media/fonts/zomboidDialogue.bmfc_0.png",
+    "AngelCodeFont failed to load page 0 texture <game>/media/mainfont_0.png",
+    "AngelCodeFont failed to load page 0 texture <game>/media/mainfont2_0.png",
+    "AngelCodeFont failed to load page 0 texture <game>/media/fonts/zomboidDialogue.bmfc_0.png",
+    "Sanitizing container name 'Large Bucket', name may not contain whitespaces.",
+    "Sanitizing container name 'Fuel Pump', name may not contain whitespaces.",
+    "Sanitizing container name 'Large Bucket', name may not contain whitespaces.",
+    "Sanitizing container name 'Irrigation Barrel', name may not contain whitespaces.",
+    "Sanitizing container name 'Fuel Pump', name may not contain whitespaces.",
+    "Sanitizing container name 'Irrigation Barrel', name may not contain whitespaces.",
+    "Sanitizing container name 'Hydroponic Reservoir', name may not contain whitespaces.",
+    "AngelCodeFont failed to load page 0 texture <game>/media/fonts/zomboidDialogue.bmfc_0.png",
+    "dumping Lua stack trace",
+    "Lua(Vanilla).addModOptionsPanel> Exception thrown",
+    "dumping Lua stack trace",
+    "Lua(Vanilla).addModOptionsPanel> Exception thrown",
+    "dumping Lua stack trace",
+    "Lua(Vanilla).addModOptionsPanel> Exception thrown",
+    "dumping Lua stack trace",
+    "Lua(Vanilla).addModOptionsPanel> Exception thrown",
+    "dumping Lua stack trace",
+    "Lua(Vanilla).addModOptionsPanel> Exception thrown",
+    "dumping Lua stack trace",
+    "Lua(Vanilla).addModOptionsPanel> Exception thrown",
+    "dumping Lua stack trace",
+    "Lua(Vanilla).addModOptionsPanel> Exception thrown",
+    "dumping Lua stack trace",
+    "Lua(Vanilla).addModOptionsPanel> Exception thrown",
+    "dumping Lua stack trace",
+    "Lua(Vanilla).addModOptionsPanel> Exception thrown",
+    "dumping Lua stack trace",
+    "Lua(Vanilla).addModOptionsPanel> Exception thrown",
+    "CraftRecipeComponentScript: Recipe Piano missing UiConfigScript - falling back to SpriteConfigScript first world object face for recipe icon.",
+    "ERROR: Mannequin zone missing properties in media/maps/Muldraugh, KY/objects.lua coords: 13583, 1299, 0",
+    "duplicate RoomDef.metaID for room at 10707,9484,0",
+    "Could not find bone index for node name: \"Body\"",
+    "Could not find bone index for node name: \"Body\"",
+    "Could not find bone index for node name: \"Body\"",
+    "Could not find bone index for node name: \"HLPR-ChestTransform\"",
+    "Could not find bone index for node name: \"HLPR=RemapSpace\"",
+    "Could not find bone index for node name: \"Bip01_Prop1_end\"",
+    "Could not find bone index for node name: \"Bip01_Prop2_end\"",
+    "Could not find bone index for node name: \"Bip01_Root\"",
+    "Could not find bone index for node name: \"HLPR-ChestTransform\"",
+    "Could not find bone index for node name: \"HLPR=RemapSpace\"",
+    "Could not find bone index for node name: \"Bip01_Prop1_end\"",
+    "Could not find bone index for node name: \"Bip01_Prop2_end\"",
+    "Could not find bone index for node name: \"Bip01_Root\"",
+    "Could not find bone index for node name: \"HLPR-ChestTransform\"",
+    "Could not find bone index for node name: \"HLPR=RemapSpace\"",
+    "Could not find bone index for node name: \"Bip01_Prop1_end\"",
+    "Could not find bone index for node name: \"Bip01_Prop2_end\"",
+    "Could not find bone index for node name: \"Bip01_Root\"",
+    "Could not find bone index for node name: \"HLPR-ChestTransform\"",
+    "Could not find bone index for node name: \"HLPR=RemapSpace\"",
+    "Could not find bone index for node name: \"Bip01_Prop1_end\"",
+    "Could not find bone index for node name: \"Bip01_Prop2_end\"",
+    "Could not find bone index for node name: \"Bip01_Root\""
+  ],
+  "mod_lua_frames": [
+    [
+      "Survivor Briefing",
+      "onTick(Main.lua:199)"
+    ],
+    [
+      "Survivor Briefing",
+      "pcall(Main.lua:115)"
+    ],
+    [
+      "Survivor Briefing",
+      "pcall(Sound.lua:33)"
+    ],
+    [
+      "Survivor Briefing",
+      "pcall> Exception thrown"
+    ],
+    [
+      "Survivor Briefing",
+      "play(Sound.lua:32)"
+    ],
+    [
+      "Survivor Briefing",
+      "show(Card.lua:227)"
+    ],
+    [
+      "Survivor Briefing",
+      "show(Main.lua:108)"
+    ],
+    [
+      "Survivor Briefing",
+      "soundOut(Card.lua:234)"
+    ],
+    [
+      "Survivor Briefing",
+      "step(Main.lua:178)"
+    ],
+    [
+      "Survivor Briefing",
+      "update(Card.lua:271)"
+    ],
+    [
+      "Vanilla Vehicles Animated",
+      "Supra_functions_fix.lua> require(\"Vehicles/Supra_functions\") failed"
+    ]
+  ]
+}

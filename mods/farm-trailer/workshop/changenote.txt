@@ -1,0 +1,1 @@
+Fills in the in-game mod panel: description, author, version, link, category and screenshots. No gameplay changes.

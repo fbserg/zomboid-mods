@@ -81,3 +81,8 @@ HaloTextHelper.addBadText(player,text) is present in the installed Java class.
 
 Reopen if the parent provides a loaded-room hook or the engine offers fresh remote
 collector reads without loading their squares.
+
+
+## 2026-10-28: consolidated source
+
+The root DECISIONS.md supersedes the earlier separate-repository choice. Develop here. Keep the old Workshop item ID. The original repository remains intact as provenance.
