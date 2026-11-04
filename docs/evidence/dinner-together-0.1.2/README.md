@@ -69,3 +69,6 @@ stats and world state agreed. Exactly two production notifications were sent. Al
 one notification across both rounds and the reconnected Beth received no duplicate. All
 three client processes passed native visibility/focus guards and the owned-PID OS audit.
 The fixture asserted all seven downloaded runtime hashes before launch.
+
+The public GitHub release targets 48bf42f90ac388fe1282925423ed2171eb84bdbb. Its anonymously downloaded
+4,848,866-byte ZIP equals the qualified package byte for byte. See github-release.json.

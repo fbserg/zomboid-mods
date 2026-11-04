@@ -22,6 +22,8 @@ The downloaded runtime passed two real-client meal rounds plus a fresh Beth reco
 
 Qualified ZIP SHA-256: 0c2330493f5b05c8507ac13cc0ccfda5ed2be4cc384233f6ab156d7ccc59bad5.
 
+The [public GitHub 0.1.2 release](https://github.com/fbserg/zomboid-mods/releases/tag/dinner-together-v0.1.2) serves the qualified ZIP. Its anonymous 4,848,866-byte download matches byte for byte. See [github-release.json](../../docs/evidence/dinner-together-0.1.2/github-release.json).
+
 ## 0.1.1 quality and home captures
 
 The complete required check command passed on 2026-10-28. Exact receipts, executor hosts, snapshot commits/trees, measured performance and coverage limits are in [the evidence bundle](../../docs/evidence/dinner-together-0.1.1/README.md), [qualification.json](../../docs/evidence/dinner-together-0.1.1/qualification.json) and [performance.json](../../docs/evidence/dinner-together-0.1.1/performance.json).
