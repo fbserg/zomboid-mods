@@ -47,13 +47,12 @@ real clients completed both ordinary food rounds. Beth restarted/reconnected, wo
 agreed, exactly two production notifications were sent and the reconnect received no
 duplicate. All three client PIDs passed the native hidden-window guard and OS audit.
 
-The requested public update comment was submitted as ModeratExtremist on the exact Dinner
-Together item after downloaded-release verification. It describes the measured 18 MiB
-image reduction, prior cache fix, both IDs, restart advice and useful reproduction details.
-The authenticated author view contains the exact prepared body and comment ID
-571553910742929995. At submission the anonymous renderer shows Steam's automated content
-check notice rather than the body. This is pending review, not proof of public visibility.
-See update-comment.json for the final checked status and permalink. No duplicate was posted.
+The user requested a shorter, plain-language update. Steam rejected an in-place edit
+with "You are not allowed to edit this comment." The short replacement was posted as
+ModeratExtremist, verified in the author view, and only the previous own comment was removed.
+The new comment is 571553910742931412. It states the memory/image improvements, points to
+the description for setup and asks for bug reports/logs. The two original reader comments
+remain. See update-comment.json for exact text, the current permalink and review status.
 
 The public GitHub 0.1.3 release targets 1de7372128acba1aefd704e57dfa4f0cdc30c96a. Its anonymously
 downloaded 1,705,362-byte ZIP matches the qualified package byte for byte. See github-release.json.
