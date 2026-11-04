@@ -277,6 +277,11 @@
       "platform": "darwin",
       "shutdown_grace": 45
     },
+    "dinner-menu-memory": {
+      "command": ["python3", "tools/pz-test/native.py", "mods/dinner-together", "--memory"],
+      "platform": "darwin",
+      "shutdown_grace": 45
+    },
     "check-runner": {
       "command": [
         "python3",

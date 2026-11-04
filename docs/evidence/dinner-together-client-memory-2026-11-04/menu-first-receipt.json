@@ -1,0 +1,14 @@
+{
+  "id": "20261104T201339-8f5cfb669246",
+  "project": "zomboid-mods",
+  "source_commit": "fb98b36f3f7deca1c00e42a65a5c6844e8794f87",
+  "commit": "d3909b338fd8f52df717e5d8901675474b1a4713",
+  "tree": "00cbda36edb50604a26f20d7ba05376d892ae116",
+  "suite": "dinner-menu-memory",
+  "executor": "SERGBOOK.local",
+  "outcome": "passed",
+  "exit_code": 0,
+  "cleanup": true,
+  "seconds": 52.113,
+  "queue_seconds": 0.0
+}

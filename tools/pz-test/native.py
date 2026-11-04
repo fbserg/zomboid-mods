@@ -22,12 +22,15 @@ def main() -> None:
     parser.add_argument('mod', type=Path)
     parser.add_argument('--reconnect', action='store_true', help='Restart Beth between the two network rounds')
     parser.add_argument('--performance', action='store_true')
+    parser.add_argument('--memory', action='store_true', help='Profile menu assets and repeated panel visits in one hidden client')
     parser.add_argument('--multiplayer', action='store_true')
     parser.add_argument('--workshop', action='store_true', help='Verify and test the downloaded published runtime')
     parser.add_argument('--photos', action='store_true', help='Capture the multiplayer fixture on Alice')
     parser.add_argument('--legacy-copy', action='store_true')
     parser.add_argument('--rounds', type=int, choices=(1,2), default=1)
     args = parser.parse_args()
+    if args.memory and (args.multiplayer or args.performance or args.photos or args.reconnect or args.legacy_copy or args.rounds!=1):
+        parser.error('--memory is a standalone menu probe')
     if args.reconnect and (not args.multiplayer or args.rounds!=2):
         parser.error('--reconnect requires --multiplayer --rounds 2')
     if args.performance and args.multiplayer:
@@ -49,7 +52,7 @@ def main() -> None:
     print('PZ_TEST_GAME_JAR_SHA256 '+hashlib.sha256((GAME/'projectzomboid.jar').read_bytes()).hexdigest(),flush=True)
     root = Path.cwd() / '.pz-native-cache'
     root.mkdir()
-    mode = 'performance' if args.performance else ('mp' if args.multiplayer else 'engine')
+    mode = 'memory' if args.memory else ('performance' if args.performance else ('mp' if args.multiplayer else 'engine'))
     upstream = fetch_upstream(root)
     photo = json.loads((mod/'tests/photos.json').read_text()) if args.photos else None
     spawn = photo['spawn'] if photo else [10628,10658,0]
@@ -59,6 +62,9 @@ def main() -> None:
     clients: list[subprocess.Popen] = []
     client_commands = {}
     handles = []
+    memory_samples = []
+    memory_textures = []
+    server = None
 
     def stage(cache: Path) -> None:
         mods = cache / 'mods'
@@ -94,12 +100,20 @@ def main() -> None:
                 if 'PZ_TEST_' in line and line not in seen:
                     print(line, flush=True)
                     seen.add(line)
+                    marker='PZ_TEST_MEMORY_SAMPLE '
+                    if args.memory and marker in line:
+                        sample=json.loads(line.split(marker,1)[1])
+                        sample['rss_kib']=int(subprocess.check_output(['ps','-o','rss=','-p',str(clients[0].pid)],text=True).strip())
+                        memory_samples.append(sample)
+                    texture_marker='PZ_TEST_MEMORY_TEXTURE '
+                    if args.memory and texture_marker in line:
+                        memory_textures.append(json.loads(line.split(texture_marker,1)[1]))
             if 'PZ_TEST_FAIL' in text or 'ZZPZProbe.lua:' in text or any(f'MOD:{runtime.name}' in s or 'MOD:PZProbe' in s for s in text.splitlines()):
                 lines = text.splitlines()
                 failures = '\n'.join('\n'.join(lines[max(0,i-8):i+8]) for i,line in enumerate(lines)
                                      if 'PZ_TEST_FAIL' in line or 'ZZPZProbe.lua:' in line or f'MOD:{runtime.name}' in line or 'MOD:PZProbe' in line)
                 raise RuntimeError('Native probe failed\n' + failures[-10000:])
-            if args.multiplayer and clients:
+            if (args.multiplayer or args.memory) and clients:
                 assert_hidden(auditor,[p.pid for p in clients])
             if all(marker in text for marker in markers):
                 return
@@ -131,21 +145,23 @@ def main() -> None:
                     '-Dzomboid.steam=0', '-classpath', f'.:projectzomboid.jar:{classes}', 'FarmEngineMain',
                     '-nosteam', f'-cachedir={cache}', '-servername', 'pz-test', '-adminpassword',
                     'test-only', '-ip', '127.0.0.1']
-            if args.multiplayer:
+            if args.multiplayer or args.memory:
                 agent,auditor=build_policy(root)
-            server = launch(server_command, GAME, 'server')
+            if not args.memory:
+                server = launch(server_command, GAME, 'server')
             if args.performance:
                 wait_for(['PZ_TEST_PERFORMANCE_PASS'],180)
                 return
-            if not args.multiplayer:
+            if not args.multiplayer and not args.memory:
                 wait_for(['PZ_TEST_ENGINE_PASS'], 180)
                 server.communicate('quit\n', timeout=30)
                 processes.remove(server)
                 launch(server_command, GAME, 'restart')
                 wait_for(['PZ_TEST_RESTART_PASS'], 180)
                 return
-            wait_for(['PZ_TEST_SERVER_UP'], 180)
-            for role in ('Alice', 'Beth'):
+            if not args.memory:
+                wait_for(['PZ_TEST_SERVER_UP'], 180)
+            for role in (('Alice',) if args.memory else ('Alice', 'Beth')):
                 cache = root / role
                 stage(cache)
                 contents = cache / 'Probe.app/Contents'
@@ -157,7 +173,10 @@ def main() -> None:
                     (contents / 'Java').mkdir()
                 for name in ('PlugIns', 'Resources'):
                     (contents / name).symlink_to(GAME.parent / name)
-                bootstrap = spawn_lua+(mod / 'tests/mp-client.lua').read_text().replace('@ROLE@', role)
+                if args.memory:
+                    bootstrap='PZ_MEMORY_MOD_ID='+json.dumps(runtime.name)+'\n'+(mod/'tests/memory.lua').read_text()
+                else:
+                    bootstrap=spawn_lua+(mod/'tests/mp-client.lua').read_text().replace('@ROLE@',role)
                 if args.photos:
                     bootstrap += '\nPZ_PHOTO_ROLE = '+repr(role)+'\n'+(mod / 'tests/photos.lua').read_text()
                 if args.legacy_copy:
@@ -192,6 +211,14 @@ def main() -> None:
                             '-Dzomboid.steam=0','-cp',f'{classes}:{GAME}:{GAME}/projectzomboid.jar',
                             'FarmPhotoMain','-nosteam',f'-cachedir={cache}'],GAME,role))
                 logs.append(cache / 'console.txt')
+            if args.memory:
+                wait_for(['PZ_TEST_MEMORY_PASS',f'PZ_TEST_HIDDEN_WINDOW_PASS pid={clients[0].pid}'],180)
+                assert [row['phase'] for row in memory_samples]==['menu_before_assets','assets_loaded','after_100_panel_visits','idle_1','idle_2','idle_3'],'Memory probe omitted or repeated a phase'
+                assert len(memory_textures)==memory_samples[-1]['textures'],'Memory probe omitted texture dimensions'
+                (root/'memory.json').write_text(json.dumps({'samples':memory_samples,'textures':memory_textures,'hidden_native_and_os_audit':True,
+                    'scope':'One frontend client. Post-GC JVM heap, nearby RSS samples and padded RGBA base texture bytes. No GPU residency claim or long gameplay soak.'},indent=2)+'\n')
+                print('PZ_TEST_OS_HIDDEN_PASS menu client never on-screen or foreground',flush=True)
+                return
             if args.reconnect:
                 wait_for(['PZ_TEST_RECONNECT_READY'],480)
                 old=clients[1]

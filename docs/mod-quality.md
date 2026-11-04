@@ -61,3 +61,31 @@ Write `workshop/visual-review.json` only after inspecting the actual exported im
 ## Existing mods
 
 This contract applies to new features and releases. Dinner Together is the first complete adopter in this pass. Older mod-specific tests remain available. Their old evidence does not automatically become a pass under this stronger contract. In particular, a one-client loopback remains a one-client loopback, and a per-callback timing remains a per-callback timing. An older mod needs its own declared suites and current evidence before the new command can qualify its next behavior release.
+
+## Client memory triage
+
+Use the optional `dinner-menu-memory` project-test suite with explicit `--local` on SERGBOOK.
+It reuses the native runner and hidden-window/owned-PID policy. Its mod-owned frontend
+fixture warms the menu, visits the actual native description/thumbnail setters, records
+padded texture dimensions, repeats those setters 100 times and samples three idle points.
+Return `.pz-native-cache/memory.json` through project-test's artifact option. It records
+post-collection JVM heap and nearby process RSS samples separately. The texture figure
+is padded RGBA base storage, not measured GPU residency or mipmap/driver overhead.
+
+This is an investigation tool, not an extra release qualification gate. It does not run in
+player packages, start a server, add permanent telemetry or change installed game files.
+Existing behavior/performance suites cover the meal authority. A short frontend run does
+not replace a gameplay soak, actual join/leave churn or the reporter's mod stack.
+
+A fixed step after image load suggests an asset budget. Continued retained Java heap growth
+suggests live objects, callbacks or saved state, and warrants a focused heap histogram/dump.
+RSS growth with flat Java heap needs native/graphics investigation. RSS includes committed
+but unused heap and shared mappings too, so subtracting live heap does not identify a native
+leak. Oracle's [Native Memory Tracking documentation](https://docs.oracle.com/en/java/javase/23/vm/native-memory-tracking.html)
+notes that even NMT omits third-party native allocations. Use actual process measurements.
+
+If a report reproduces only with a player's full mod list, isolate the dependency/load-order
+combination by halves before a fix. Preserve the same world, path, settings and warmup. Ask
+for the failure stage, game build, total RAM, mod list and matching console log only after
+the clean mod-only checks cannot reproduce it. Do not treat a passing short run as proof that
+the player's memory problem is resolved.

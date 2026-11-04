@@ -1,0 +1,14 @@
+{
+  "id": "20261104T201626-4b8e2476d6c3",
+  "project": "zomboid-mods",
+  "source_commit": "fb98b36f3f7deca1c00e42a65a5c6844e8794f87",
+  "commit": "28bd174f1ae7fef913b0e8e60c5790ecbba8a1ff",
+  "tree": "cd871ac589e352757911195be9cc55442808201f",
+  "suite": "check-runner",
+  "executor": "sublet",
+  "outcome": "passed",
+  "exit_code": 0,
+  "cleanup": true,
+  "seconds": 0.143,
+  "queue_seconds": 0.0
+}

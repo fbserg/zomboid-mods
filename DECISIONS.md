@@ -58,3 +58,16 @@ The live description only named the mod and called the numeric Workshop ID "this
 This supersedes Dinner Together's earlier omission of a visible ID footer. Other mods'
 listing choices stay independent.
 Reopen: Project Zomboid or Steam supplies equally clear copyable server setup in the item UI.
+
+## 2026-11-04: measure client assets separately from meal heap
+
+Decision: add one opt-in frontend fixture to the existing owned native runner. Sample JVM
+heap, process RSS and cached texture dimensions at named phases. Repeat the real panel
+setters and assert texture identity reuse. Keep all measurement outside player packages.
+Evidence: the existing 10,000-meal probe measures a dedicated server's whole-JVM heap. It
+cannot observe client image costs. The native client pads each 1440-wide Dinner poster to
+2048 by 1024, for 8 MiB RGBA base storage per poster. A hundred native panel setter visits
+reuse the same cached objects and IDs. The game's texture allocation counter is cumulative,
+so it must not be used as retained graphics memory.
+Reopen: a reproducible gameplay/client-stack report needs a longer controlled soak or native
+allocation traces. Do not add a permanent monitor or infer a leak from reserved memory.

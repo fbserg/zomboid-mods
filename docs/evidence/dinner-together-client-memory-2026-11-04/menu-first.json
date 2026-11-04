@@ -1,0 +1,48 @@
+{
+  "samples": [
+    {
+      "phase": "menu_before_assets",
+      "heap_kib": 681315.63,
+      "base_texture_bytes": 0,
+      "textures": 0,
+      "rss_kib": 3103152
+    },
+    {
+      "phase": "assets_loaded",
+      "heap_kib": 681342.06,
+      "base_texture_bytes": 25427968,
+      "textures": 4,
+      "rss_kib": 3111008
+    },
+    {
+      "phase": "after_100_panel_visits",
+      "heap_kib": 681314.74,
+      "base_texture_bytes": 25427968,
+      "textures": 4,
+      "rss_kib": 3117584
+    },
+    {
+      "phase": "idle_1",
+      "heap_kib": 681315.15,
+      "base_texture_bytes": 25427968,
+      "textures": 4,
+      "rss_kib": 3119264
+    },
+    {
+      "phase": "idle_2",
+      "heap_kib": 681315.15,
+      "base_texture_bytes": 25427968,
+      "textures": 4,
+      "rss_kib": 3119648
+    },
+    {
+      "phase": "idle_3",
+      "heap_kib": 681827.84,
+      "base_texture_bytes": 25427968,
+      "textures": 4,
+      "rss_kib": 3120080
+    }
+  ],
+  "hidden_native_and_os_audit": true,
+  "scope": "One frontend client. Post-GC JVM heap, nearby RSS samples and padded RGBA base texture bytes. No GPU residency claim or long gameplay soak."
+}

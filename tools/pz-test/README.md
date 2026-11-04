@@ -20,3 +20,4 @@ No development helper ships to players.
 - `native.py MOD_DIR --multiplayer --rounds 2 --reconnect` restarts one real client and checks identity, state and duplicate notifications.
 - `native.py MOD_DIR --performance` runs the mod-specific native budget probe and returns its metrics through a project-test artifact.
 - All graphical runners use `window.py`, the fail-closed JVM window policy and an owned-PID macOS window auditor. Hidden clients still render real frames.
+- `native.py MOD_DIR --memory` runs the mod's `tests/memory.lua` frontend fixture in one hidden client, without a server. It records post-GC heap, nearby process RSS and native texture dimensions in `.pz-native-cache/memory.json`. Use the configured `dinner-menu-memory` suite and project-test artifacts. This opt-in diagnostic does not certify long gameplay or arbitrary mod stacks.
