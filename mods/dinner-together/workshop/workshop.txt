@@ -17,7 +17,12 @@ description=[h2]What counts[/h2]
 description=Vanilla and modded food can qualify if they use the normal eating action. Tiny bites do not count. An interrupted action does not count, even if it consumed part of the food. Eating alone has no effect. Cooldowns belong to the username in multiplayer and the local player slot in single player, so a replacement character keeps that cooldown.
 description=
 description=[h2]Setup and multiplayer[/h2]
-description=For Project Zomboid [b]Build 42.21[/b]. No required mods. Single player with local split-screen survivors, or multiplayer with other players. Install on the server and every client. Add [b]DinnerTogether[/b] to the server Mods list and this item to WorkshopItems.
+description=For Project Zomboid [b]Build 42.21[/b]. No required mods. Single player with local split-screen survivors, or multiplayer with other players. Install on the server and every client.
+description=[b]Workshop ID: 3828971865[/b]
+description=[b]Mod ID: DinnerTogether[/b]
+description=[code]WorkshopItems=3828971865
+description=Mods=DinnerTogether[/code]
+description=Append these IDs to your existing server lists, separated by semicolons. Keep the mods already there. The display name is Dinner Together.
 description=The server decides the result and saves the cooldown across restarts. Verified with a dedicated server and two real clients. Network split-screen notifications currently target the first local player on each client.
 description=
 description=[h2]Adding, removing and compatibility[/h2]

@@ -1,1 +1,1 @@
-0.1.1: New furnished-home gameplay screenshots and in-game posters. Gameplay rules are unchanged. Added native performance budgets, reconnect/world-sync checks and hidden-window guards to development qualification. No development tools ship to players.
+0.1.2: The recent-meal cache now stores only small records, so it cannot retain player objects after a disconnect or death. Multiplayer meals still belong to the connected session. Added the Workshop ID, Mod ID and copyable server settings to the description. Meal rules and cooldowns are unchanged.

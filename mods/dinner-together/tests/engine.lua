@@ -81,6 +81,18 @@ Events.OnTick.Add(function()
         print('PZ_TEST_PASS real placed wall excludes diners: ' .. tile)
         wallSquare:RemoveTileObject(wallObject)
         wallSquare:RecalcAllWithNeighbours(true)
+        all = {}
+        local gone = player('Reconnect',0)
+        eat(gone)
+        all = {}
+        local replacement, partner = player('Reconnect',0), player('Partner',1)
+        assert(replacement:getOnlineID() == gone:getOnlineID(), 'Fixture must reuse the online ID')
+        assert(gone:getUID() ~= replacement:getUID(), 'Native instance IDs must distinguish reconnects')
+        eat(partner)
+        assert(sent == 2, 'Reused account and online ID inherited an old meal')
+        eat(replacement)
+        assert(sent == 4, 'Reconnected players cannot share a fresh meal')
+        print('PZ_TEST_PASS native instance IDs reject stale meals even when online IDs repeat')
         phase.finished = true
     end)
     print(ok and 'PZ_TEST_ENGINE_PASS' or ('PZ_TEST_FAIL ' .. tostring(message)))

@@ -22,6 +22,9 @@ The runtime is `DinnerTogether/`. Install that directory under `~/Zomboid/mods`.
 Enable `DinnerTogether` on the server and clients. This repo's packaging helper can make
 a runtime-only archive and a fresh local install without replacing any existing mod.
 
+Server settings use `WorkshopItems=3828971865` and `Mods=DinnerTogether`. Append each ID
+to the corresponding existing list with a semicolon. The display name is Dinner Together.
+
 The mod adds no world objects, items or loot. Removing it leaves only inert reward timestamps
 in world mod data. A replacement character on the same account/slot keeps the cooldown.
 Another mod that replaces ISEatFoodAction.complete without chaining is incompatible.

@@ -1,0 +1,14 @@
+{
+  "id": "20261104T195656-7178191a6c86",
+  "project": "zomboid-mods",
+  "source_commit": "f6ac6a9c49daa87a8ef7218700df0ec7b453a527",
+  "commit": "6823c24d84a12eb405a9432c917bce5c606f91ab",
+  "tree": "b3611f810e34a7fa3713253a255265ffbd996f0b",
+  "suite": "dinner-together",
+  "executor": "sublet",
+  "outcome": "failed",
+  "exit_code": 1,
+  "cleanup": true,
+  "seconds": 0.243,
+  "queue_seconds": 0.0
+}

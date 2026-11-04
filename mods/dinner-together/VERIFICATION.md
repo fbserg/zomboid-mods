@@ -1,5 +1,19 @@
 # Release verification
 
+## 0.1.2 memory retention and multiplayer setup
+
+Full release qualification passed on 2026-11-04. The [evidence bundle](../../docs/evidence/dinner-together-0.1.2/README.md) records the original failed retention probes, before/after performance, exact test snapshots and coverage limits.
+
+- 18 portable tests passed on sublet, including collection after a player leaves and stale-session rejection for reused network IDs and local slots.
+- Native Build 42.21 compilation/API checks and both negative controls passed. Native food, geometry, instance UID and full server restart checks passed on SERGBOOK.local.
+- Two real hidden clients completed two meal rounds, with Beth restarted between rounds. World/stats agreed, cooldowns persisted and the server sent exactly two production notifications. Native visibility/focus guards and the owned-PID OS audit passed.
+- Native 2/16/64-actor callback budgets passed at 0.03125/0.125/0.1875 ms added p95 batch means. The 10,000-meal cooldown probe retained 64.95 KiB whole-JVM heap after collection, below 16 MiB, with zero notifications. Both performance negative controls passed.
+- Runtime-only packaging, native Workshop validation and the unchanged hash-backed visual review passed.
+
+The original 0.1.1 cache retained player objects until another meal pruned them. The new cache stores only scalar meal records and native instance UID strings. This fixes that retention path without an idle hook. The original steady-meal benchmark also passed. No reporter log or reproduction exists, so the full reported memory problem is not established by this fix. The multiplayer client only displays notifications.
+
+The description now supplies Workshop ID 3828971865, Mod ID DinnerTogether and copyable server settings.
+
 ## 0.1.1 quality and home captures
 
 The complete required check command passed on 2026-10-28. Exact receipts, executor hosts, snapshot commits/trees, measured performance and coverage limits are in [the evidence bundle](../../docs/evidence/dinner-together-0.1.1/README.md), [qualification.json](../../docs/evidence/dinner-together-0.1.1/qualification.json) and [performance.json](../../docs/evidence/dinner-together-0.1.1/performance.json).

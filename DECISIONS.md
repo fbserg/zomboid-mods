@@ -47,3 +47,14 @@ Reopen: thumbnail or native poster inspection fails readability, warmth or an ho
 Decision: disable PvP and declare a versioned zero-zombie sandbox for the disposable social-mod runner. Assert the setting and no local zombies, keep normal action duration and fail on cancellation.
 Evidence: a downloaded-runtime run showed PlayerHitReactionState during a cancelled food action despite ghost/invincible flags. The installed 42.21 sandbox defines Zombie Count option 6 as None and PopulationMultiplier zero. The real download then completed both meal rounds and a fresh client reconnect with ordinary native actions and state agreement.
 Reopen: a combat/encounter mod needs an explicit mod-owned sandbox and encounter probe. Do not use a peaceful social fixture as combat proof.
+
+## 2026-11-04: explicit Dinner Together multiplayer IDs
+
+Decision: author Workshop ID 3828971865, Mod ID DinnerTogether and both server-setting
+examples in Dinner Together's description. Preserve all existing server entries in the
+instructions. Keep the shared uploader's exact-authored-copy behavior.
+Evidence: Serg relayed a player's request for these identifiers and asked for an update.
+The live description only named the mod and called the numeric Workshop ID "this item".
+This supersedes Dinner Together's earlier omission of a visible ID footer. Other mods'
+listing choices stay independent.
+Reopen: Project Zomboid or Steam supplies equally clear copyable server setup in the item UI.

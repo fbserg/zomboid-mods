@@ -1,0 +1,89 @@
+{
+  "mod": "dinner-together",
+  "build": "42.21.0",
+  "game_jar_sha256": "e1a69eb743ede60b213a0fe7f8b83d4fcab773036d256cc4543a336f3b058a33",
+  "support_limits": {
+    "singleplayer": "Local-slot logic has portable coverage. Native food/geometry checks use synthetic actors on a headless authority, not two physical split-screen controllers.",
+    "compatibility": "Vanilla Build 42.21, no dependencies. A mod that replaces eat completion without chaining can block the feature.",
+    "performance": "32-call batch averages from a 1ms native clock. Whole-JVM retained heap, not Lua-only allocations. Synthetic 2/16/64 native players test scaling, not 64 network connections. No custom per-frame render or idle hook."
+  },
+  "mode": "release",
+  "source_fingerprint": "376d915e42c21f892b661efda910d1b6eb3d5e213cd0ae317ba8f209d91408c2",
+  "gates": {
+    "portable": {
+      "id": "20261104T200005-cf4ad9dadfeb",
+      "suite": "dinner-together",
+      "executor": "sublet",
+      "source_commit": "f6ac6a9c49daa87a8ef7218700df0ec7b453a527",
+      "commit": "ac5732357e59753f6be4840d10c0e6c21e4d43ae",
+      "tree": "e517389076d7dbe42e634e5a9e0acdbc639a260d",
+      "outcome": "passed",
+      "cleanup": true,
+      "seconds": 0.198
+    },
+    "static": {
+      "id": "20261104T200007-118f68c1fcc9",
+      "suite": "dinner-static",
+      "executor": "SERGBOOK.local",
+      "source_commit": "f6ac6a9c49daa87a8ef7218700df0ec7b453a527",
+      "commit": "ea841182de5e46a8084ff9a7970a29c4571f96c6",
+      "tree": "e517389076d7dbe42e634e5a9e0acdbc639a260d",
+      "outcome": "passed",
+      "cleanup": true,
+      "seconds": 4.382
+    },
+    "native": {
+      "id": "20261104T200012-f6e206edcc89",
+      "suite": "dinner-engine",
+      "executor": "SERGBOOK.local",
+      "source_commit": "f6ac6a9c49daa87a8ef7218700df0ec7b453a527",
+      "commit": "fc781f6d910cfbc9a158d74e73ed63832b10cb95",
+      "tree": "e517389076d7dbe42e634e5a9e0acdbc639a260d",
+      "outcome": "passed",
+      "cleanup": true,
+      "seconds": 75.277
+    },
+    "multiplayer": {
+      "id": "20261104T200128-afbfe3c2fdef",
+      "suite": "dinner-qualified-mp",
+      "executor": "SERGBOOK.local",
+      "source_commit": "f6ac6a9c49daa87a8ef7218700df0ec7b453a527",
+      "commit": "6d477950dd65eaa604ed1d0ff04695093b7fb9dd",
+      "tree": "e517389076d7dbe42e634e5a9e0acdbc639a260d",
+      "outcome": "passed",
+      "cleanup": true,
+      "seconds": 138.956
+    },
+    "persistence": {
+      "id": "20261104T200012-f6e206edcc89",
+      "suite": "dinner-engine",
+      "executor": "SERGBOOK.local",
+      "source_commit": "f6ac6a9c49daa87a8ef7218700df0ec7b453a527",
+      "commit": "fc781f6d910cfbc9a158d74e73ed63832b10cb95",
+      "tree": "e517389076d7dbe42e634e5a9e0acdbc639a260d",
+      "outcome": "passed",
+      "cleanup": true,
+      "seconds": 75.277
+    },
+    "performance": {
+      "id": "20261104T200347-e2a05da78264",
+      "suite": "dinner-performance",
+      "executor": "SERGBOOK.local",
+      "source_commit": "f6ac6a9c49daa87a8ef7218700df0ec7b453a527",
+      "commit": "b280912b97c42e2276a8ec40188a4018fec2deb1",
+      "tree": "d9245129a1e81554ee94856c89d3ac479a372374",
+      "outcome": "passed",
+      "cleanup": true,
+      "seconds": 41.436
+    },
+    "visual": {
+      "outcome": "reviewed",
+      "evidence": "workshop/visual-review.json"
+    },
+    "package": {
+      "outcome": "passed",
+      "sha256": "0c2330493f5b05c8507ac13cc0ccfda5ed2be4cc384233f6ab156d7ccc59bad5"
+    }
+  },
+  "outcome": "passed"
+}

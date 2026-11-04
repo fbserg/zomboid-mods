@@ -2,7 +2,7 @@ require "TimedActions/ISEatFoodAction"
 
 DinnerTogether = {}
 local D = DinnerTogether
-local recent = {} -- ceiling: recent eaters only, pruned on every meal; no world scan.
+local recent = {} -- ceiling: recent eaters only, scalar records pruned on every meal; no player references.
 local RANGE, WINDOW, COOLDOWN = 4, 10 / 60, 24
 
 function D.show(player)
@@ -58,12 +58,22 @@ function D.meal(player)
     local online = {}
     if isServer() then
         local players = getOnlinePlayers()
-        for i = 0, players:size()-1 do online[players:get(i)] = true end
+        for i = 0, players:size()-1 do
+            local other = players:get(i)
+            online[key(other)] = other
+        end
+    else
+        for i = 0, getNumActivePlayers()-1 do
+            local other = getSpecificPlayer(i)
+            if other then online[key(other)] = other end
+        end
     end
-    recent[player] = { time = now, place = here }
-    for other, meal in pairs(recent) do
-        if (isServer() and not online[other]) or other:isDead() or now - meal.time > WINDOW or now < meal.time then
-            recent[other] = nil
+    recent[key(player)] = { time = now, place = here, session = player:getUID() }
+    for id, meal in pairs(recent) do
+        local other = online[id]
+        if not other or other:isDead() or other:getUID() ~= meal.session
+            or now - meal.time > WINDOW or now < meal.time then
+            recent[id] = nil
         elseif other ~= player and near(here, meal.place) then
             local there = position(other)
             if near(here, there) and clear(here, there) then

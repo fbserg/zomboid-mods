@@ -10,7 +10,8 @@ function isClient() return client end
 function isServer() return server end
 function getGameTime() return {getWorldAgeHours=function() return now end} end
 function getCell() return {} end
-function getSpecificPlayer() return a end
+function getSpecificPlayer(i) if i==0 then return a else return b end end
+function getNumActivePlayers() return 2 end
 function getOnlinePlayers()
  local players={a,b,c}
  return {size=function() return #players end,get=function(_,i) return players[i+1] end}
@@ -26,17 +27,22 @@ Events={OnServerCommand={Add=function(f) command=f end}}
 LosUtil={lineClear=function() return clear and 'Clear' or 'Blocked' end}
 function instanceof(o,t) return o.kind==t end
 package.preload['TimedActions/ISEatFoodAction']=function() end
+nextOnlineID=0
 function player(name,x,y,z)
- local p={name=name,x=x or 0,y=y or 0,z=z or 0,dead=false,values={h=0.8,b=50,u=50}}
+ nextOnlineID=nextOnlineID+1
+ local p={name=name,onlineID=nextOnlineID,x=x or 0,y=y or 0,z=z or 0,dead=false,values={h=0.8,b=50,u=50}}
  function p:getX() return self.x end
  function p:getY() return self.y end
  function p:getZ() return self.z end
  function p:isDead() return self.dead end
  function p:getUsername() return self.name end
+ function p:getOnlineID() return self.onlineID end
+ function p:getUID() return 'player-'..self.uid end
  function p:getPlayerNum() return self.slot or 0 end
  function p:getStats() return {get=function(_,k) return p.values[k] end,
  remove=function(_,k,n) p.values[k]=math.max(0,p.values[k]-n) end} end
  function p:Eat(food,portion) self.values.h=self.values.h-food.amount*portion end
+ p.uid=nextOnlineID
  return p
 end
 ISEatFoodAction={complete=function(self) self.character:Eat(self.item,self.percentage); return true end}
@@ -80,6 +86,24 @@ class Dinner(unittest.TestCase):
 
     def test_disconnected_partner_does_not_qualify(self):
         self.check("eat(a); a=player('Replacement',20); eat(b); assert(#notices==0)")
+
+    def test_meal_does_not_retain_disconnected_player(self):
+        self.check("local weak=setmetatable({a},{__mode='v'}); eat(a); a=nil; collectgarbage('collect'); assert(weak[1]==nil, 'Meal cache retains disconnected player')")
+
+    def test_local_meal_does_not_retain_player(self):
+        self.check("server=false; local weak=setmetatable({a},{__mode='v'}); eat(a); a=nil; collectgarbage('collect'); assert(weak[1]==nil, 'Meal cache retains local player')")
+
+    def test_reconnect_does_not_reuse_previous_session_meal(self):
+        self.check("eat(a); a=player('Alice'); eat(b); assert(#notices==0); eat(a); assert(#notices==2)")
+
+    def test_reused_online_id_does_not_reuse_another_username_meal(self):
+        self.check("eat(a); local oldID=a.onlineID; a=player('Charlie'); a.onlineID=oldID; eat(b); assert(#notices==0)")
+
+    def test_reconnect_with_same_online_id_does_not_reuse_meal(self):
+        self.check("eat(a); local oldID=a.onlineID; a=player('Alice'); a.onlineID=oldID; eat(b); assert(#notices==0); eat(a); assert(#notices==2)")
+
+    def test_local_replacement_does_not_reuse_previous_character_meal(self):
+        self.check("server=false; b.slot=1; eat(a); a=player('Replacement'); eat(b); assert(#notices==0); eat(a); assert(#notices==2)")
 
     def test_dead_partner_does_not_qualify(self):
         self.check('eat(a); a.dead=true; eat(b); assert(#notices==0)')

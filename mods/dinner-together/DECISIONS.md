@@ -47,3 +47,19 @@ runner can replace more code while preserving no-focus behaviour and executor cl
 ## 2026-10-28: source consolidation
 
 Serg explicitly requested one Git project. The root DECISIONS.md supersedes the earlier fourth-mod-in-etc choice. This source now lives in fbserg/zomboid-mods with its shared tools. Runtime Lua is unchanged from the native-tested prototype.
+
+## 2026-11-04: transient meals retain no player objects
+
+Decision: cache only username/local-slot keys, native instance UID strings, coordinates and
+meal times. Resolve live players only during a completed meal. Keep the existing event-only
+execution and saved account cooldowns.
+Evidence: two garbage-collection regressions fail against 0.1.1 because its cache keys retain
+player objects after the game releases them. Scalar records pass those probes. The installed
+IsoMovingObject constructor gives each instance a UID with a UUID. It survives as a string
+without the player reference and distinguishes reconnects even if an online ID is reused. The user's
+Workshop memory report supplies no log, memory measurement or reproduction, so this finding
+does not establish the cause of that user's memory growth. The multiplayer client branch
+only displays server notifications and never records meals.
+Reopen: a measured native or player reproduction shows further retained growth, or the engine
+changes instance UID lifetime. Do not
+add a recurring world scan or weaken cooldown persistence without new evidence.
