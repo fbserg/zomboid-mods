@@ -34,7 +34,7 @@ Events.OnGameStart.Add(function()
     p:setX(x);p:setLastX(x);p:setY(y);p:setLastY(y);p:setZ(PZ_TEST_SPAWN.z);p:setLastZ(PZ_TEST_SPAWN.z)
     p:setCurrent(getCell():getGridSquare(math.floor(x),math.floor(y),PZ_TEST_SPAWN.z))
     local info=assert(getModInfoByID('DinnerTogether'),'Mod panel metadata missing')
-    assert(info:getModVersion()=='0.1.2' and info:getPosterCount()==3,'Wrong mod panel version/posters')
+    assert(info:getModVersion()=='0.1.3' and info:getPosterCount()==3,'Wrong mod panel version/posters')
     assert(getTexture(info:getIcon()),'Mod icon does not load')
     for i=0,info:getPosterCount()-1 do assert(getTexture(info:getPoster(i)),'Mod poster does not load') end
     print('PZ_TEST_PASS mod panel icon and three posters decoded '..role)

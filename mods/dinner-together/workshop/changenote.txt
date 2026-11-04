@@ -1,1 +1,1 @@
-0.1.2: The recent-meal cache now stores only small records, so it cannot retain player objects after a disconnect or death. Multiplayer meals still belong to the connected session. Added the Workshop ID, Mod ID and copyable server settings to the description. Meal rules and cooldowns are unchanged.
+0.1.3: Smaller in-game posters reduce padded RGBA base texture storage from 24.25 MiB to 6.25 MiB. Full-size Workshop images and meal behavior are unchanged.

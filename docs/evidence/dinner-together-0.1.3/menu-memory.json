@@ -1,0 +1,82 @@
+{
+  "samples": [
+    {
+      "phase": "menu_before_assets",
+      "heap_kib": 681882.87,
+      "base_texture_bytes": 0,
+      "textures": 0,
+      "rss_kib": 1959632
+    },
+    {
+      "phase": "assets_loaded",
+      "heap_kib": 681914.85,
+      "base_texture_bytes": 6553600,
+      "textures": 4,
+      "rss_kib": 1729600
+    },
+    {
+      "phase": "after_100_panel_visits",
+      "heap_kib": 681939.85,
+      "base_texture_bytes": 6553600,
+      "textures": 4,
+      "rss_kib": 1523904
+    },
+    {
+      "phase": "idle_1",
+      "heap_kib": 681940.26,
+      "base_texture_bytes": 6553600,
+      "textures": 4,
+      "rss_kib": 950176
+    },
+    {
+      "phase": "idle_2",
+      "heap_kib": 681940.29,
+      "base_texture_bytes": 6553600,
+      "textures": 4,
+      "rss_kib": 963488
+    },
+    {
+      "phase": "idle_3",
+      "heap_kib": 681940.29,
+      "base_texture_bytes": 6553600,
+      "textures": 4,
+      "rss_kib": 959616
+    }
+  ],
+  "textures": [
+    {
+      "index": 1,
+      "width": 256,
+      "height": 256,
+      "hardware_width": 256,
+      "hardware_height": 256,
+      "base_bytes": 262144
+    },
+    {
+      "index": 2,
+      "width": 768,
+      "height": 512,
+      "hardware_width": 1024,
+      "hardware_height": 512,
+      "base_bytes": 2097152
+    },
+    {
+      "index": 3,
+      "width": 768,
+      "height": 480,
+      "hardware_width": 1024,
+      "hardware_height": 512,
+      "base_bytes": 2097152
+    },
+    {
+      "index": 4,
+      "width": 768,
+      "height": 480,
+      "hardware_width": 1024,
+      "hardware_height": 512,
+      "base_bytes": 2097152
+    }
+  ],
+  "hidden_native_and_os_audit": true,
+  "scope": "One frontend client. Post-GC JVM heap, nearby RSS samples and padded RGBA base texture bytes. No GPU residency claim or long gameplay soak."
+}

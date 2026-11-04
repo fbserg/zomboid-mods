@@ -82,3 +82,14 @@ update. Native mod.info files identify the mod and dependency IDs. Public Steam 
 confirms all four existing items belong to 76561198033173095, ModeratExtremist. The guarded
 metadata-only uploader changed just the three descriptions. Exact public copies match.
 Reopen: a runtime/dependency ID changes or native server setup gains a clearer format.
+
+## 2026-11-04: small Dinner menu exports, full-size gallery
+
+Decision: export the three Dinner Together in-game posters at a maximum 768 pixels and
+keep original/full-size Workshop sources unchanged. Use the same 768-pixel default for
+future poster exports. Leave other mods' shipped images untouched in this update.
+Evidence: Serg accepted the 80/20 reduction. Native texture dimensions measured 24.25 MiB
+RGBA base storage before and 6.25 MiB after, an 18 MiB reduction. Repeated native panel
+setter cycles reuse all four textures. All three resized posters were visually inspected.
+Reopen: a demonstrated in-game readability problem needs a different crop or size. Keep
+large promotional/native source images out of the menu's image budget.

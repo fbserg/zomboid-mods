@@ -1,5 +1,15 @@
 # Release verification
 
+## 0.1.3 smaller menu posters
+
+Published release inputs reduce only the three in-game posters to 768 pixels and set modversion 0.1.3. Meal Lua, translations, full-size Workshop/gallery files, preview and icon remain unchanged from 0.1.2. All three outputs were visually inspected and their new hashes are in the existing visual review.
+
+The native menu probe measures 6.25 MiB padded RGBA base storage versus 24.25 MiB before, an 18 MiB reduction (about 74%). It reuses all four textures through 100 actual native panel setter cycles and passes the retained-heap budget and hidden-window/OS audit. It does not measure GPU residency or certify the reporter's unknown mod stack.
+
+The complete release checker passed 18 portable tests on sublet, static/API negative controls, native food/geometry and full server restart, two real clients with reconnect, performance budgets, visual hashes and runtime-only packaging. Exact snapshots/trees and cleanup receipts are in [the 0.1.3 evidence bundle](../../docs/evidence/dinner-together-0.1.3/README.md). The 10,000 cooldown meals produced no notifications and retained 42.83 KiB whole-JVM heap, below 16 MiB.
+
+Qualified ZIP SHA-256: 546e78e6b039f0644a3d0c000ce16a2183abcbca8e6b220641911b200f220fcc.
+
 ## 0.1.2 memory retention and multiplayer setup
 
 Full release qualification passed on 2026-11-04. The [evidence bundle](../../docs/evidence/dinner-together-0.1.2/README.md) records the original failed retention probes, before/after performance, exact test snapshots and coverage limits.

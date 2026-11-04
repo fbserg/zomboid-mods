@@ -33,8 +33,9 @@ def main() -> None:
     export(args.avatar, runtime/'icon.png', 256)
     export(args.hero, args.hero.with_suffix('.jpg'), 1280, jpeg=True)
     # The game reads multiple poster= lines in their declared order.
+    # ceiling: 768 px menu posters; use the full-size sources/gallery for larger images.
     for index, source in enumerate(sources):
-        export(source, runtime/('poster'+('_'+str(index) if index else '')+'.png'), 1440)
+        export(source, runtime/('poster'+('_'+str(index) if index else '')+'.png'), 768)
     preview = args.mod/'workshop/preview.png'
     assert preview.stat().st_size < 1_000_000, 'Workshop preview exceeds 1 MB'
     for size in (128,268):
