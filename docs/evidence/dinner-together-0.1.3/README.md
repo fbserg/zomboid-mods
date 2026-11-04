@@ -54,3 +54,6 @@ The authenticated author view contains the exact prepared body and comment ID
 571553910742929995. At submission the anonymous renderer shows Steam's automated content
 check notice rather than the body. This is pending review, not proof of public visibility.
 See update-comment.json for the final checked status and permalink. No duplicate was posted.
+
+The public GitHub 0.1.3 release targets 1de7372128acba1aefd704e57dfa4f0cdc30c96a. Its anonymously
+downloaded 1,705,362-byte ZIP matches the qualified package byte for byte. See github-release.json.

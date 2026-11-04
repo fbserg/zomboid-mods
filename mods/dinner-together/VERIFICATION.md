@@ -10,6 +10,8 @@ The complete release checker passed 18 portable tests on sublet, static/API nega
 
 Qualified ZIP SHA-256: 546e78e6b039f0644a3d0c000ce16a2183abcbca8e6b220641911b200f220fcc.
 
+The [GitHub 0.1.3 release](https://github.com/fbserg/zomboid-mods/releases/tag/dinner-together-v0.1.3) serves a 1,705,362-byte ZIP that matches the qualified package byte for byte. The requested [Steam update comment](https://steamcommunity.com/sharedfiles/filedetails/?id=3828971865#comment_571553910742929995) was posted as the verified owner after downloaded-release checks. Steam's automated content review still hides its body from anonymous readers at the final check. The author view matches the prepared text. See update-comment.json in the evidence bundle. No duplicate was posted.
+
 The published Workshop download matches all seven runtime hashes and passed the real two-client/reconnect release suite on SERGBOOK.local, snapshot 77ce14b284428f582691b1fd316ab399a6b265a4, tree 42d509654740c35e2be3289868ad4c2abc1fdf82, receipt 20261104T203215-75f07c3454df, 136.564 seconds, exit 0, cleanup true. Both food rounds, stats/world agreement, cooldowns and notification counts passed. All three client processes remained hidden. Public copy/preview and every full-size gallery byte passed exact verification. The guarded personal local install now matches 0.1.3 too.
 
 ## 0.1.2 memory retention and multiplayer setup

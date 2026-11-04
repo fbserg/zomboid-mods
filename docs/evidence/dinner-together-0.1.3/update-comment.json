@@ -8,5 +8,6 @@
   "author_view_text_verified": true,
   "anonymous_public_verification": false,
   "status": "awaiting_steam_content_review",
-  "anonymous_notice": "This comment is awaiting analysis by our automated content check system."
+  "anonymous_notice": "This comment is awaiting analysis by our automated content check system.",
+  "public_checked_at": "2026-11-04 15:38:20 EST"
 }
