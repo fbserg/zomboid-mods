@@ -33,3 +33,24 @@ The 10,000 cooldown meals retained 42.83 KiB whole-JVM heap and produced zero no
 The two native performance negative controls passed. See performance.json.
 
 Qualified ZIP SHA-256: `546e78e6b039f0644a3d0c000ce16a2183abcbca8e6b220641911b200f220fcc`.
+
+The native uploader published 0.1.3 to existing item 3828971865 as verified Steam owner
+76561198033173095, ModeratExtremist. Exact public description, owner, visibility, preview
+and every full-size gallery byte matched source. All seven downloaded runtime files match
+the release manifest. The personal local copy matched the previous release before its four
+changed files were updated, and now matches 0.1.3. No saves or active mod lists changed.
+
+The actual Steam download passed dinner-release on SERGBOOK.local, snapshot
+77ce14b284428f582691b1fd316ab399a6b265a4, tree 42d509654740c35e2be3289868ad4c2abc1fdf82,
+receipt 20261104T203215-75f07c3454df, 136.564 seconds, exit 0, cleanup true. Two
+real clients completed both ordinary food rounds. Beth restarted/reconnected, world/stats
+agreed, exactly two production notifications were sent and the reconnect received no
+duplicate. All three client PIDs passed the native hidden-window guard and OS audit.
+
+The requested public update comment was submitted as ModeratExtremist on the exact Dinner
+Together item after downloaded-release verification. It describes the measured 18 MiB
+image reduction, prior cache fix, both IDs, restart advice and useful reproduction details.
+The authenticated author view contains the exact prepared body and comment ID
+571553910742929995. At submission the anonymous renderer shows Steam's automated content
+check notice rather than the body. This is pending review, not proof of public visibility.
+See update-comment.json for the final checked status and permalink. No duplicate was posted.

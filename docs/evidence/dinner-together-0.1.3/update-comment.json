@@ -1,0 +1,12 @@
+{
+  "item": "3828971865",
+  "author": "76561198033173095",
+  "author_profile": "https://steamcommunity.com/id/ModeratExtremist",
+  "comment_id": "571553910742929995",
+  "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3828971865#comment_571553910742929995",
+  "text": "0.1.3 is live. Restart the game after Steam downloads the update. Smaller in-game images cut their combined base texture footprint from 24.25 MiB to 6.25 MiB, an 18 MiB saving (about 74%). The full-size Workshop pictures stay the same. The earlier 0.1.2 update also fixed player objects held by the recent-meal cache.\n\nWorkshop ID: 3828971865\nMod ID: DinnerTogether\nBoth IDs and server settings are now in the description.\n\nMeals, cooldowns and multiplayer reconnects passed the checks. I have not reproduced the reported memory spike. If it persists, please share your game build, RAM, mod list and console.txt, plus whether it starts in the mod menu or during play.",
+  "author_view_text_verified": true,
+  "anonymous_public_verification": false,
+  "status": "awaiting_steam_content_review",
+  "anonymous_notice": "This comment is awaiting analysis by our automated content check system."
+}
