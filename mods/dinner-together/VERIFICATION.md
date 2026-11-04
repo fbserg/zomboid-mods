@@ -14,6 +14,14 @@ The original 0.1.1 cache retained player objects until another meal pruned them.
 
 The description now supplies Workshop ID 3828971865, Mod ID DinnerTogether and copyable server settings.
 
+### 0.1.2 live and downloaded proof
+
+The existing public Workshop item now serves 0.1.2. Exact public copy, owner, visibility, preview bytes and all three gallery files/order passed verification. All seven downloaded runtime files match workshop/runtime-sha256.json. The personal local copy matched the previous manifest before its two changed files were updated, and now matches 0.1.2.
+
+The downloaded runtime passed two real-client meal rounds plus a fresh Beth reconnect on SERGBOOK.local, snapshot 2600a1c068b51c7c8f095180f65cea939863e518, tree ba181f967ae2859892a5bf9e6432b21665eebc58, receipt 20261104T200549-d266f8b3924a, 130.953 s, exit 0, cleanup true. Both clients' food, world/stats and notifications passed. The server sent exactly two production notifications and the reconnect received no duplicate. All three client PIDs passed the native hidden-window policy and OS audit. See [downloaded-release.json](../../docs/evidence/dinner-together-0.1.2/downloaded-release.json).
+
+Qualified ZIP SHA-256: 0c2330493f5b05c8507ac13cc0ccfda5ed2be4cc384233f6ab156d7ccc59bad5.
+
 ## 0.1.1 quality and home captures
 
 The complete required check command passed on 2026-10-28. Exact receipts, executor hosts, snapshot commits/trees, measured performance and coverage limits are in [the evidence bundle](../../docs/evidence/dinner-together-0.1.1/README.md), [qualification.json](../../docs/evidence/dinner-together-0.1.1/qualification.json) and [performance.json](../../docs/evidence/dinner-together-0.1.1/performance.json).
