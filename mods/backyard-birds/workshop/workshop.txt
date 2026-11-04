@@ -28,6 +28,11 @@ description=Birds are drawn on top of the world, so a wall in front of the bath 
 description=
 description=[h2]Multiplayer[/h2]
 description=For Project Zomboid [b]Build 42.21[/b], single player or multiplayer. Install it on the server and for every player, and add [b]BackyardBirds[/b] to the server's Mods list. The server picks the visits, so everyone nearby sees the same birds. Each player scares off their own.
+description=[b]Workshop ID: 3828619587[/b]
+description=[b]Mod ID: BackyardBirds[/b]
+description=[code]WorkshopItems=3828619587
+description=Mods=BackyardBirds[/code]
+description=Append these IDs to your existing server lists with semicolons. Keep existing mods and their required load order. No required mods.
 description=
 description=[h2]Credits[/h2]
 description=Project Zomboid supplies the bird bath, the birdsong and the multiplayer sync. The bird sprites are original pixel art.

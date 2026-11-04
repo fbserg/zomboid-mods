@@ -45,6 +45,11 @@ description=
 description=The normal livestock panel's [b]Remove Animal[/b] option also unloads onto the ground outside. If a transfer stops with an animal in your hands, place it with the normal animal controls or enter its intended farm to finish. Put it down before you transfer another.
 description=
 description=[h2]Multiplayer & compatibility[/h2]
+description=[b]Workshop ID: 3826535986[/b]
+description=[b]Mod ID: FarmTrailer[/b]
+description=[code]WorkshopItems=3171167894;3330403100;3543229299;3826535986
+description=Mods=damnlib;KI5trailers;PROJECTRVInterior42;FarmTrailer[/code]
+description=Append these IDs to your existing server lists with semicolons. Keep existing mods and their required load order. The example includes required dependencies.
 description=For Project Zomboid [b]Build 42.21[/b]. [b]Works in live multiplayer:[/b] tested on the author's own server with real players.The server and every player need Farm Trailer and all three dependencies.
 description=[list]
 description=[*]Put [b]FarmTrailer[/b] after its dependencies in [b]Mods[/b].

@@ -1,1 +1,1 @@
-Fills in the in-game mod panel: description, author, version, link, category and screenshots. No gameplay changes.
+Added explicit Workshop ID, Mod ID and copyable multiplayer server settings to the description. Required dependency IDs are included where applicable. No runtime changes.

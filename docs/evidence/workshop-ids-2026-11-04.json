@@ -1,0 +1,32 @@
+[
+  {
+    "slug": "farm-trailer",
+    "workshop_id": "3826535986",
+    "mod_id": "FarmTrailer",
+    "creator": "76561198033173095",
+    "visibility": 0,
+    "description_matches_source": true,
+    "description_sha256": "800d9fc27436d4173dc2a21990f90ba66393c5e87304f6ae0255725cb742c953",
+    "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3826535986"
+  },
+  {
+    "slug": "truck-repaint",
+    "workshop_id": "3828587831",
+    "mod_id": "TruckRepaint",
+    "creator": "76561198033173095",
+    "visibility": 0,
+    "description_matches_source": true,
+    "description_sha256": "4e9d8b3c229a2d1f581afe9641f8ea973d627b5f7c7e03ddeb2449387de17f54",
+    "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3828587831"
+  },
+  {
+    "slug": "backyard-birds",
+    "workshop_id": "3828619587",
+    "mod_id": "BackyardBirds",
+    "creator": "76561198033173095",
+    "visibility": 0,
+    "description_matches_source": true,
+    "description_sha256": "68aca01af5e9cae74dc7f126f990d87bfbbce57e1675e75d11c8d87b07f2073c",
+    "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3828619587"
+  }
+]

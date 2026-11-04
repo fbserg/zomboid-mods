@@ -30,6 +30,11 @@ description=[b]Safe to add or remove.[/b] The mod adds no items and saves no dat
 description=
 description=[h2]Multiplayer[/h2]
 description=For Project Zomboid [b]Build 42.21[/b]. The server and every player need Truck Repaint, the truck mod and [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3171167894]that DAMN Library[/url]. Put [b]TruckRepaint[/b] after [b]87fordB700[/b] in the server's Mods list. The server checks and spends the paint, then every player sees the new color.
+description=[b]Workshop ID: 3828587831[/b]
+description=[b]Mod ID: TruckRepaint[/b]
+description=[code]WorkshopItems=3171167894;3110911330;3828587831
+description=Mods=damnlib;87fordB700;TruckRepaint[/code]
+description=Append these IDs to your existing server lists with semicolons. Keep existing mods and their required load order. The example includes required dependencies.
 description=
 description=[h2]Credits[/h2]
 description=KI5 made the trucks and every texture this mod switches between. Nothing is copied or changed. The bus camo is KI5's own military bus texture, reused on its twin body. Project Zomboid supplies the paint, brush, animation, sound and multiplayer sync. HDCP Immersive Vehicle Paint and Paint Your Ride inspired the idea. Their code is not used.

@@ -24,6 +24,15 @@ Removal stops the visits. Pending visits and boost cooldowns live only in memory
 
 ## Multiplayer
 
+Workshop ID: `3828619587`. Mod ID: `BackyardBirds`.
+
+```ini
+WorkshopItems=3828619587
+Mods=BackyardBirds
+```
+
+Append each ID to its existing server list with a semicolon. No required mods.
+
 Install the same folder on the server and all clients, and add `BackyardBirds` to the server's mod list.
 The server picks visits and changes stats. It syncs boredom and unhappiness with the vanilla stat sync and sends each visit to every player within 40 tiles. Every nearby player sees the same species and flock size. Each client animates its own birds and its own scare-offs.
 

@@ -71,3 +71,14 @@ reuse the same cached objects and IDs. The game's texture allocation counter is 
 so it must not be used as retained graphics memory.
 Reopen: a reproducible gameplay/client-stack report needs a longer controlled soak or native
 allocation traces. Do not add a permanent monitor or infer a leak from reserved memory.
+
+## 2026-11-04: multiplayer IDs on every owned listing
+
+Decision: show explicit Workshop/Mod IDs and copyable server-setting examples on Farm
+Trailer, Truck Repaint and Backyard Birds too. Include verified required dependencies in
+the examples. Preserve existing server lists and the separate Farm Trailer map-order rule.
+Evidence: Serg explicitly requested the IDs on the other mods after the Dinner Together
+update. Native mod.info files identify the mod and dependency IDs. Public Steam metadata
+confirms all four existing items belong to 76561198033173095, ModeratExtremist. The guarded
+metadata-only uploader changed just the three descriptions. Exact public copies match.
+Reopen: a runtime/dependency ID changes or native server setup gains a clearer format.

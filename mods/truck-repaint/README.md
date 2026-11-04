@@ -37,6 +37,15 @@ Timed actions are not saved, so a paint job in progress simply disappears.
 
 ## Multiplayer
 
+Workshop ID: `3828587831`. Mod ID: `TruckRepaint`.
+
+```ini
+WorkshopItems=3171167894;3110911330;3828587831
+Mods=damnlib;87fordB700;TruckRepaint
+```
+
+Append these IDs to existing lists. The example includes the required truck mod and library.
+
 Install the same folder on the server and all clients, and add `TruckRepaint` after `87fordB700` in the server mod list.
 The B42 server never calls `isValid` on a network action, so `complete` repeats every check (brush, paint, known skin, painter at the driver door)
 before it spends paint. The server then sets and transmits the skin, and tells every client to rebuild the model.

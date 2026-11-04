@@ -85,6 +85,15 @@ need manual native placement. The mod does not discard them.
 
 ### Multiplayer and limits
 
+Workshop ID: `3826535986`. Mod ID: `FarmTrailer`.
+
+```ini
+WorkshopItems=3171167894;3330403100;3543229299;3826535986
+Mods=damnlib;KI5trailers;PROJECTRVInterior42;FarmTrailer
+```
+
+Append these IDs to existing lists. Keep `map_distanciado` before `Muldraugh, KY` in the map list.
+
 The server and every player need this item and its dependencies. Put `FarmTrailer`
 after the dependencies in `Mods`. Add `3826535986`, `3543229299`, `3330403100` and
 `3171167894` to `WorkshopItems`. Keep the RV Interior map in the map list.
