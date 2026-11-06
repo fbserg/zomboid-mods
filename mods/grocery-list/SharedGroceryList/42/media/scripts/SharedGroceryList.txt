@@ -1,0 +1,36 @@
+module SharedGroceryList
+{
+    imports
+    {
+        Base
+    }
+
+    item GroceryList
+    {
+        DisplayCategory = Literature,
+        ItemType = base:literature,
+        Weight = 0.1,
+        Icon = Notepad,
+        CanBeWrite = true,
+        PageToWrite = 1,
+        StaticModel = Notepad,
+        WorldStaticModel = Notepad,
+        ReadType = newspaper,
+    }
+
+    craftRecipe MakeGroceryList
+    {
+        timedAction = Making,
+        time = 30,
+        Tags = InHandCraft,
+        category = Miscellaneous,
+        inputs
+        {
+            item 1 [Base.SheetPaper2;Base.Notepad;Base.GraphPaper],
+        }
+        outputs
+        {
+            item 1 SharedGroceryList.GroceryList,
+        }
+    }
+}

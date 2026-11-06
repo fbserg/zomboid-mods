@@ -1,0 +1,8 @@
+name=Grocery List
+id=SharedGroceryList
+author=ModeratExtremist
+modversion=0.1.0
+versionMin=42.21.0
+category=features
+url=https://github.com/fbserg/zomboid-mods/tree/main/mods/grocery-list
+description=Write a grocery list. Carry what is on it and the list crosses itself off.

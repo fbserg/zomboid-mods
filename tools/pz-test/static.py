@@ -53,7 +53,6 @@ def main() -> None:
             raise SystemExit(run.returncode)
 
     check(runtime)
-    # ceiling: negative fixtures target Dinner Together; add mod-owned cases before --prove for another mod.
     if args.prove:
         broken = root/'wrong-translation'
         shutil.copytree(runtime,broken)
@@ -62,7 +61,7 @@ def main() -> None:
         check(broken,'translation')
         invalid = root/'invalid-api'
         shutil.copytree(runtime,invalid)
-        with (invalid/'media/lua/shared/DinnerTogether.lua').open('a') as output:
+        with (invalid/'media/lua/shared'/f'{runtime.parent.name}.lua').open('a') as output:
             output.write('\ngetPlayer():PZDefinitelyMissingMethod()\n')
         check(invalid,'method-name')
         check(runtime)

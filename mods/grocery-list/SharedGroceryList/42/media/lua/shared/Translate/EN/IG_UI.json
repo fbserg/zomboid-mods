@@ -1,0 +1,7 @@
+{
+    "IGUI_SharedGroceryList_got": "Crossed off: %1",
+    "IGUI_SharedGroceryList_done": "Got everything on the list!",
+    "IGUI_SharedGroceryList_thanks": "%1 brought your groceries!",
+    "IGUI_SharedGroceryList_delivered": "Groceries delivered!",
+    "IGUI_SharedGroceryList_note": "~ Brought home by %1. Thank you!"
+}

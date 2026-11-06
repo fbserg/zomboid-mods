@@ -1,0 +1,28 @@
+{
+  "runtime": "SharedGroceryList",
+  "build": "42.21.0",
+  "gates": {
+    "portable": {
+      "suite": "grocery-list"
+    },
+    "static": {
+      "suite": "grocery-static"
+    },
+    "native": {
+      "suite": "grocery-engine"
+    },
+    "multiplayer": {
+      "suite": "grocery-qualified-mp"
+    },
+    "persistence": {
+      "suite": "grocery-engine"
+    },
+    "performance": {
+      "suite": "grocery-performance",
+      "artifact": ".pz-native-cache/server/Lua/grocery-performance.json"
+    }
+  },
+  "limits": {},
+  "game_jar_sha256": "e1a69eb743ede60b213a0fe7f8b83d4fcab773036d256cc4543a336f3b058a33",
+  "published_multiplayer_suite": "grocery-release"
+}

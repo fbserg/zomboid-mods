@@ -3,7 +3,7 @@
 Use `python3 tools/pz-test/check.py MOD_DIR` for release qualification. See the [required quality gates](../../docs/mod-quality.md). `--fast` is portable/static only. Each mod needs its own `tests/checks.json`.
 
 - `static.py MOD_DIR --prove` downloads pinned PZ_DevHarness into the executor workspace,
-  compiles runtime Lua with Kahlua and validates references/JSON. Its current --prove fixtures target Dinner Together and prove two bad inputs fail. Other mods need their own negative fixtures.
+  compiles runtime Lua with Kahlua and validates references/JSON. Its --prove fixtures rename the translation file and break the mod's main Lua file (named after the runtime folder). Both must fail.
 - `native.py MOD_DIR` checks the real server, quits and restarts for persistence proof.
 - `native.py MOD_DIR --multiplayer` uses two actual clients without copying game assets.
 - `native.py MOD_DIR --multiplayer --rounds 2` batches fixture reset and cooldown checks.
