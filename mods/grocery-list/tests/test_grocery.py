@@ -165,8 +165,9 @@ class Grocery(unittest.TestCase):
         self.check('client=true; server=false; minute=nil')
         self.load_mod()
         self.check('''assert(minute==nil)
-        command("SharedGroceryList","done",{}); command("SharedGroceryList","forged",{}); command("Other","done",{})
-        assert(#notices==1 and a.values.b==50)''')
+        command("SharedGroceryList","done",nil); command("SharedGroceryList","got",{text="beans"})
+        command("SharedGroceryList","forged",{}); command("Other","done",{})
+        assert(#notices==2 and notices[2]=="Alice:IGUI_SharedGroceryList_got|beans" and a.values.b==50)''')
 
 
 if __name__ == '__main__':

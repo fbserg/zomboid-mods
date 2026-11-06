@@ -39,6 +39,9 @@ def main() -> None:
         parser.error('--photos requires --multiplayer')
     mod = args.mod.resolve()
     runtime, = [p.parents[1] for p in mod.glob('*/42/mod.info')]
+    # Kahlua tags mod errors with the display name, not the mod ID.
+    display, = [line[5:] for line in (runtime/'42/mod.info').read_text().splitlines() if line.startswith('name=')]
+    tags = (f'MOD:{runtime.name}', f'MOD:{display}', 'MOD:PZProbe')
     if args.workshop:
         item = re.search(r'^id=(\d+)$',(mod/'workshop/workshop.txt').read_text(),re.M)
         assert item, 'Published Workshop ID required'
@@ -108,10 +111,10 @@ def main() -> None:
                     texture_marker='PZ_TEST_MEMORY_TEXTURE '
                     if args.memory and texture_marker in line:
                         memory_textures.append(json.loads(line.split(texture_marker,1)[1]))
-            if 'PZ_TEST_FAIL' in text or 'ZZPZProbe.lua:' in text or any(f'MOD:{runtime.name}' in s or 'MOD:PZProbe' in s for s in text.splitlines()):
+            if 'PZ_TEST_FAIL' in text or 'ZZPZProbe.lua:' in text or any(tag in text for tag in tags):
                 lines = text.splitlines()
                 failures = '\n'.join('\n'.join(lines[max(0,i-8):i+8]) for i,line in enumerate(lines)
-                                     if 'PZ_TEST_FAIL' in line or 'ZZPZProbe.lua:' in line or f'MOD:{runtime.name}' in line or 'MOD:PZProbe' in line)
+                                     if 'PZ_TEST_FAIL' in line or 'ZZPZProbe.lua:' in line or any(tag in line for tag in tags))
                 raise RuntimeError('Native probe failed\n' + failures[-10000:])
             if (args.multiplayer or args.memory) and clients:
                 assert_hidden(auditor,[p.pid for p in clients])

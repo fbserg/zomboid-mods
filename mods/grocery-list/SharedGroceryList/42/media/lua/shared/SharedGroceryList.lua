@@ -19,7 +19,7 @@ end
 if isClient() then
     Events.OnServerCommand.Add(function(module, command, args)
         if module == MODULE and (command == "got" or REWARDS[command]) then
-            G.show(getSpecificPlayer(0), command, args.text)
+            G.show(getSpecificPlayer(0), command, args and args.text) -- an empty table arrives as nil
         end
     end)
     return
