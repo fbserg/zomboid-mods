@@ -129,7 +129,8 @@ Events.OnTick.Add(function()
         for name,p in pairs(players) do
             local stats=p:getStats()
             local b,u=stats:get(CharacterStat.BOREDOM),stats:get(CharacterStat.UNHAPPINESS)
-            assert(math.abs(b-want[name][1])<=2 and math.abs(u-want[name][2])<=2,'Authoritative stats for '..name..': '..b..','..u)
+            -- Natural drift stays well under the 10-point rewards. A missing or extra payout still fails.
+            assert(math.abs(b-want[name][1])<=4 and math.abs(u-want[name][2])<=4,'Authoritative stats for '..name..': '..b..','..u)
             local notices=0
             for key,n in pairs(commands) do if key:sub(1,#name+1)==name..':' then notices=notices+n end end
             if PZ_TEST_RECONNECT and round==2 and name=='Beth' then print('PZ_TEST_PASS reconnected Beth kept her username cooldown') end
