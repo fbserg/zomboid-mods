@@ -1,5 +1,9 @@
 # Release verification
 
+## 0.1.1 finished lists stop scanning
+
+A finished list is skipped unless it is someone else's list in its writer's hands, awaiting delivery. Two new portable tests count page reads for own, shopped and delivered lists. Both fail without the change. Full qualification passed: 20 portable tests on sublet, static, native/restart, two real clients with reconnect, performance, visual and package. The published item serves 0.1.1, its download matches all 10 runtime hashes, and the public description matches the source. The downloaded runtime passed the two-client/reconnect release suite on SERGBOOK.local, receipt 20261106T220233-394006efd566, cleanup true.
+
 ## 0.1.0 first release
 
 Published 2026-11-06 as [Workshop item 3834928311](https://steamcommunity.com/sharedfiles/filedetails/?id=3834928311). Build 42.21.0, revision 4a0e9546ec. No dependencies.
