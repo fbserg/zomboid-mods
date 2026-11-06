@@ -20,6 +20,11 @@ description=In multiplayer the server does the matching with its own item names,
 description=
 description=[h2]Setup and multiplayer[/h2]
 description=For Project Zomboid [b]Build 42.21[/b]. No required mods. Single player, local split-screen or multiplayer. Install on the server and every client.
+description=[b]Workshop ID: 3834928311[/b]
+description=[b]Mod ID: SharedGroceryList[/b]
+description=[code]WorkshopItems=3834928311
+description=Mods=SharedGroceryList[/code]
+description=Append these IDs to your existing server lists, separated by semicolons. Keep the mods already there. The display name is Grocery List.
 description=The server reads the list, keeps the cooldowns and gives the rewards. It saves them across restarts. Verified with a dedicated server and two real clients, including a reconnect. Network split-screen notifications currently target the first local player on each client.
 description=
 description=[h2]Adding, removing and compatibility[/h2]

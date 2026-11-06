@@ -1,0 +1,27 @@
+{
+  "publishedfileid": "3834928311",
+  "result": 1,
+  "creator": "76561198033173095",
+  "consumer_app_id": 108600,
+  "title": "Grocery List [B42] - Errands for a Friend",
+  "visibility": 0,
+  "banned": 0,
+  "preview_url": "https://images.steamusercontent.com/ugc/15070804299963199309/A7B2CECFDEA291B064E498D46C5A097B7893BB01/",
+  "gallery": [
+    {
+      "file": "errand-run.jpg",
+      "url": "https://images.steamusercontent.com/ugc/12921316078005809014/EC7FE31FC4A2429BC711297F59D61CC6F5EC605A/",
+      "type": 0
+    },
+    {
+      "file": "grocery-list.jpg",
+      "url": "https://images.steamusercontent.com/ugc/13675486746546428137/A052BDBFC87F736A7830092A2172C5D9390CCBDE/",
+      "type": 0
+    },
+    {
+      "file": "grocery-thanks.jpg",
+      "url": "https://images.steamusercontent.com/ugc/17464179539975314889/8CEB4B388D2DD4B812DEFD48651087E65AD806AF/",
+      "type": 0
+    }
+  ]
+}

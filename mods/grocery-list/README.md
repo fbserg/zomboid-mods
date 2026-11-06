@@ -26,6 +26,8 @@ is language-neutral and server-side matching uses the server's item names.
 
 Release qualification: `python3 tools/pz-test/check.py mods/grocery-list` from the repository root. The [quality contract](../../docs/mod-quality.md) requires portable boundaries, native items/restart, two real clients with reconnect and world/stat agreement, performance budgets, visual review and package validation. Results and limits are in [VERIFICATION.md](VERIFICATION.md).
 
+[Subscribe on Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3834928311). Source and bugs: [fbserg/zomboid-mods](https://github.com/fbserg/zomboid-mods).
+
 ## Artwork and release
 
 [Release playbook](../../docs/releasing.md). Generated illustrations and their exact prompts are in [workshop/art](workshop/art/PROMPTS.md). Gameplay images are native captures with two connected clients in a disposable scene.
