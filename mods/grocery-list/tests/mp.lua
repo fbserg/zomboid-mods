@@ -35,7 +35,7 @@ end)
 Events.OnClientCommand.Add(function(module,command,player)
     if module~='GroceryProbe' then return end
     local name=player:getUsername()
-    if command=='ready' then ready[name]=true;players[name]=player end
+    if command=='ready' then ready[name]=true;players[name]=player;print('PZ_TEST_READY '..name..' round='..round) end
     if command=='written' then step='written' end
     if command=='marks' then step='marks' end
     if command=='verified' then
