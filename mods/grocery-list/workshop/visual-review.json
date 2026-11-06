@@ -19,7 +19,7 @@
     "text_readable": true,
     "honest_staging": true
   },
-  "notes": "Reviewed both full-size JPEGs, all three 768 px posters, the 512 px preview and the avatar at 128/268 px. GROCERY LIST lettering is exact and legible at 128 px. The list capture shows the real vanilla read window with four [x] lines and the shopper's signature, plus the real thank-you halo behind it. The thanks capture shows both players in the kitchen with the production notice above Alice. Halo text is small at gallery size but legible at full size. The jumper tint rendered purple instead of the requested mustard. That is cosmetic staging only. Illustrations stay labelled as illustrations in the Workshop copy.",
+  "notes": "Reviewed both full-size JPEGs, all three 768 px posters, the 512 px preview and the avatar at 128/268 px. GROCERY LIST lettering is exact and legible at 128 px. The list capture shows the real vanilla read window with four [x] lines and the shopper's signature, plus the real thank-you halo behind it. The thanks capture shows both players in the kitchen with the production notice above Alice. Halo text is small at gallery size but legible at full size. The jumper tint rendered purple instead of the requested mustard. That is cosmetic staging only. Illustrations stay labelled as illustrations in the Workshop copy. The two native JPEGs were re-encoded once at quality 70 to fit the 1,000,000-byte Steam Cloud gallery quota (853,431-byte batch). Posters were re-exported from them. Re-inspected the list capture at full size. Text stays legible.",
   "files": {
     "workshop/preview.png": "a9297e7593ad60d04489c08d8c5a41c9190ea1e2881350a63a0b469a17b23e34",
     "workshop/art/grocery-avatar.png": "590560a73eb582d610e30a5dc4280e2fdba6bfa94473e0c0b4650858fb1645be",
@@ -27,9 +27,9 @@
     "workshop/art/errand-run.jpg": "d92b8b389009c5446bc14486e57c09cb97c9f684d33a97d7e345ff15e55083c8",
     "SharedGroceryList/42/icon.png": "b924573ee059f6861e1acfc1e844df80eb67ba0dda5f6d4e2b172c8fe95114ee",
     "SharedGroceryList/42/poster.png": "63fc544d9d5e8975653c39beeac5ef95daa8ccd3a37ea3435d460c139f508364",
-    "SharedGroceryList/42/poster_1.png": "c10f82b7f1674e1020404ed77f36c8e66b815da733b72cc5a40b7db1cfd101cc",
-    "SharedGroceryList/42/poster_2.png": "1ac249e82ef098e30dc98c0f33ed5d230369a8616f6245187c3cf85ac7eb8aed",
-    "workshop/screenshots/grocery-list.jpg": "15f31bacd8318a87ac3b570ca5d24c669e3198df482f3d3bc42748d149ae7686",
-    "workshop/screenshots/grocery-thanks.jpg": "138ef080ddd7883f9e1cd759db81f206b35cf3fb8e04de1fbe6effc3c2ad142e"
+    "SharedGroceryList/42/poster_1.png": "31d30d4107d83da4fb95f7e3f83c375489bc293f3a4a887c359196e69999d7d5",
+    "SharedGroceryList/42/poster_2.png": "f2dc03f61acd3896800fc759995976088db3ef11f4b47da26408ad386165a8af",
+    "workshop/screenshots/grocery-list.jpg": "69adff43297e793373b5c0b168a38e8fc2f60618ea41370a1ce8c1f14a111566",
+    "workshop/screenshots/grocery-thanks.jpg": "fe0988a005f7a9fadf7393a94bee4ef5e155b80e413b605b245bd5a7927d7d06"
   }
 }
