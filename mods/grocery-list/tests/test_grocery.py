@@ -116,7 +116,7 @@ class Grocery(unittest.TestCase):
         b:take(l); a:give(l); minute()
         assert(count("Alice:thanks:Beth")==1 and count("Beth:delivered")==1)
         assert(a.values.u==40 and b.values.u==35 and b.values.b==40, a.values.u..","..b.values.u)
-        assert(l.page:find("IGUI_SharedGroceryList_note|Beth",1,true), l.page)
+        assert(l.page:sub(-9)=="~ Beth <3", l.page)
         minute(); assert(count("Alice:thanks")==1, "Delivered twice")''')
 
     def test_own_list_is_not_a_delivery(self):

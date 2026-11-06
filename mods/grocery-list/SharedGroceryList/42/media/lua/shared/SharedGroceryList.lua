@@ -149,7 +149,8 @@ function G.check(player, list, now, names)
     end
     if data.done and not data.delivered and data.author == key(player) and data.shopper ~= data.author then
         data.delivered, dirty = true, true
-        lines[#lines+1] = { raw = getText("IGUI_SharedGroceryList_note", data.shopperName) }
+        -- Dedicated servers do not load mod translations, so the signature stays language-neutral.
+        lines[#lines+1] = { raw = "~ " .. data.shopperName .. " <3" }
         changed = true
         reward(player, "thanks", now, data.shopperName)
         local shopper = find(data.shopper)
