@@ -55,7 +55,7 @@ Events.OnTick.Add(function()
             players(count,holding)
             SharedGroceryList.scanAll()
             notifications,syncs=0,0
-            for i=1,64 do SharedGroceryList.scanAll();baseline() end
+            for i=1,256 do SharedGroceryList.scanAll();baseline() end
             local a=samples(baseline)
             local b=samples(baseline)
             local mod=samples(SharedGroceryList.scanAll)

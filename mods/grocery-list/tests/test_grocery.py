@@ -70,7 +70,7 @@ class Grocery(unittest.TestCase):
         assert(lines[4].key==nil and lines[5].key==nil and lines[6].key==nil)''')
 
     def test_plural_and_case_match_display_names(self):
-        self.check('''local names="can of beans\napple\nbattery"
+        self.check('''local names="can of beans\\napple\\nbattery"
         assert(SharedGroceryList.matches("beans",names) and SharedGroceryList.matches("apples",names))
         assert(SharedGroceryList.matches("batteries",names) and not SharedGroceryList.matches("rice",names))''')
 

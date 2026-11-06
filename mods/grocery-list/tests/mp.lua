@@ -66,6 +66,19 @@ Events.OnTick.Add(function()
         for _,name in ipairs({'Alice','Beth'}) do
             local p=players[name]
             p:setInvincible(true);p:setGhostMode(true)
+            if PZ_TEST_PHOTOS then
+                getGameTime():setTimeOfDay(18.0)
+                -- Match the illustration: Beth shops in denim and a beanie, Alice wears a mustard jumper.
+                local outfit=name=='Alice' and {'Base.Jumper_RoundNeck','Base.Trousers_Denim','Base.Shoes_TrainerTINT'}
+                    or {'Base.Shirt_Denim','Base.Hat_Beany','Base.Trousers_Denim','Base.Shoes_TrainerTINT'}
+                for _,kind in ipairs(outfit) do
+                    local clothing=give(p,kind)
+                    if kind=='Base.Jumper_RoundNeck' then clothing:getVisual():setTint(ImmutableColor.new(0.80,0.60,0.20)) end
+                    p:setWornItem(clothing:getBodyLocation(),clothing)
+                    sendClothing(p,clothing:getBodyLocation(),clothing)
+                end
+                syncVisuals(p);syncClothingFields(p)
+            end
             p:getStats():set(CharacterStat.BOREDOM,50);p:getStats():set(CharacterStat.UNHAPPINESS,50)
             for _,stat in ipairs({CharacterStat.BOREDOM,CharacterStat.UNHAPPINESS}) do
                 syncPlayerStats(p,SyncPlayerStatsPacket.getBitMaskForStat(stat))
