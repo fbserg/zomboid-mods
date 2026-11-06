@@ -104,7 +104,8 @@ Events.OnTick.Add(function()
         for key,n in pairs(commands) do assert(expected[key]==n,'Unexpected notification '..key..'='..n) end
         for key,n in pairs(expected) do assert(commands[key]==n,'Missing notification '..key) end
         local page=list:seePage(1)
-        assert(page:sub(-9)=='~ Beth <3','Server page was not signed: '..page)
+        local signature='~ '..players.Beth:getDescriptor():getForename()..' <3'
+        assert(page:sub(-#signature)==signature,'Server page was not signed by Beth\'s character: '..page)
         local world=Snapshot.take(worldOpts)
         if not PZ_TEST_PHOTOS then
             local leaks=Snapshot.addLines({},Snapshot.diff(worldBefore,world))
