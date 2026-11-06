@@ -57,7 +57,7 @@ Events.OnTick.Add(function()
     if ready.Alice and ready.Beth and not step then
         step='write';startedAt=getTimestampMs()
         if round==1 then
-            assert(not next(ModData.getOrCreate('SharedGroceryListRewards')),'Forged client commands awarded a reward')
+            for id in pairs(ModData.getOrCreate('SharedGroceryListRewards')) do error('Forged client command awarded '..id) end
             print('PZ_TEST_PASS forged client reward commands had no authority')
         end
         local anchor=players.Alice
