@@ -63,8 +63,13 @@ Events.OnTick.Add(function()
         local item = instanceItem(TYPE)
         assert(item, 'Grocery List item script did not load')
         assert(item:canBeWrite() and item:getPageToWrite() == 1, 'Grocery List is not a one-page writable item')
-        local recipe = ScriptManager.instance:getCraftRecipe('MakeGroceryList')
+        local recipe
+        local recipes = ScriptManager.instance:getAllCraftRecipes()
+        for i = 0, recipes:size()-1 do
+            if recipes:get(i):getName() == 'MakeGroceryList' then recipe = recipes:get(i) end
+        end
         assert(recipe, 'Craft recipe did not load')
+        print('PZ_TEST_DIAG recipe '..recipe:getScriptObjectFullType()..' outputs='..recipe:getOutputs():size()..' inputs='..recipe:getInputs():size())
         print('PZ_TEST_PASS item script and craft recipe registered; clients check translated names')
 
         local a, b = player('Alice', 0), player('Beth', 1)
