@@ -1,0 +1,90 @@
+{
+  "mod": "grocery-list",
+  "build": "42.21.0",
+  "game_jar_sha256": "e1a69eb743ede60b213a0fe7f8b83d4fcab773036d256cc4543a336f3b058a33",
+  "support_limits": {
+    "singleplayer": "Local-slot identity and rewards have portable coverage. Native checks use synthetic actors on a headless authority and two network clients, not two physical split-screen controllers.",
+    "compatibility": "Vanilla Build 42.21, no dependencies. Modded items match by display name. Dedicated servers match with their own item names and do not load mod translations. Orphaned-item behaviour after removal is unverified.",
+    "performance": "32-call batch averages from a 1 ms native clock. Whole-JVM retained heap, not Lua-only allocations. Synthetic 2/16/64 native players test scan scaling, not 64 network connections. One scan per game minute. No per-frame or render hook.",
+    "crafting": "The craft recipe is verified as a loaded script with one input and one output. A real crafting action was not executed by the native gates."
+  },
+  "mode": "published",
+  "source_fingerprint": "60f56e8046654fe613f7c232905b405104ce83cc4ab8d1cf4941f2591f51f30b",
+  "gates": {
+    "portable": {
+      "id": "20261106T214340-e88cc4a62717",
+      "suite": "grocery-list",
+      "executor": "sublet",
+      "source_commit": "867d361599e4f447e6808470ddb00ce40bcbd48c",
+      "commit": "fe3513776e9656f3e5d45dd1688785feb3db1a67",
+      "tree": "ef9853e226714ecae4c6bb127aea3193fcf3ce0d",
+      "outcome": "passed",
+      "cleanup": true,
+      "seconds": 0.204
+    },
+    "static": {
+      "id": "20261106T214510-8cbf678ab5be",
+      "suite": "grocery-static",
+      "executor": "SERGBOOK.local",
+      "source_commit": "867d361599e4f447e6808470ddb00ce40bcbd48c",
+      "commit": "3eaab281d1776031fdacc5581a3cfc33a5dfbba6",
+      "tree": "ef9853e226714ecae4c6bb127aea3193fcf3ce0d",
+      "outcome": "passed",
+      "cleanup": true,
+      "seconds": 5.562
+    },
+    "native": {
+      "id": "20261106T214517-458db137bdba",
+      "suite": "grocery-engine",
+      "executor": "SERGBOOK.local",
+      "source_commit": "867d361599e4f447e6808470ddb00ce40bcbd48c",
+      "commit": "197ca2a7d0905ef419e9d4b998228edda1c90c3b",
+      "tree": "ef9853e226714ecae4c6bb127aea3193fcf3ce0d",
+      "outcome": "passed",
+      "cleanup": true,
+      "seconds": 76.178
+    },
+    "multiplayer": {
+      "id": "20261106T214634-fc9fb202e358",
+      "suite": "grocery-release",
+      "executor": "SERGBOOK.local",
+      "source_commit": "867d361599e4f447e6808470ddb00ce40bcbd48c",
+      "commit": "0abecf2ab1730ad0dc7b0faa60c9b09c1e44d08e",
+      "tree": "ef9853e226714ecae4c6bb127aea3193fcf3ce0d",
+      "outcome": "passed",
+      "cleanup": true,
+      "seconds": 153.316
+    },
+    "persistence": {
+      "id": "20261106T214517-458db137bdba",
+      "suite": "grocery-engine",
+      "executor": "SERGBOOK.local",
+      "source_commit": "867d361599e4f447e6808470ddb00ce40bcbd48c",
+      "commit": "197ca2a7d0905ef419e9d4b998228edda1c90c3b",
+      "tree": "ef9853e226714ecae4c6bb127aea3193fcf3ce0d",
+      "outcome": "passed",
+      "cleanup": true,
+      "seconds": 76.178
+    },
+    "performance": {
+      "id": "20261106T214909-9fcaca2aa1a7",
+      "suite": "grocery-performance",
+      "executor": "SERGBOOK.local",
+      "source_commit": "867d361599e4f447e6808470ddb00ce40bcbd48c",
+      "commit": "6ac4b7e684748f964745a8e8e21007fb646dce1c",
+      "tree": "ef9853e226714ecae4c6bb127aea3193fcf3ce0d",
+      "outcome": "passed",
+      "cleanup": true,
+      "seconds": 50.414
+    },
+    "visual": {
+      "outcome": "reviewed",
+      "evidence": "workshop/visual-review.json"
+    },
+    "package": {
+      "outcome": "passed",
+      "sha256": "8d7cba6d4b38d641bebfecf3bbca768c5f1c0d787e581bb4bec72bf7fb107eab"
+    }
+  },
+  "outcome": "passed"
+}

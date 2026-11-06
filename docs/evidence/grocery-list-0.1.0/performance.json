@@ -1,0 +1,69 @@
+{
+    "clock_resolution_ms": 1,
+    "batch_iterations": 32,
+    "samples": 31,
+    "items_per_holder": 100,
+    "open_lines_per_list": 10,
+    "cases": [
+        {
+            "players": 2,
+            "holding_list": false,
+            "mod_p50_batch_mean_ms": 0.0,
+            "mod_p95_batch_mean_ms": 0.03125,
+            "added_p95_ms": 0.03125,
+            "noise_ms": 0.03125,
+            "budget_ms": 0.5
+        },
+        {
+            "players": 16,
+            "holding_list": false,
+            "mod_p50_batch_mean_ms": 0.03125,
+            "mod_p95_batch_mean_ms": 0.09375,
+            "added_p95_ms": 0.09375,
+            "noise_ms": 0.03125,
+            "budget_ms": 0.5
+        },
+        {
+            "players": 64,
+            "holding_list": false,
+            "mod_p50_batch_mean_ms": 0.0625,
+            "mod_p95_batch_mean_ms": 0.09375,
+            "added_p95_ms": 0.09375,
+            "noise_ms": 0.03125,
+            "budget_ms": 2.0
+        },
+        {
+            "players": 2,
+            "holding_list": true,
+            "mod_p50_batch_mean_ms": 0.1875,
+            "mod_p95_batch_mean_ms": 0.21875,
+            "added_p95_ms": 0.21875,
+            "noise_ms": 0.03125,
+            "budget_ms": 1.0
+        },
+        {
+            "players": 16,
+            "holding_list": true,
+            "mod_p50_batch_mean_ms": 1.375,
+            "mod_p95_batch_mean_ms": 1.40625,
+            "added_p95_ms": 1.40625,
+            "noise_ms": 0.03125,
+            "budget_ms": 8.0
+        },
+        {
+            "players": 64,
+            "holding_list": true,
+            "mod_p50_batch_mean_ms": 5.46875,
+            "mod_p95_batch_mean_ms": 5.96875,
+            "added_p95_ms": 5.96875,
+            "noise_ms": 0.03125,
+            "budget_ms": 32.0
+        }
+    ],
+    "retained_jvm_kib": -48.3,
+    "retained_budget_kib": 16384,
+    "steady_state_notifications": 0,
+    "steady_state_item_syncs": 0,
+    "stress_scans": 10000,
+    "negative_controls": 2
+}
