@@ -16,7 +16,7 @@ hours. The server decides everything and saves it across restarts.
 ## Add and remove
 
 The runtime is `SharedGroceryList/`. Enable `SharedGroceryList` on the server and clients.
-Removing the mod removes Grocery List items and leaves inert reward timestamps in world mod data.
+Grocery List items need the mod. Removal leaves inert reward timestamps in world mod data. What the game does with the orphaned items on load is unverified.
 
 The writer is the first holder the scan sees with text on the list. A hand-off inside one game
 minute credits the receiver. Dedicated servers do not load mod translations, so the signature

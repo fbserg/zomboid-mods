@@ -17,4 +17,4 @@ description=- Carry the list. Lines that match something you carry, bags include
 description=- Finish a list of three or more items: 10 less boredom and 5 less unhappiness. <LINE>
 description=- Hand a finished list back to the person who wrote it. They get it signed with your name, and you both get 10 less unhappiness. <LINE> <LINE>
 description=<H2> Setup and limits <LINE> <TEXT>
-description=No required mods. Install on the server and every client. Add SharedGroceryList to the server Mods list. Each reward pays each person once per 24 game hours. In multiplayer the server matches item names in its own language, usually English. Removing the mod removes Grocery List items. Network split-screen notifications target the first local player.
+description=No required mods. Install on the server and every client. Add SharedGroceryList to the server Mods list. Each reward pays each person once per 24 game hours. In multiplayer the server matches item names in its own language, usually English. Grocery List items need the mod. Network split-screen notifications target the first local player.

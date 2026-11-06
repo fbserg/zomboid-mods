@@ -22,7 +22,12 @@
       "artifact": ".pz-native-cache/server/Lua/grocery-performance.json"
     }
   },
-  "limits": {},
+  "limits": {
+    "singleplayer": "Local-slot identity and rewards have portable coverage. Native checks use synthetic actors on a headless authority and two network clients, not two physical split-screen controllers.",
+    "compatibility": "Vanilla Build 42.21, no dependencies. Modded items match by display name. Dedicated servers match with their own item names and do not load mod translations. Orphaned-item behaviour after removal is unverified.",
+    "performance": "32-call batch averages from a 1 ms native clock. Whole-JVM retained heap, not Lua-only allocations. Synthetic 2/16/64 native players test scan scaling, not 64 network connections. One scan per game minute. No per-frame or render hook.",
+    "crafting": "The craft recipe is verified as a loaded script with one input and one output. A real crafting action was not executed by the native gates."
+  },
   "game_jar_sha256": "e1a69eb743ede60b213a0fe7f8b83d4fcab773036d256cc4543a336f3b058a33",
   "published_multiplayer_suite": "grocery-release"
 }

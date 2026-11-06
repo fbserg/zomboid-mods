@@ -68,7 +68,7 @@ Events.OnTick.Add(function()
             p:setInvincible(true);p:setGhostMode(true)
             if PZ_TEST_PHOTOS then
                 getGameTime():setTimeOfDay(18.0)
-                -- Match the illustration: Beth shops in denim and a beanie, Alice wears a mustard jumper.
+                -- Beth shops in a denim shirt and beanie like the illustration. Alice gets a tinted jumper.
                 local outfit=name=='Alice' and {'Base.Jumper_RoundNeck','Base.Trousers_Denim','Base.Shoes_TrainerTINT'}
                     or {'Base.Shirt_Denim','Base.Hat_Beany','Base.Trousers_Denim','Base.Shoes_TrainerTINT'}
                 for _,kind in ipairs(outfit) do
