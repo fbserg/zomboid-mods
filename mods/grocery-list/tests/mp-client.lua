@@ -51,8 +51,8 @@ Events.OnGameStart.Add(function()
 end)
 Events.OnServerCommand.Add(function(module, command, args)
     if module ~= 'GroceryProbe' then return end
+    if command == 'reset' or command == 'round' then notices = 0; write = nil; modal = nil; written = false; marks = nil; expected = nil end
     if command == 'reset' then ticks = 0; sent = false; done = false end
-    if command == 'round' then notices = 0; write = nil; modal = nil; written = false; marks = nil; expected = nil end
     if command == 'write' then write = args end
     if command == 'checkMarks' then marks = args end
     if command == 'expected' then expected = args end
@@ -77,7 +77,6 @@ Events.OnTick.Add(function()
         local list = find(p, write.id)
         if list then
             ISInventoryPaneContextMenu.onWriteSomething(list, true, 0)
-            write.queued = true
         end
     end
     if write and modal and not written then
