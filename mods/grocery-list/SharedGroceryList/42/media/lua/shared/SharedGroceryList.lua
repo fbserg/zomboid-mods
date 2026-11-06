@@ -87,11 +87,10 @@ local function candidates(word)
     return result
 end
 
+-- names is every carried item's lowercase display name, one per line.
 function G.matches(word, names)
     for _, candidate in ipairs(candidates(word)) do
-        for _, name in ipairs(names) do
-            if name:find(candidate, 1, true) then return true end
-        end
+        if names:find(candidate, 1, true) then return true end
     end
     return false
 end
@@ -99,10 +98,10 @@ end
 local function carried(player)
     local names = {}
     player:getInventory():getAllEvalRecurse(function(item)
-        if item:getFullType() ~= TYPE then names[#names+1] = item:getDisplayName():lower() end
+        if item:getFullType() ~= TYPE then names[#names+1] = item:getDisplayName() end
         return false
     end)
-    return names
+    return table.concat(names, "\n"):lower()
 end
 
 local function forename(player)
