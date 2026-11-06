@@ -11,7 +11,8 @@ simple plurals. Bullets, `2 x` quantities, lines under three letters and `~` lin
 Finishing a list of three or more items removes 10 boredom and 5 unhappiness. If someone else
 wrote it, the list is signed `~ Name <3` when the writer carries it again. The writer and the
 online shopper each lose 10 unhappiness. Each reward pays each person at most once per 24 game
-hours. The server decides everything and saves it across restarts.
+hours. The server decides everything and saves it across restarts. A finished list is not
+read again, except by its writer until delivery, so new lines on it are ignored.
 
 ## Add and remove
 

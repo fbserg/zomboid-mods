@@ -25,7 +25,7 @@ Events.OnGameStart.Add(function()
     p:setX(x); p:setLastX(x); p:setY(y); p:setLastY(y); p:setZ(PZ_TEST_SPAWN.z); p:setLastZ(PZ_TEST_SPAWN.z)
     p:setCurrent(getCell():getGridSquare(math.floor(x), math.floor(y), PZ_TEST_SPAWN.z))
     local info = assert(getModInfoByID('SharedGroceryList'), 'Mod panel metadata missing')
-    assert(info:getModVersion() == '0.1.0' and info:getPosterCount() == 3, 'Wrong mod panel version/posters')
+    assert(info:getModVersion() == '0.1.1' and info:getPosterCount() == 3, 'Wrong mod panel version/posters')
     assert(getTexture(info:getIcon()), 'Mod icon does not load')
     for i = 0, info:getPosterCount()-1 do assert(getTexture(info:getPoster(i)), 'Mod poster does not load') end
     assert(getItemNameFromFullType(TYPE) == 'Grocery List', 'Item name did not translate: ' .. tostring(getItemNameFromFullType(TYPE)))

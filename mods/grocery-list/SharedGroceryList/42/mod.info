@@ -1,7 +1,7 @@
 name=Grocery List
 id=SharedGroceryList
 author=ModeratExtremist
-modversion=0.1.0
+modversion=0.1.1
 versionMin=42.21.0
 category=features
 url=https://github.com/fbserg/zomboid-mods/tree/main/mods/grocery-list

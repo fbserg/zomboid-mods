@@ -1,1 +1,1 @@
-0.1.0: First release. Write a grocery list, carry what is on it and it crosses itself off. Hand a finished list back to its writer and you both feel better.
+0.1.1: Finished lists are no longer re-read every game minute, so kept lists cost nothing. A finished list stays finished. Start a new list for new errands.

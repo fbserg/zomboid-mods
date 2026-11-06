@@ -116,6 +116,8 @@ end
 
 function G.check(player, list, now, names)
     local data = list:getModData()
+    -- A finished list only matters again when someone else's list reaches its writer.
+    if data.done and (data.delivered or data.shopper == data.author or data.author ~= key(player)) then return names end
     local lines = G.parse(list:seePage(1) or "")
     local items = {}
     for _, line in ipairs(lines) do

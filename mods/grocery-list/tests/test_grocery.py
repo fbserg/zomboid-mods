@@ -27,7 +27,7 @@ function item(name,kind) return {name=name,kind=kind or 'Base.Thing',
  getFullType=function(s) return s.kind end,getDisplayName=function(s) return s.name end} end
 function newlist(text)
  local l=item('Grocery List','SharedGroceryList.GroceryList'); l.page=text; l.mod={}
- function l:seePage(i) return self.page end
+ function l:seePage(i) reads=(reads or 0)+1; return self.page end
  function l:addPage(i,t) self.page=t end
  function l:getModData() return self.mod end
  return l
@@ -89,6 +89,18 @@ class Grocery(unittest.TestCase):
         minute(); minute()
         assert(l.mod.done and count("Alice:done")==1 and a.values.b==40 and a.values.u==45, a.values.b)
         assert(itemSyncs==1, "Finished list resynced every minute: "..itemSyncs)''')
+
+    def test_finished_lists_are_not_read_again(self):
+        self.check('''local l=a:give(newlist("beans\\napples\\nrice")); a:give(item("Beans")); a:give(item("Apple")); a:give(item("Rice"))
+        minute(); reads=0; l.page="beans\\napples\\nrice\\nmilk"; a:give(item("Milk")); minute()
+        assert(reads==0 and count("Alice:got")==3, "Finished own list was read again")''')
+
+    def test_finished_list_waits_only_for_its_writer(self):
+        self.check('''local l=a:give(newlist("beans\\napples\\nrice")); minute()
+        a:take(l); b:give(l); b:give(item("Beans")); b:give(item("Apple")); b:give(item("Rice")); minute()
+        reads=0; minute(); minute(); assert(reads==0, "Shopper's finished list was read again")
+        b:take(l); a:give(l); minute(); assert(reads==1 and l.mod.delivered)
+        minute(); assert(reads==1, "Delivered list was read again")''')
 
     def test_short_lists_never_finish(self):
         self.check('''local l=a:give(newlist("beans\\napples")); a:give(item("Beans")); a:give(item("Apple"))

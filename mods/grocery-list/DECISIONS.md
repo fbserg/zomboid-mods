@@ -33,3 +33,11 @@ Reopen if hand-offs inside one game minute misattribute lists in practice.
 Decision: the signature is `~ Forename <3`, built without getText. Clients translate notices.
 Evidence: the native dedicated server returned raw keys for this mod's IG_UI and ItemName
 entries while vanilla item names were translated. Reopen if the server loads mod translations.
+
+## 2026-11-06: finished lists stop scanning
+
+Decision: skip a finished list unless it is someone else's list in its writer's hands, awaiting delivery.
+New lines on a finished list are ignored. Players start a new list for new errands.
+Evidence: Serg asked for a small performance win. Kept lists otherwise re-parsed every game minute
+forever. Portable tests count page reads for own, shopped and delivered lists.
+Reopen if players expect finished lists to accept new lines.
