@@ -62,6 +62,7 @@ Events.OnTick.Add(function()
 
         local item = instanceItem(TYPE)
         assert(item, 'Grocery List item script did not load')
+        print('PZ_TEST_DIAG apple='..instanceItem('Base.Apple'):getDisplayName()..' beans='..instanceItem('Base.TinnedBeans'):getDisplayName()..' lookup='..tostring(Translator.getItemNameFromFullType(TYPE))..' text='..getText('IGUI_SharedGroceryList_done')..' scriptName='..tostring(item:getScriptItem():getDisplayName()))
         assert(item:getDisplayName() == 'Grocery List' and item:canBeWrite() and item:getPageToWrite() == 1,
             'Grocery List fields: '..tostring(item:getDisplayName())..' '..tostring(item:canBeWrite())..' '..tostring(item:getPageToWrite()))
         local recipe = ScriptManager.instance:getCraftRecipe('MakeGroceryList')
