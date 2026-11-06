@@ -61,7 +61,9 @@ Events.OnTick.Add(function()
         end
 
         local item = instanceItem(TYPE)
-        assert(item and item:getDisplayName() == 'Grocery List' and item:canBeWrite() and item:getPageToWrite() == 1, 'Grocery List item script or name did not load')
+        assert(item, 'Grocery List item script did not load')
+        assert(item:getDisplayName() == 'Grocery List' and item:canBeWrite() and item:getPageToWrite() == 1,
+            'Grocery List fields: '..tostring(item:getDisplayName())..' '..tostring(item:canBeWrite())..' '..tostring(item:getPageToWrite()))
         local recipe = ScriptManager.instance:getCraftRecipe('MakeGroceryList')
         assert(recipe and recipe:getTranslationName() == 'Make Grocery List', 'Craft recipe or its name did not load')
         print('PZ_TEST_PASS item script, item name and craft recipe registered')
