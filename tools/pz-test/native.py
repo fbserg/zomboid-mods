@@ -26,6 +26,7 @@ def main() -> None:
     parser.add_argument('--multiplayer', action='store_true')
     parser.add_argument('--workshop', action='store_true', help='Verify and test the downloaded published runtime')
     parser.add_argument('--photos', action='store_true', help='Capture the multiplayer fixture on Alice')
+    parser.add_argument('--radarchery', action='store_true', help='Run the bow compatibility fixture with installed RadArchery')
     parser.add_argument('--sandbox', type=Path, help='SandboxVars fixture for this run')
     parser.add_argument('--server-main', type=Path, help='Test-only Java server entry point')
     parser.add_argument('--legacy-copy', action='store_true')
@@ -75,13 +76,20 @@ def main() -> None:
         mods = cache / 'mods'
         mods.mkdir(parents=True)
         shutil.copytree(runtime, mods / runtime.name)
+        if args.radarchery:
+            archery = GAME.parents[4]/'workshop/content/108600/3775407541/mods/RadArchery'
+            shutil.copytree(archery, mods/'RadArchery')
         probe = mods / 'PZProbe/42'
         (probe / 'media/lua/server').mkdir(parents=True)
+        if args.radarchery:
+            # Load the actual client equip handlers on the disposable probe's actors.
+            for script in ('RadArcheryAiming.lua','RadArcheryBow.lua'):
+                shutil.copy(archery/'42/media/lua/client'/script, probe/'media/lua/server'/script)
         shared = probe/'media/lua/shared/PZHarness'
         shared.mkdir(parents=True)
         shutil.copy(upstream/'mod/42/media/lua/shared/PZHarness/Snapshot.lua', shared/'Snapshot.lua')
         (probe / 'mod.info').write_text(f'name=PZProbe\nid=PZProbe\nrequire=\\{runtime.name}\n')
-        server_probe="if not isServer() then return end\nprint('PZ_TEST_GAME_BUILD '..getCore():getVersionNumber()..' revision='..getCore():getGitRevision())\n"+spawn_lua+'PZ_TEST_RECONNECT = '+str(args.reconnect).lower()+'\nPZ_TEST_PHOTOS = '+str(args.photos).lower()+'\nPZ_TEST_ROUNDS = '+str(args.rounds)+'\n'+(mod / f'tests/{mode}.lua').read_text()
+        server_probe="if not isServer() then return end\nprint('PZ_TEST_GAME_BUILD '..getCore():getVersionNumber()..' revision='..getCore():getGitRevision())\n"+spawn_lua+'PZ_TEST_RECONNECT = '+str(args.reconnect).lower()+'\nPZ_TEST_PHOTOS = '+str(args.photos).lower()+'\nPZ_TEST_ROUNDS = '+str(args.rounds)+'\n'+(mod / ('tests/bows.lua' if args.radarchery else f'tests/{mode}.lua')).read_text()
         (probe / 'media/lua/server/ZZPZProbe.lua').write_text(server_probe)
 
     def launch(command: list[str], cwd: Path, name: str) -> subprocess.Popen:
@@ -137,7 +145,7 @@ def main() -> None:
             (cache / 'Server/pz-test.ini').write_text(
                 'Public=false\nOpen=true\nDefaultPort=16511\nUDPPort=16512\nSteamVAC=false\n'
                 'BackupsOnStart=false\nMap=Muldraugh, KY\nWorkshopItems=\nPauseEmpty=false\nPVP=false\n'
-                f'Mods={runtime.name};PZProbe\nDoLuaChecksum=false\nSpawnPoint={spawn[0]},{spawn[1]},{spawn[2]}\n')
+                f'Mods={"RadArchery;" if args.radarchery else ""}{runtime.name};PZProbe\nDoLuaChecksum=false\nSpawnPoint={spawn[0]},{spawn[1]},{spawn[2]}\n')
             (cache / 'Server/pz-test_SandboxVars.lua').write_text(
                 args.sandbox.read_text() if args.sandbox else 'SandboxVars = { VERSION=6, Zombies=6, ZombieConfig={PopulationMultiplier=0.0, PopulationStartMultiplier=0.0, PopulationPeakMultiplier=0.0, RespawnHours=0.0, RespawnMultiplier=0.0} }\n')
             classes = root / 'classes'

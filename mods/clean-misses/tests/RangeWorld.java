@@ -22,7 +22,7 @@ public class RangeWorld {
                         var hit = combat.getHitData(player, weapon, target, chance);
                         if (hit == null) continue;
                         target.setHealth(100);
-                        target.Hit(weapon, player, 1f, hit.isIgnoreDamage(), 1f);
+                        target.Hit(weapon, player, count > 4 ? weapon.getMinDamage() : 1f, hit.isIgnoreDamage(), 1f);
                         if (target.getHealth() < 100) damaging++;
                     }
                     frame.push((double) damaging);
