@@ -1,6 +1,6 @@
 # Project Zomboid mods
 
-One source repository for Farm Trailer, Truck Repaint, Backyard Birds, Dinner Together and Grocery List.
+One source repository for Farm Trailer, Truck Repaint, Backyard Birds, Dinner Together, Grocery List and Clean Misses.
 Runtime folders stay independent. Existing Workshop IDs stay the same.
 
 See [the required quality checks](docs/mod-quality.md), [the release playbook](docs/releasing.md), [development](docs/zomboid-mod-development.md) and [decisions](DECISIONS.md).
@@ -12,6 +12,7 @@ See [the required quality checks](docs/mod-quality.md), [the release playbook](d
 | Backyard Birds | [3828619587](https://steamcommunity.com/sharedfiles/filedetails/?id=3828619587) | `mods/backyard-birds/BackyardBirds` |
 | Dinner Together | [3828971865](https://steamcommunity.com/sharedfiles/filedetails/?id=3828971865) | `mods/dinner-together/DinnerTogether` |
 | Grocery List | [3834928311](https://steamcommunity.com/sharedfiles/filedetails/?id=3834928311) | `mods/grocery-list/SharedGroceryList` |
+| Clean Misses | [3842265515](https://steamcommunity.com/sharedfiles/filedetails/?id=3842265515) | `mods/clean-misses/CleanMisses` |
 
 Care Packages is an unfinished serialization experiment, preserved under [experiments/care-packages](experiments/care-packages). It is not functional or packaged.
 A Proper Goodbye and Our New Home remain queued design issues.
