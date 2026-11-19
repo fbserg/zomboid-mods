@@ -1,0 +1,91 @@
+{
+  "mod": "knox-scanner",
+  "build": "42.22.2",
+  "game_jar_sha256": "3c4a7c5f149d784758c6fb5f8fa85f3a21d572e38bc081400e89035f8120d287",
+  "support_limits": {
+    "scope": "A client-only mod. The native gate proves a dedicated server loads the shared file, writes no feed and saves nothing across a real restart. All behaviour runs in the two-client gate.",
+    "events": "Two real clients write and read back kills, town, bitten, hurt, power, helicopter, days, request, horde and death lines. State changes are set through engine setters on the real character, then the production poll runs. The kill milestone and the baseline come from the real EveryOneMinute hook. The town arrival clears the remembered town at real coordinates. No character walks across a border. Landmark and storm lines have portable coverage only. The real room and weather objects are read without a line.",
+    "multiplayer": "Loopback dedicated server with two real clients and one client restart. Whether a live server sends the helicopter schedule and weather period start to clients is unverified.",
+    "performance": "The multiplayer suite returns the performance artifact, because the mod only runs on clients. 31 samples of 2,000 polls from a 1 ms clock. Budgets: switched-off poll 0.005 ms, quiet poll 0.05 ms, zombie scan 0.0015 ms per listed zombie, line write 2 ms, 16 MiB whole-JVM growth after 20,000 polls. The scan ran against 45 real zombies, not a city-sized list. Hidden clients, so no frame-rate claim. The mod has no per-frame hook.",
+    "compatibility": "Vanilla Build 42.22.2, no dependencies. The feed format beyond Discord webhooks and the shipped scripts is unverified against third-party tools."
+  },
+  "mode": "published",
+  "source_fingerprint": "b2e77b564bcfc77bfe81fad452eb7638b9f0516732087c65aec486d9b3858562",
+  "gates": {
+    "portable": {
+      "id": "20261119T073155-8fbdb366ccaa",
+      "suite": "knox-scanner",
+      "executor": "sublet",
+      "source_commit": "aada83236ceb1c77e8b4700a0aa29d4817d128ed",
+      "commit": "d40df752b8fc7e5c95e3fc140e5487a9dcabc0ce",
+      "tree": "61d1ff9f12f662e6a0ed01cd74324af24519ca2d",
+      "outcome": "passed",
+      "cleanup": true,
+      "seconds": 0.168
+    },
+    "static": {
+      "id": "20261119T073158-921b8dd31c87",
+      "suite": "scanner-static",
+      "executor": "SERGBOOK.local",
+      "source_commit": "aada83236ceb1c77e8b4700a0aa29d4817d128ed",
+      "commit": "5d636a5cb539c1a300ba1271ebcfcf387f29f4f9",
+      "tree": "61d1ff9f12f662e6a0ed01cd74324af24519ca2d",
+      "outcome": "passed",
+      "cleanup": true,
+      "seconds": 4.46
+    },
+    "native": {
+      "id": "20261119T073204-ea72ca63eee4",
+      "suite": "scanner-engine",
+      "executor": "SERGBOOK.local",
+      "source_commit": "aada83236ceb1c77e8b4700a0aa29d4817d128ed",
+      "commit": "70232813f49c35d1e8f03e15b2f0b4d6756342ae",
+      "tree": "61d1ff9f12f662e6a0ed01cd74324af24519ca2d",
+      "outcome": "passed",
+      "cleanup": true,
+      "seconds": 64.935
+    },
+    "multiplayer": {
+      "id": "20261119T073309-446bc374c442",
+      "suite": "scanner-release",
+      "executor": "SERGBOOK.local",
+      "source_commit": "aada83236ceb1c77e8b4700a0aa29d4817d128ed",
+      "commit": "97c0a49acacdc42277e4f969a43916e2c806fbaf",
+      "tree": "61d1ff9f12f662e6a0ed01cd74324af24519ca2d",
+      "outcome": "passed",
+      "cleanup": true,
+      "seconds": 169.719
+    },
+    "persistence": {
+      "id": "20261119T073204-ea72ca63eee4",
+      "suite": "scanner-engine",
+      "executor": "SERGBOOK.local",
+      "source_commit": "aada83236ceb1c77e8b4700a0aa29d4817d128ed",
+      "commit": "70232813f49c35d1e8f03e15b2f0b4d6756342ae",
+      "tree": "61d1ff9f12f662e6a0ed01cd74324af24519ca2d",
+      "outcome": "passed",
+      "cleanup": true,
+      "seconds": 64.935
+    },
+    "performance": {
+      "id": "20261119T073600-f26345640c96",
+      "suite": "scanner-qualified-mp",
+      "executor": "SERGBOOK.local",
+      "source_commit": "aada83236ceb1c77e8b4700a0aa29d4817d128ed",
+      "commit": "f045ee9fdebcac574b1727b564c6f80246c79cad",
+      "tree": "61d1ff9f12f662e6a0ed01cd74324af24519ca2d",
+      "outcome": "passed",
+      "cleanup": true,
+      "seconds": 170.023
+    },
+    "visual": {
+      "outcome": "reviewed",
+      "evidence": "workshop/visual-review.json"
+    },
+    "package": {
+      "outcome": "passed",
+      "sha256": "44c73ee7c473d9bd8826a1d7ead3db197e1b34e56a414aeac2b10071f85dc861"
+    }
+  },
+  "outcome": "passed"
+}

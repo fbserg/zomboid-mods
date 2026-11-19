@@ -65,7 +65,7 @@ The runtime is `KnoxScanner/`. It runs on the client and reports the local playe
 
 Release qualification: `python3 tools/pz-test/check.py mods/knox-scanner` from the repository root. Results and limits are in [VERIFICATION.md](VERIFICATION.md). Decisions are in [DECISIONS.md](DECISIONS.md).
 
-Source and bugs: [fbserg/zomboid-mods](https://github.com/fbserg/zomboid-mods).
+[Subscribe on Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3842315081). Source and bugs: [fbserg/zomboid-mods](https://github.com/fbserg/zomboid-mods).
 
 ## Artwork and release
 
