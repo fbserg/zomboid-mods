@@ -1,0 +1,41 @@
+module CarePackages
+{
+    imports
+    {
+        Base
+    }
+
+    item Parcel
+    {
+        DisplayCategory = Bag,
+        ItemType = base:container,
+        Weight = 0.3,
+        Icon = Tote,
+        Capacity = 10,
+        WeightReduction = 0,
+        ReplaceInPrimaryHand = Bag_Tote_RHand holdingbagright,
+        ReplaceInSecondHand = Bag_Tote_LHand holdingbagleft,
+        OpenSound = OpenBag,
+        CloseSound = CloseBag,
+        PutInSound = PutItemInBag,
+        WorldStaticModel = TotesBag_Ground,
+        AcceptItemFunction = CarePackages.acceptItem,
+    }
+
+    craftRecipe MakeCarePackage
+    {
+        timedAction = Making,
+        time = 50,
+        Tags = InHandCraft,
+        category = Miscellaneous,
+        inputs
+        {
+            item 2 [Base.SheetPaper2;Base.GraphPaper],
+            item 1 [Base.Twine],
+        }
+        outputs
+        {
+            item 1 CarePackages.Parcel,
+        }
+    }
+}

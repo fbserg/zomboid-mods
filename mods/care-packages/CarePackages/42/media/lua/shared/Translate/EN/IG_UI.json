@@ -1,0 +1,10 @@
+{
+    "IGUI_CarePackages_seal": "Seal Care Package",
+    "IGUI_CarePackages_open": "Open Care Package",
+    "IGUI_CarePackages_read": "Read Parcel Note",
+    "IGUI_CarePackages_to": "To",
+    "IGUI_CarePackages_from": "From",
+    "IGUI_CarePackages_note": "Note",
+    "IGUI_CarePackages_invalid": "Enter To and From names and shorten any text over the field limit.",
+    "IGUI_CarePackages_status": "The parcel must be in your main inventory and contain an item."
+}

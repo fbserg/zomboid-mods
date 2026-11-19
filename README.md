@@ -1,6 +1,6 @@
 # Project Zomboid mods
 
-One source repository for Farm Trailer, Truck Repaint, Backyard Birds, Dinner Together, Grocery List, Clean Misses and Knox Scanner.
+One source repository for independent Project Zomboid mods.
 Runtime folders stay independent. Existing Workshop IDs stay the same.
 
 See [the required quality checks](docs/mod-quality.md), [the release playbook](docs/releasing.md), [development](docs/zomboid-mod-development.md) and [decisions](DECISIONS.md).
@@ -15,9 +15,8 @@ See [the required quality checks](docs/mod-quality.md), [the release playbook](d
 | Clean Misses | [3842265515](https://steamcommunity.com/sharedfiles/filedetails/?id=3842265515) | `mods/clean-misses/CleanMisses` |
 | Knox Scanner | [3842315081](https://steamcommunity.com/sharedfiles/filedetails/?id=3842315081) | `mods/knox-scanner/KnoxScanner` |
 
-Care Packages is an unfinished serialization experiment, preserved under [experiments/care-packages](experiments/care-packages). It is not functional or packaged.
-A Proper Goodbye and Our New Home remain queued design issues.
+The [Care Packages source and Workshop draft](mods/care-packages) use a native parcel container. The [original serialization experiment](experiments/care-packages) is preserved as development history.
 
 Original repositories and their history remain intact. Import commits record the exact upstream source.
 
-Development queue: [small social mods](https://github.com/fbserg/zomboid-mods/issues/1). Dinner Together and Grocery List are published. Care Packages is next, then A Proper Goodbye and Our New Home.
+[Development queue](https://github.com/fbserg/zomboid-mods/issues/1)

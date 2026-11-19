@@ -1,0 +1,21 @@
+version=1
+title=Care Packages
+description=Leave a friend more than a pile of loot. Pack a few things together, write their name and leave a note for when they find it.
+description=
+description=[h2]Pack it[/h2]
+description=Make a [b]Care Package[/b] in the handcraft window with two sheets of paper and one use of twine. Hold the parcel in either hand and fill it from the inventory window. Right-click the parcel in your main inventory and choose [b]Seal Care Package[/b]. Fill in [b]To[/b] and [b]From[/b], and write a note if you like.
+description=
+description=[h2]Leave it[/h2]
+description=Drop the sealed parcel or put it in a shared container. The recipient picks it up and chooses [b]Open Care Package[/b] from their main inventory. Choose [b]Read Parcel Note[/b] to reread the note after opening.
+description=
+description=A parcel holds up to 10 units of encumbrance. Food ages as usual. Sealed contents stay out of the regular inventory and nearby crafting lists. Anyone who can pick up a parcel can open it.
+description=
+description=[h2]Setup[/h2]
+description=For Build 42.22. No dependencies. Enable the mod in single-player, or enable it on the server and each client. The parcel form uses a keyboard and mouse. Empty parcels before removing the mod.
+description=
+description=The screenshots use a staged survivor home. The parcel and note panels are from the game.
+description=
+description=Mod ID: CarePackages
+description=[url=https://github.com/fbserg/zomboid-mods/tree/main/mods/care-packages]Source[/url] • [url=https://github.com/fbserg/zomboid-mods/issues]Report a bug[/url]
+tags=Build 42;Items;Multiplayer
+visibility=public

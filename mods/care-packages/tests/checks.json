@@ -1,0 +1,24 @@
+{
+  "runtime": "CarePackages",
+  "build": "42.22",
+  "gates": {
+    "portable": { "suite": "care-packages" },
+    "static": { "suite": "care-static" },
+    "native": { "suite": "care-engine" },
+    "multiplayer": { "suite": "care-multiplayer" },
+    "persistence": { "suite": "care-engine" },
+    "performance": {
+      "suite": "care-performance",
+      "artifact": ".pz-native-cache/server/Lua/care-performance.json"
+    }
+  },
+  "limits": {
+    "build": "Build 42.22 revision 3d39148846 with no other player mods loaded.",
+    "controls": "The parcel form uses keyboard and mouse. Split-screen and controller text entry are outside this release's coverage.",
+    "compatibility": "Sealing controls vanilla inventory, nearby recipe choices and ordinary transfer actions. Custom inventories and crafting systems from other mods can have their own access rules.",
+    "persistence": "A dedicated server saves and reloads the native container. Empty all parcels before removing the mod-defined item.",
+    "performance": "Paired native baseline and 31 batches of 32 transitions. Samples are 1 ms clock batch means. Heap delta is whole JVM and packet requests are counted without sockets in the stress fixture. The multiplayer suite exercises actual sockets."
+  },
+  "game_jar_sha256": "3c4a7c5f149d784758c6fb5f8fa85f3a21d572e38bc081400e89035f8120d287",
+  "published_multiplayer_suite": "care-release"
+}

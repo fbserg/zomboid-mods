@@ -65,12 +65,11 @@ necessarily launcher stdout. Inspect both. Native library inspection can delay c
 Do not make development helpers dependencies for players. Do not substitute mocked engine
 interfaces for native evidence. Add shared runtime Lua only after two shipped mods need it.
 
-## Parcel follow-up
+## Parcel persistence
 
-Try normal nested-container persistence and native access checks first. If a seal cannot
-block inventory, crafting and nearby transfer paths, test native item save/load before
-choosing serialization. Preserve original food age and every custom property. Never invent
-a property allowlist that silently drops modded data. Issue #142 owns this spike.
+[Care Packages](../mods/care-packages) uses a native inventory container so the game owns
+save, transfer and food ageing. Seal and open update the parcel's label and revision in
+place. The [corpse codec probe](../experiments/care-packages) remains a failed experiment.
 
 B42.21 translations use JSON, as in installed `Translate/EN/IG_UI.json`.
 The copy-free launcher starts Java from the installed game directory, with private test

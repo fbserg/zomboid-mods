@@ -6,7 +6,7 @@ One repository, independent runtime folders and Workshop items. Read DECISIONS.m
 
 Read the installed vanilla caller and the mod's decision ledger. Record the exact build, runtime ID, Workshop ID, owner, dependencies and player controls. Reuse native actions, persistence and network sync. Do not add custom formats or helpers when the game already owns the data. For item serialization, preserve every native/modded property or stop the spike before inventory changes.
 
-The release record must distinguish working features from experiments. Care Packages has failed its native codec spike and is not a release. The funeral and housewarming ideas remain in the queue. See the [monorepo tracker](https://github.com/fbserg/zomboid-mods/issues/1).
+Keep working mod sources under `mods/` and preserve failed probes under `experiments/`. See the [monorepo tracker](https://github.com/fbserg/zomboid-mods/issues/1).
 
 ## 2. Prove the feature efficiently
 

@@ -1,0 +1,1 @@
+Craft a parcel, add a label and note, and hand it over through normal inventory.

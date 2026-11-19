@@ -1,0 +1,12 @@
+name=Care Packages
+id=CarePackages
+description=Pack a parcel, address it and leave it with a note.
+author=ModeratExtremist
+modversion=0.1.0
+versionMin=42.22
+category=features
+url=https://github.com/fbserg/zomboid-mods/tree/main/mods/care-packages
+icon=icon.png
+poster=poster.png
+poster=poster_1.png
+poster=poster_2.png

@@ -1,0 +1,31 @@
+{
+  "scene": "The kitchen at 10767,10634,0 in Muldraugh. The test assigned outfits, positioned the two survivors and set lighting. The capture used the real editable seal panel and the read-only note panel after the reverse handoff.",
+  "capture_snapshot": "1e5e98792747d7266615ce595bb4b23822795d89",
+  "capture_receipt": "20261119T172505-b016fcf49d5f",
+  "reviewed": "2026-11-19",
+  "art_sources": [
+    "workshop/art/care-cover.png"
+  ],
+  "screenshots": [
+    "care-pack.jpg",
+    "care-note.jpg"
+  ],
+  "criteria": {
+    "feature_visible": true,
+    "scene_matches_benefit": true,
+    "no_clutter": true,
+    "text_readable": true,
+    "honest_staging": true
+  },
+  "notes": "Reviewed the 128 and 268 px cover, both native captures and all three menu posters. The actual label fields and note are legible beside the two survivors. Cropped both native frames to 1080 by 620 to remove empty margins. The cover uses a hand-drawn pixel mark and lettering. The draft gallery uses the two unretouched gameplay panels. Their combined JPEG size is 339732 bytes.",
+  "files": {
+    "workshop/preview.png": "9de4d7a2071266cc385ff60931a975cd6ea1ce6f151bc79b1c87134e3478c145",
+    "workshop/art/care-cover.png": "95af6815dde4dcdfbc3011e943ab4201f96b89d551db886e94523fce55292a1b",
+    "workshop/screenshots/care-pack.jpg": "08972365eb421a52506a10f81992722e6c10ea7764be6d600cd1d1df9b1152ad",
+    "workshop/screenshots/care-note.jpg": "b2e3e53bf67b767d129cee1fe4a500885519039a41ae418ecf3f3b9222541342",
+    "CarePackages/42/icon.png": "bed32e676723dfb0afeba62836a3a57805b80ad0eca02ba7202868d328a3a650",
+    "CarePackages/42/poster.png": "7273230e1c99907252de5503a33c202ea47abbaa72e89e497bdec047927a1822",
+    "CarePackages/42/poster_1.png": "46e6a0d6fa6aac446e4a445983548012d232c683bb887cd28d1c5cd289f22667",
+    "CarePackages/42/poster_2.png": "9a32660eb45939827278b1c02d7985af1b1540a8d5638d78527371c4e21c8cb1"
+  }
+}
