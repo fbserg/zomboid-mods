@@ -385,6 +385,34 @@
       ],
       "platform": "darwin",
       "shutdown_grace": 45
+    },
+    "knox-scanner": {
+      "command": [
+        "uv",
+        "run",
+        "--no-project",
+        "--python",
+        "3.12",
+        "--with",
+        "lupa==2.6",
+        "python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "mods/knox-scanner/tests",
+        "-p",
+        "test_*.py",
+        "-v"
+      ]
+    },
+    "scanner-static": {
+      "command": [
+        "python3",
+        "tools/pz-test/static.py",
+        "mods/knox-scanner"
+      ],
+      "platform": "darwin"
     }
   }
 }

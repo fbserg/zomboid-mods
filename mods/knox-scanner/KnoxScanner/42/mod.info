@@ -1,0 +1,10 @@
+name=Knox Scanner
+id=KnoxScanner
+author=ModeratExtremist
+modversion=0.1.0
+versionMin=42.21.0
+category=features
+url=https://github.com/fbserg/zomboid-mods/tree/main/mods/knox-scanner
+description=Writes your notable moments to a text file, one Discord webhook message per line: deaths, bites, towns, landmarks, the helicopter, the power grid, storms, hordes and milestones. <LINE> <LINE>
+description=A one-line command outside the game posts each line to a Discord channel, where people or a bot can react. Every event has a tick box in Mod Options. <LINE> <LINE>
+description=Client only. No items, no saved data. A server must list KnoxScanner for its players to load it.
