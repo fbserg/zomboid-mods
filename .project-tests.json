@@ -410,9 +410,57 @@
       "command": [
         "python3",
         "tools/pz-test/static.py",
-        "mods/knox-scanner"
+        "mods/knox-scanner",
+        "--prove"
       ],
       "platform": "darwin"
+    },
+    "scanner-engine": {
+      "command": [
+        "python3",
+        "tools/pz-test/native.py",
+        "mods/knox-scanner"
+      ],
+      "platform": "darwin",
+      "shutdown_grace": 45
+    },
+    "scanner-qualified-mp": {
+      "command": [
+        "python3",
+        "tools/pz-test/native.py",
+        "mods/knox-scanner",
+        "--multiplayer",
+        "--rounds",
+        "2",
+        "--reconnect"
+      ],
+      "platform": "darwin",
+      "shutdown_grace": 45
+    },
+    "scanner-photos": {
+      "command": [
+        "python3",
+        "tools/pz-test/native.py",
+        "mods/knox-scanner",
+        "--multiplayer",
+        "--photos"
+      ],
+      "platform": "darwin",
+      "shutdown_grace": 45
+    },
+    "scanner-release": {
+      "command": [
+        "python3",
+        "tools/pz-test/native.py",
+        "mods/knox-scanner",
+        "--multiplayer",
+        "--rounds",
+        "2",
+        "--workshop",
+        "--reconnect"
+      ],
+      "platform": "darwin",
+      "shutdown_grace": 45
     }
   }
 }

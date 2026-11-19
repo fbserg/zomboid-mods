@@ -1,0 +1,35 @@
+{
+  "runtime": "KnoxScanner",
+  "build": "42.22.2",
+  "gates": {
+    "portable": {
+      "suite": "knox-scanner"
+    },
+    "static": {
+      "suite": "scanner-static"
+    },
+    "native": {
+      "suite": "scanner-engine"
+    },
+    "multiplayer": {
+      "suite": "scanner-qualified-mp",
+      "artifact": ".pz-native-cache/Alice/Lua/scanner-performance.json"
+    },
+    "persistence": {
+      "suite": "scanner-engine"
+    },
+    "performance": {
+      "suite": "scanner-qualified-mp",
+      "artifact": ".pz-native-cache/Alice/Lua/scanner-performance.json"
+    }
+  },
+  "limits": {
+    "scope": "A client-only mod. The native gate proves a dedicated server loads the shared file, writes no feed and saves nothing across a real restart. All behaviour runs in the two-client gate.",
+    "events": "Two real clients write and read back kills, town, bitten, hurt, power, helicopter, days, request, horde and death lines. State changes are set through engine setters on the real character, then the production poll runs. The kill milestone and the baseline come from the real EveryOneMinute hook. The town arrival clears the remembered town at real coordinates. No character walks across a border. Landmark and storm lines have portable coverage only. The real room and weather objects are read without a line.",
+    "multiplayer": "Loopback dedicated server with two real clients and one client restart. Whether a live server sends the helicopter schedule and weather period start to clients is unverified.",
+    "performance": "The multiplayer suite returns the performance artifact, because the mod only runs on clients. 31 samples of 2,000 polls from a 1 ms clock. Budgets: switched-off poll 0.005 ms, quiet poll 0.05 ms, zombie scan 0.0015 ms per listed zombie, line write 2 ms, 16 MiB whole-JVM growth after 20,000 polls. The scan ran against 45 real zombies, not a city-sized list. Hidden clients, so no frame-rate claim. The mod has no per-frame hook.",
+    "compatibility": "Vanilla Build 42.22.2, no dependencies. The feed format beyond Discord webhooks and the shipped scripts is unverified against third-party tools."
+  },
+  "game_jar_sha256": "3c4a7c5f149d784758c6fb5f8fa85f3a21d572e38bc081400e89035f8120d287",
+  "published_multiplayer_suite": "scanner-release"
+}

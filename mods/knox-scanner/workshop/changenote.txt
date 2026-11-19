@@ -1,0 +1,1 @@
+0.1.0: First release. Writes deaths, bites, injuries, towns, landmarks, the helicopter, the power grid, storms, hordes and milestones to Zomboid/Lua/KnoxScanner.txt, one JSON line each, ready for a Discord webhook.

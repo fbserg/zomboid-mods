@@ -4,11 +4,12 @@ import json
 import unittest
 from lupa.lua51 import LuaRuntime
 
-SOURCE = Path(__file__).resolve().parents[1] / "KnoxScanner/42/media/lua/client/KnoxScanner.lua"
+LUA = Path(__file__).resolve().parents[1] / "KnoxScanner/42/media/lua"
 FIXTURE = r'''
 written = {}
 function getFileWriter(name, create, append)
-    assert(name == "KnoxScanner.jsonl" and create and append)
+    assert(create and append)
+    if not name:match("%.txt$") then return nil end -- the real game refuses other extensions
     return {write=function(_, text) written[#written+1] = text end, close=function() end}
 end
 opts = {}
@@ -24,6 +25,11 @@ PZAPI = {ModOptions={create=function(_, id, name)
         getOption=function(_, id) return made[id] end}
 end}}
 handlers = {}
+notes = {}
+scans = 0
+function getText(key, arg) return arg and key .. ":" .. arg or key end
+HaloTextHelper = {addText=function(player, text) notes[#notes+1] = text end}
+package.preload["KnoxScanner"] = function() end
 Events = setmetatable({}, {__index=function(t, k)
     local e = {Add=function(fn) handlers[k] = fn end}
     rawset(t, k, e); return e
@@ -38,9 +44,11 @@ power = true
 function getWorld() return {isHydroPowerOn=function() return power end} end
 zombies = {}
 function getCell() return {getZombieList=function()
+    scans = scans + 1
     return {size=function() return #zombies end, get=function(_, i) return zombies[i+1] end} end} end
 function zombieAt(x, y) return {getX=function() return x end, getY=function() return y end} end
 me = {x=9000, y=9000, dead=false, room=nil, bites=0, health=100, kills=0, hours=24*11, localPlayer=true}
+function me:DistToSquared(other) return (other:getX() - self.x) ^ 2 + (other:getY() - self.y) ^ 2 end
 function me:getX() return self.x end
 function me:getY() return self.y end
 function me:isDead() return self.dead end
@@ -58,7 +66,8 @@ class Scanner(unittest.TestCase):
     def setUp(self):
         self.lua = LuaRuntime()
         self.lua.execute(FIXTURE)
-        self.lua.execute(SOURCE.read_text())
+        self.lua.execute((LUA / "shared/KnoxScanner.lua").read_text())
+        self.lua.execute((LUA / "client/KnoxScannerClient.lua").read_text())
         self.g = self.lua.globals()
 
     def poll(self):
@@ -81,7 +90,9 @@ class Scanner(unittest.TestCase):
         self.assertEqual(len(raw), 1)
         self.assertTrue(raw[0].endswith("\n") and raw[0].isascii())
         self.assertEqual(json.loads(raw[0]), {"username": "Knox Scanner",
-            "content": "\U0001F4E1 town | Muldraugh | day 12, 14:00 | A survivor reached Muldraugh."})
+            "content": "\U0001F4E1 town | Muldraugh | day 12, 14:00 | A survivor reached Muldraugh.",
+            "kind": "town", "place": "Muldraugh", "day": 12, "hour": 14, "text": "A survivor reached Muldraugh."})
+        self.assertEqual(list(self.g.notes.values()), ["IGUI_KnoxScanner_sent:town"])
 
     def test_leaving_and_returning_to_the_same_town_is_silent(self):
         self.poll()
@@ -134,7 +145,7 @@ class Scanner(unittest.TestCase):
         self.lua.execute("for i = 1, 39 do zombies[i] = zombieAt(9005, 9005) end zombies[40] = zombieAt(9100, 9000)")
         self.poll()
         self.assertEqual(self.lines(), [])
-        self.lua.execute("zombies[40] = zombieAt(9020, 8980)")
+        self.lua.execute("zombies[40] = zombieAt(9012, 8984)")
         self.poll()
         self.poll()
         self.assertEqual(len(self.lines()), 1)
@@ -153,6 +164,37 @@ class Scanner(unittest.TestCase):
         self.g.me.x, self.g.me.y = 10800, 9900
         self.poll()
         self.assertEqual(len(self.lines()), 1)
+
+    def test_note_toggle_and_option_labels(self):
+        self.poll()
+        self.g.opts.note = False
+        self.g.me.bites = 1
+        self.poll()
+        self.assertEqual(len(self.lines()), 1)
+        self.assertEqual(len(self.g.notes), 0)
+        translations = json.loads((LUA / "shared/Translate/EN/IG_UI.json").read_text())
+        for toggle in self.g.KnoxScanner.TOGGLES.values():
+            self.assertIn("IGUI_KnoxScanner_" + toggle, translations)
+            self.assertIn("IGUI_KnoxScanner_" + toggle + "_tip", translations)
+
+    def test_zombie_scan_is_skipped_when_off_cooling_down_or_disabled(self):
+        self.poll()
+        self.assertEqual(self.g.scans, 0)
+        self.lua.execute("for i = 1, 40 do zombies[i] = zombieAt(9005, 9005) end")
+        self.poll()
+        self.poll()
+        self.poll()
+        self.assertEqual(self.g.scans, 1)
+        self.g.clock.age += 6
+        self.g.opts.horde = False
+        self.poll()
+        self.g.opts.horde, self.g.opts.enabled = True, False
+        self.poll()
+        self.assertEqual(self.g.scans, 1)
+
+    def test_text_with_quotes_stays_valid_json(self):
+        self.g.KnoxScanner.emit("request", 'He said "run" \\ fast')
+        self.assertEqual(json.loads(list(self.g.written.values())[0])["text"], 'He said "run" \\ fast')
 
     def test_dead_player_is_not_polled(self):
         self.poll()
