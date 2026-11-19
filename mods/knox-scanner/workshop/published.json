@@ -1,0 +1,27 @@
+{
+  "publishedfileid": "3842315081",
+  "result": 1,
+  "creator": "76561198033173095",
+  "consumer_app_id": 108600,
+  "title": "Knox Scanner [B42] - Game Events for Discord, Bots and Overlays",
+  "visibility": 0,
+  "banned": 0,
+  "preview_url": "https://images.steamusercontent.com/ugc/12386326737399622557/41620C3BD21552F0452361AC7E4C30E4C2D19E9E/",
+  "gallery": [
+    {
+      "file": "on-the-air.jpg",
+      "url": "https://images.steamusercontent.com/ugc/10604527941279807657/E465C9C97765795F0ABC860682CD8C503573C859/",
+      "type": 0
+    },
+    {
+      "file": "scanner-horde.jpg",
+      "url": "https://images.steamusercontent.com/ugc/10766610934454621584/A1E9A25C30E929E1483D2FFB858D89622F28F993/",
+      "type": 0
+    },
+    {
+      "file": "scanner-options.jpg",
+      "url": "https://images.steamusercontent.com/ugc/12225488493670577475/F411A4E4A623AC7C35F15D0A50E0DCA309CE20CF/",
+      "type": 0
+    }
+  ]
+}
