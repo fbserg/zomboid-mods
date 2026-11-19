@@ -1,4 +1,5 @@
 version=1
+id=3842315081
 title=Knox Scanner [B42] - Game Events for Discord, Bots and Overlays
 description=[h1]Somebody out there is keeping score.[/h1]
 description=Knox Scanner writes the big moments of your run to a small text file, one line the moment each happens. A one-line command posts those lines to a Discord channel. From there your friends can read along, and a bot, a stream overlay or your smart lights can react.
@@ -42,7 +43,11 @@ description=
 description=[h2]Setup and multiplayer[/h2]
 description=For Project Zomboid [b]Build 42.22[/b]. No required mods. In single player, enable it and go.
 description=In multiplayer the mod runs on each player's own game and reports that player to that player's own file. The server only has to list it so players load it. It sends nothing over the network.
-description=[b]Mod ID: KnoxScanner[/b]. Add it to the server's Mods list.
+description=[b]Workshop ID: 3842315081[/b]
+description=[b]Mod ID: KnoxScanner[/b]
+description=[code]WorkshopItems=3842315081
+description=Mods=KnoxScanner[/code]
+description=Append these IDs to your existing server lists, separated by semicolons. Keep the mods already there.
 description=
 description=[h2]Cost, limits and removal[/h2]
 description=[list]
