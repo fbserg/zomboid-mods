@@ -1,0 +1,35 @@
+{
+  "scene": "Open pavement at 10630,10634,0 in Muldraugh, 14:00, weather stopped. Two real network clients in server-provided clothing. The test server placed 45 real zombies up the road for the horde capture. The note above Alice is the mod's production note for the horde line it had just written. The fixture hides the notes of the dozen other test events fired in the same second. The options capture is the real in-game Game Options, Mods page. The test had bound F9 to the request key, which is unbound by default.",
+  "capture_snapshot": "ae7042e7f82ddffcbb68c15d2c71a5df304b139f",
+  "capture_receipt": "20261119T071902-4356f1d6b498",
+  "reviewed": "2026-11-19",
+  "art_sources": [
+    "workshop/art/scanner-avatar.png",
+    "workshop/art/on-the-air.png",
+    "workshop/art/on-the-air.jpg"
+  ],
+  "screenshots": [
+    "scanner-horde.jpg",
+    "scanner-options.jpg"
+  ],
+  "criteria": {
+    "feature_visible": true,
+    "scene_matches_benefit": true,
+    "no_clutter": true,
+    "text_readable": true,
+    "honest_staging": true
+  },
+  "notes": "Reviewed both full-size JPEGs, the avatar at full size and 128 px, and the hero at full size. KNOX SCANNER lettering is exact and legible at 128 px. The hero has no text. Its runner heads toward the horde with a grin, which reads as a joke and not as a feature. The horde capture shows the zombies reaching for the two survivors and the green Scanner: horde note above Alice. The note is small at gallery size and legible at full size. A dark unseen corner remains at top left. The options capture shows the page title, the description, all 14 tick boxes and the key row, all legible. Three earlier horde captures were rejected: undressed default survivors with foreground wires, a faded tree canopy outline, and a stale queued note. Illustrations stay labelled as illustrations in the Workshop copy.",
+  "files": {
+    "workshop/preview.png": "eb18a7c368c04ddfea8ee370c97b33e2e8380d1f897df3f9690114a0772255c3",
+    "workshop/art/scanner-avatar.png": "00b2f4c7d7c752cc52a7303c12a01d862fcd1ce70bc68b3a4cab332d76e5597d",
+    "workshop/art/on-the-air.png": "04a27d1c3b30d75a5e06dd621d66ff9ccd7d9368e8de41854c2452a971078df5",
+    "workshop/art/on-the-air.jpg": "a2695a46c8026e8ebf806a6eb051efcdf8af5c884187458303638076097996f6",
+    "KnoxScanner/42/icon.png": "81346862f7ea5dcc71031d05e8c35ef8631e096aa7e14f9799a3edbb931c1d04",
+    "KnoxScanner/42/poster.png": "bf4c3288069c92d22711ab10fa129771884d48a3f6dff2ee37e57b27d1f4f9e4",
+    "KnoxScanner/42/poster_1.png": "41500e7dc56e81140eafedcf8f22d89231e99448b119747de3cc25aa5a13e75b",
+    "KnoxScanner/42/poster_2.png": "5c031ebcdba6dadfdfc36807056aa501377cfc8f8bb9b1a65ceed4af6325ecd0",
+    "workshop/screenshots/scanner-horde.jpg": "c02385c2a3f34cac6a0a1001da1c53564887ee0f3404bb0365c338988a0db67c",
+    "workshop/screenshots/scanner-options.jpg": "d02c200e0279fc636ab5eaa495b245e1c062ddd75be32cc447f0f043f348e283"
+  }
+}
