@@ -26,6 +26,9 @@ def main() -> None:
     parser.add_argument('--multiplayer', action='store_true')
     parser.add_argument('--workshop', action='store_true', help='Verify and test the downloaded published runtime')
     parser.add_argument('--photos', action='store_true', help='Capture the multiplayer fixture on Alice')
+    parser.add_argument('--radarchery', action='store_true', help='Run the bow compatibility fixture with installed RadArchery')
+    parser.add_argument('--sandbox', type=Path, help='SandboxVars fixture for this run')
+    parser.add_argument('--server-main', type=Path, help='Test-only Java server entry point')
     parser.add_argument('--legacy-copy', action='store_true')
     parser.add_argument('--rounds', type=int, choices=(1,2), default=1)
     args = parser.parse_args()
@@ -73,13 +76,20 @@ def main() -> None:
         mods = cache / 'mods'
         mods.mkdir(parents=True)
         shutil.copytree(runtime, mods / runtime.name)
+        if args.radarchery:
+            archery = GAME.parents[4]/'workshop/content/108600/3775407541/mods/RadArchery'
+            shutil.copytree(archery, mods/'RadArchery')
         probe = mods / 'PZProbe/42'
         (probe / 'media/lua/server').mkdir(parents=True)
+        if args.radarchery:
+            # Load the actual client equip handlers on the disposable probe's actors.
+            for script in ('RadArcheryAiming.lua','RadArcheryBow.lua'):
+                shutil.copy(archery/'42/media/lua/client'/script, probe/'media/lua/server'/script)
         shared = probe/'media/lua/shared/PZHarness'
         shared.mkdir(parents=True)
         shutil.copy(upstream/'mod/42/media/lua/shared/PZHarness/Snapshot.lua', shared/'Snapshot.lua')
         (probe / 'mod.info').write_text(f'name=PZProbe\nid=PZProbe\nrequire=\\{runtime.name}\n')
-        server_probe="if not isServer() then return end\nprint('PZ_TEST_GAME_BUILD '..getCore():getVersionNumber()..' revision='..getCore():getGitRevision())\n"+spawn_lua+'PZ_TEST_RECONNECT = '+str(args.reconnect).lower()+'\nPZ_TEST_PHOTOS = '+str(args.photos).lower()+'\nPZ_TEST_ROUNDS = '+str(args.rounds)+'\n'+(mod / f'tests/{mode}.lua').read_text()
+        server_probe="if not isServer() then return end\nprint('PZ_TEST_GAME_BUILD '..getCore():getVersionNumber()..' revision='..getCore():getGitRevision())\n"+spawn_lua+'PZ_TEST_RECONNECT = '+str(args.reconnect).lower()+'\nPZ_TEST_PHOTOS = '+str(args.photos).lower()+'\nPZ_TEST_ROUNDS = '+str(args.rounds)+'\n'+(mod / ('tests/bows.lua' if args.radarchery else f'tests/{mode}.lua')).read_text()
         (probe / 'media/lua/server/ZZPZProbe.lua').write_text(server_probe)
 
     def launch(command: list[str], cwd: Path, name: str) -> subprocess.Popen:
@@ -135,17 +145,18 @@ def main() -> None:
             (cache / 'Server/pz-test.ini').write_text(
                 'Public=false\nOpen=true\nDefaultPort=16511\nUDPPort=16512\nSteamVAC=false\n'
                 'BackupsOnStart=false\nMap=Muldraugh, KY\nWorkshopItems=\nPauseEmpty=false\nPVP=false\n'
-                f'Mods={runtime.name};PZProbe\nDoLuaChecksum=false\nSpawnPoint={spawn[0]},{spawn[1]},{spawn[2]}\n')
+                f'Mods={"RadArchery;" if args.radarchery else ""}{runtime.name};PZProbe\nDoLuaChecksum=false\nSpawnPoint={spawn[0]},{spawn[1]},{spawn[2]}\n')
             (cache / 'Server/pz-test_SandboxVars.lua').write_text(
-                'SandboxVars = { VERSION=6, Zombies=6, ZombieConfig={PopulationMultiplier=0.0, PopulationStartMultiplier=0.0, PopulationPeakMultiplier=0.0, RespawnHours=0.0, RespawnMultiplier=0.0} }\n')
+                args.sandbox.read_text() if args.sandbox else 'SandboxVars = { VERSION=6, Zombies=6, ZombieConfig={PopulationMultiplier=0.0, PopulationStartMultiplier=0.0, PopulationPeakMultiplier=0.0, RespawnHours=0.0, RespawnMultiplier=0.0} }\n')
             classes = root / 'classes'
             classes.mkdir()
             subprocess.run([JAVAC, '--release', '25', '-cp', str(GAME / 'projectzomboid.jar'), '-d', str(classes),
-                            str(REPO / 'mods/farm-trailer/tests/FarmEngineMain.java')], check=True)
+                            str(REPO / 'mods/farm-trailer/tests/FarmEngineMain.java'),
+                            *([str(args.server_main)] if args.server_main else [])], check=True)
             java = GAME.parent / 'PlugIns/jre-aarch64/Contents/Home/bin/java'
             server_command = [str(java), '-Xms256m', '-Xmx2g', '-Djava.awt.headless=true', '-Djava.library.path=.',
                     '--enable-native-access=ALL-UNNAMED', '--add-exports=java.base/jdk.internal.misc=ALL-UNNAMED',
-                    '-Dzomboid.steam=0', '-classpath', f'.:projectzomboid.jar:{classes}', 'FarmEngineMain',
+                    '-Dzomboid.steam=0', '-classpath', f'.:projectzomboid.jar:{classes}', args.server_main.stem if args.server_main else 'FarmEngineMain',
                     '-nosteam', f'-cachedir={cache}', '-servername', 'pz-test', '-adminpassword',
                     'test-only', '-ip', '127.0.0.1']
             if args.multiplayer or args.memory:

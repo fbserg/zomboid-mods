@@ -11,6 +11,22 @@
     "tests"
   ],
   "suites": {
+    "clean-misses-bows": {
+      "command": ["python3", "tools/pz-test/native.py", "mods/clean-misses", "--workshop", "--radarchery", "--server-main", "mods/clean-misses/tests/RangeWorld.java"],
+      "platform": "darwin"
+    },
+    "clean-misses-network": {
+      "command": ["python3", "tools/pz-test/native.py", "mods/clean-misses", "--workshop", "--multiplayer", "--sandbox", "mods/clean-misses/tests/range-sandbox.lua"],
+      "platform": "darwin"
+    },
+    "clean-misses-world": {
+      "command": ["python3", "tools/pz-test/native.py", "mods/clean-misses", "--workshop", "--server-main", "mods/clean-misses/tests/RangeWorld.java"],
+      "platform": "darwin"
+    },
+    "clean-misses-range": {
+      "command": ["python3", "mods/clean-misses/tests/range.py"],
+      "platform": "darwin"
+    },
     "farm-trailer": {
       "command": [
         "uv",
