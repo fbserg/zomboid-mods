@@ -1,22 +1,33 @@
 version=1
 id=3842540313
-title=Care Packages
-description=Leave a friend more than a pile of loot. Pack a few things together, write their name and leave a note for when they find it.
+title=Care Packages [B42] - A Parcel for a Friend
+description=[h1]This time I packed the can opener.[/h1]
+description=Last supply run, you left Beth three tins of beans. She left you a note about the beans. This time you can wrap the tins and the opener together, put her name on the parcel, and tuck in a note of your own. She can keep it after lunch.
 description=
-description=[h2]Pack it[/h2]
-description=Make a [b]Care Package[/b] in the handcraft window with two sheets of paper and one use of twine. Hold the parcel in either hand and fill it from the inventory window. Right-click the parcel in your main inventory and choose [b]Seal Care Package[/b]. Fill in [b]To[/b] and [b]From[/b], and write a note if you like.
+description=[h2]Leave somebody a parcel[/h2]
+description=[olist]
+description=[*]In the handcraft window, make a [b]Care Package[/b] with two sheets of paper and one use of twine.
+description=[*]Hold it in either hand and fill its inventory tab. You get [b]10 units of capacity[/b]. A spare bandage, dry socks and the last decent book fit the occasion just as well.
+description=[*]Right-click the parcel in your main inventory and choose [b]Seal Care Package[/b]. Fill in [b]To[/b] and [b]From[/b], then add a note if you like. Leave it on the kitchen floor or in the crate your friend always checks first.
+description=[*]Pick it up and choose [b]Open Care Package[/b] from your main inventory. Hold the open parcel or set it down to unpack. [b]Read Parcel Note[/b] brings the message back after the contents are gone.
+description=[/olist]
 description=
-description=[h2]Leave it[/h2]
-description=Drop the sealed parcel or put it in a shared container. The recipient picks it up and chooses [b]Open Care Package[/b] from their main inventory. Choose [b]Read Parcel Note[/b] to reread the note after opening.
+description=[h2]What happens to the stuff inside?[/h2]
+description=While the parcel is sealed, its contents stay out of the regular inventory and nearby crafting lists. A battered hammer keeps its condition, a loaded magazine keeps its rounds, and food keeps ageing. Bear that last one in mind before you leave a fish under someone’s bed.
+description=Anyone who picks up the parcel can open it. Write Beth's name on the label and you're trusting your housemates to behave.
 description=
-description=A parcel holds up to 10 units of encumbrance. Food ages as usual. Sealed contents stay out of the regular inventory and nearby crafting lists. Anyone who can pick up a parcel can open it.
+description=[h2]Setup and multiplayer[/h2]
+description=For Project Zomboid [b]Build 42.22[/b]. No required mods. Enable it in single player, or on the server and each client for multiplayer. The label and note use a keyboard and mouse.
+description=[b]Workshop ID: 3842540313[/b]
+description=[b]Mod ID: CarePackages[/b]
+description=[code]WorkshopItems=3842540313
+description=Mods=CarePackages[/code]
+description=Append these IDs to the lists you already use. Parcels survive a server restart and a handoff between players.
 description=
-description=[h2]Setup[/h2]
-description=For Build 42.22. No dependencies. Enable the mod in single-player, or enable it on the server and each client. The parcel form uses a keyboard and mouse. Empty parcels before removing the mod.
+description=[h2]Compatibility and removal[/h2]
+description=Custom inventory and crafting mods may handle sealed containers differently. Empty every parcel before removing Care Packages from a save.
+description=The gallery opens with an illustration. The next two images show the actual seal form and opened note in a staged multiplayer safehouse.
 description=
-description=The screenshots use a staged survivor home. The parcel and note panels are from the game.
-description=
-description=Mod ID: CarePackages
-description=[url=https://github.com/fbserg/zomboid-mods/tree/main/mods/care-packages]Source[/url] • [url=https://github.com/fbserg/zomboid-mods/issues]Report a bug[/url]
+description=By ModeratExtremist. [url=https://github.com/fbserg/zomboid-mods/tree/main/mods/care-packages]Source[/url] · [url=https://github.com/fbserg/zomboid-mods/issues]Report a bug[/url]
 tags=Build 42;Items;Multiplayer
 visibility=public

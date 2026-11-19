@@ -4,7 +4,7 @@
   "capture_receipt": "20261119T172505-b016fcf49d5f",
   "reviewed": "2026-11-19",
   "art_sources": [
-    "workshop/art/care-cover.png",
+    "workshop/art/care-avatar.png",
     "workshop/art/left-for-you.png"
   ],
   "screenshots": [
@@ -18,9 +18,9 @@
     "text_readable": true,
     "honest_staging": true
   },
-  "notes": "Reviewed the 128 and 268 px cover, both native captures and all three menu posters. The actual label fields and note are legible beside the two survivors. Cropped both native frames to 1080 by 620 to remove empty margins. The cover uses a hand-drawn pixel mark and lettering. The draft gallery uses the two unretouched gameplay panels. Their combined JPEG size is 339732 bytes. Release gallery opens with the reviewed ImageGen illustration, generated 2026-11-19 via Codex CLI 0.170.0 with Dinner Together as a style reference.",
+  "notes": "Reviewed the 128 and 268 px cover, both native captures and all three menu posters. The actual label fields and note are legible beside the two survivors. Cropped both native frames to 1080 by 620 to remove empty margins. The cover uses a hand-drawn pixel mark and lettering. The draft gallery uses the two unretouched gameplay panels. Their combined JPEG size is 339732 bytes. Release gallery opens with the reviewed ImageGen illustration, generated 2026-11-19 via Codex CLI 0.170.0 with Dinner Together as a style reference. Updated the public square preview with an ImageGen illustration of a zombie courier tangled in parcel twine. Reviewed the title and gag at 128 and 268 pixels. Truck Repaint and Backyard Birds supplied style references.",
   "files": {
-    "workshop/preview.png": "9de4d7a2071266cc385ff60931a975cd6ea1ce6f151bc79b1c87134e3478c145",
+    "workshop/preview.png": "c703c52fc2f46cbc4fd8852e90b0a0674e7f9c1b59280690125786e7b4dc506a",
     "workshop/art/care-cover.png": "95af6815dde4dcdfbc3011e943ab4201f96b89d551db886e94523fce55292a1b",
     "workshop/screenshots/care-pack.jpg": "08972365eb421a52506a10f81992722e6c10ea7764be6d600cd1d1df9b1152ad",
     "workshop/screenshots/care-note.jpg": "b2e3e53bf67b767d129cee1fe4a500885519039a41ae418ecf3f3b9222541342",
@@ -29,6 +29,7 @@
     "CarePackages/42/poster_1.png": "46e6a0d6fa6aac446e4a445983548012d232c683bb887cd28d1c5cd289f22667",
     "CarePackages/42/poster_2.png": "9a32660eb45939827278b1c02d7985af1b1540a8d5638d78527371c4e21c8cb1",
     "workshop/art/left-for-you.png": "1035f044d70f86dae36800df4ea3dd9ad3165c0014854730c90fabc717f05be4",
-    "workshop/art/left-for-you.jpg": "5665ff3aedd9242188c575e4bffa646ae74841bd28c80a50693b28844ea0ad8e"
+    "workshop/art/left-for-you.jpg": "5665ff3aedd9242188c575e4bffa646ae74841bd28c80a50693b28844ea0ad8e",
+    "workshop/art/care-avatar.png": "bc4e313cc50f1708e02d46aca8f8dbb6ba6073c37a70fccc29a9e99b99aba6ac"
   }
 }
