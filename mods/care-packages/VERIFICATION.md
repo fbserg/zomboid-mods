@@ -15,3 +15,9 @@ inventory menus, timed actions, and the normal floor handoff. It covers the vani
 inventory and nearby crafting paths. Custom inventories and crafting systems can apply
 their own access rules. The labels remain with the parcel after opening. Empty parcels
 before removing the mod.
+
+## Public Workshop release, 2026-11-19
+
+[Care Packages](https://steamcommunity.com/sharedfiles/filedetails/?id=3842540313) is public for app 108600 under ModeratExtremist. The anonymous listing matched the authored description and preview. All three Steam gallery downloads matched their local bytes, in the order recorded in workshop/published.json. The wide ImageGen illustration precedes the two native captures.
+
+The downloaded Workshop runtime matched the tested hashes. Native two-client handoff and reconnect passed against that download on Build 42.22. Receipt: 20261119T175518-ee0ed2279c84.

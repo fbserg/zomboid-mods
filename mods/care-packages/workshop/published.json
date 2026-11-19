@@ -1,0 +1,27 @@
+{
+  "publishedfileid": "3842540313",
+  "result": 1,
+  "creator": "76561198033173095",
+  "consumer_app_id": 108600,
+  "title": "Care Packages",
+  "visibility": 0,
+  "banned": 0,
+  "preview_url": "https://images.steamusercontent.com/ugc/15049485138674159874/07BE391880D698C75447CAE18C7062A8F13318C3/",
+  "gallery": [
+    {
+      "file": "left-for-you.jpg",
+      "url": "https://images.steamusercontent.com/ugc/14063134778101057087/84FBB8422F22C9F874AF0E172ED53B4EA54C441E/",
+      "type": 0
+    },
+    {
+      "file": "care-pack.jpg",
+      "url": "https://images.steamusercontent.com/ugc/14059998011339548265/8AF699B7A0B0F67527919D6C60AB8ADFE9D403B8/",
+      "type": 0
+    },
+    {
+      "file": "care-note.jpg",
+      "url": "https://images.steamusercontent.com/ugc/11875209184891586843/1E832D4189A203476BFCC564BEE2649A69852A25/",
+      "type": 0
+    }
+  ]
+}

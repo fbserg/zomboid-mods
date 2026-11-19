@@ -4,7 +4,8 @@
   "capture_receipt": "20261119T172505-b016fcf49d5f",
   "reviewed": "2026-11-19",
   "art_sources": [
-    "workshop/art/care-cover.png"
+    "workshop/art/care-cover.png",
+    "workshop/art/left-for-you.png"
   ],
   "screenshots": [
     "care-pack.jpg",
@@ -17,7 +18,7 @@
     "text_readable": true,
     "honest_staging": true
   },
-  "notes": "Reviewed the 128 and 268 px cover, both native captures and all three menu posters. The actual label fields and note are legible beside the two survivors. Cropped both native frames to 1080 by 620 to remove empty margins. The cover uses a hand-drawn pixel mark and lettering. The draft gallery uses the two unretouched gameplay panels. Their combined JPEG size is 339732 bytes.",
+  "notes": "Reviewed the 128 and 268 px cover, both native captures and all three menu posters. The actual label fields and note are legible beside the two survivors. Cropped both native frames to 1080 by 620 to remove empty margins. The cover uses a hand-drawn pixel mark and lettering. The draft gallery uses the two unretouched gameplay panels. Their combined JPEG size is 339732 bytes. Release gallery opens with the reviewed ImageGen illustration, generated 2026-11-19 via Codex CLI 0.170.0 with Dinner Together as a style reference.",
   "files": {
     "workshop/preview.png": "9de4d7a2071266cc385ff60931a975cd6ea1ce6f151bc79b1c87134e3478c145",
     "workshop/art/care-cover.png": "95af6815dde4dcdfbc3011e943ab4201f96b89d551db886e94523fce55292a1b",
@@ -26,6 +27,8 @@
     "CarePackages/42/icon.png": "bed32e676723dfb0afeba62836a3a57805b80ad0eca02ba7202868d328a3a650",
     "CarePackages/42/poster.png": "7273230e1c99907252de5503a33c202ea47abbaa72e89e497bdec047927a1822",
     "CarePackages/42/poster_1.png": "46e6a0d6fa6aac446e4a445983548012d232c683bb887cd28d1c5cd289f22667",
-    "CarePackages/42/poster_2.png": "9a32660eb45939827278b1c02d7985af1b1540a8d5638d78527371c4e21c8cb1"
+    "CarePackages/42/poster_2.png": "9a32660eb45939827278b1c02d7985af1b1540a8d5638d78527371c4e21c8cb1",
+    "workshop/art/left-for-you.png": "1035f044d70f86dae36800df4ea3dd9ad3165c0014854730c90fabc717f05be4",
+    "workshop/art/left-for-you.jpg": "5665ff3aedd9242188c575e4bffa646ae74841bd28c80a50693b28844ea0ad8e"
   }
 }
