@@ -1,7 +1,7 @@
 name=Clean Misses
 id=CleanMisses
 author=ModeratExtremist
-modversion=1.1
+modversion=1.2
 versionMin=42.22.0
 category=balance
 url=https://steamcommunity.com/sharedfiles/filedetails/?id=3842265515
@@ -10,4 +10,4 @@ poster=poster.png
 description=On Apocalypse, a failed firearm accuracy roll can make a zombie flinch and bleed at zero damage. Clean Misses selects Disabled for Firearms Use Damage Chance. Failed rolls miss. Successful rolls use the game's normal damage calculation. <LINE> <LINE>
 description=Weapon packs that use vanilla hit resolution inherit the change. Custom projectile systems can use their own rules. Disable minimum-hit-chance overrides for normal accuracy. <LINE> <LINE>
 description=Enable CleanMisses for the world. Servers use Workshop item 3842265515 and mod CleanMisses on the server and clients. The setting covers all targets, including players. To remove, disable the mod and choose your preferred sandbox mode. No dependencies.
-description=<LINE> <LINE> With RadArchery enabled, each registered bow uses a built-in sight range of 3 to 14 tiles. Projectile reach, arrow bonuses and Archery skill still come from RadArchery. For vanilla guns, Clean Misses changes hit feedback only. Shots per kill at distance can still be high.
+description=<LINE> <LINE> With RadArchery enabled, each registered bow uses a built-in sight range of 3 to 14 tiles. Projectile reach, arrow bonuses and Archery skill still come from RadArchery. For longer shots, select Gentler range penalty under Clean Misses in sandbox settings and reload. It defaults to off and also affects player targets.

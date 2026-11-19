@@ -1,0 +1,5 @@
+{
+    "Sandbox_CleanMisses": "Clean Misses",
+    "Sandbox_GentlerRangePenalty": "Gentler range penalty",
+    "Sandbox_GentlerRangePenalty_tooltip": "Use a gentler accuracy penalty outside the weapon's sight range. Applies to vanilla ranged combat, including player targets."
+}

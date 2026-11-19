@@ -11,6 +11,10 @@
     "tests"
   ],
   "suites": {
+    "clean-misses-range": {
+      "command": ["python3", "mods/clean-misses/tests/range.py"],
+      "platform": "darwin"
+    },
     "farm-trailer": {
       "command": [
         "uv",

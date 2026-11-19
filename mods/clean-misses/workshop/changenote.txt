@@ -1,1 +1,1 @@
-Added native sight ranges for RadArchery bows, including all Heavy Compound colors. Clarified the limits of the vanilla firearm change.
+Added Gentler range penalty as an opt-in sandbox setting. Added tested 15-tile Compound Bow comparisons.
