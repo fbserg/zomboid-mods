@@ -14,9 +14,10 @@ See [the required quality checks](docs/mod-quality.md), [the release playbook](d
 | Grocery List | [3834928311](https://steamcommunity.com/sharedfiles/filedetails/?id=3834928311) | `mods/grocery-list/SharedGroceryList` |
 | Clean Misses | [3842265515](https://steamcommunity.com/sharedfiles/filedetails/?id=3842265515) | `mods/clean-misses/CleanMisses` |
 | Knox Scanner | [3842315081](https://steamcommunity.com/sharedfiles/filedetails/?id=3842315081) | `mods/knox-scanner/KnoxScanner` |
+| Care Packages | [3842540313](https://steamcommunity.com/sharedfiles/filedetails/?id=3842540313) | `mods/care-packages/CarePackages` |
 
-The [Care Packages source and Workshop draft](mods/care-packages) use a native parcel container. The [original serialization experiment](experiments/care-packages) is preserved as development history.
+The [Care Packages release checks](mods/care-packages/VERIFICATION.md) cover parcel handoff and reconnect with two clients on the downloaded Workshop build. The [original serialization experiment](experiments/care-packages) is preserved as development history.
 
 Original repositories and their history remain intact. Import commits record the exact upstream source.
 
-[Development queue](https://github.com/fbserg/zomboid-mods/issues/1)
+The [development queue](https://github.com/fbserg/zomboid-mods/issues/1) lists [A Proper Goodbye](https://github.com/fbserg/zomboid-mods/issues/4) next, followed by [Our New Home](https://github.com/fbserg/zomboid-mods/issues/5).
